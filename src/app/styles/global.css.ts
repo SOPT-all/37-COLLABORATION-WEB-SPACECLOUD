@@ -1,5 +1,5 @@
 import { globalStyle } from '@vanilla-extract/css';
-import { vars } from './token.css.ts';
+import { vars } from '../../shared/styles/token.css.ts';
 
 globalStyle('html, body, #root', {
   height: '100%',
@@ -25,10 +25,6 @@ globalStyle('#root', {
 
 globalStyle('a', {
   color: 'inherit',
-  textDecoration: 'none',
-});
-
-globalStyle('a:hover', {
   textDecoration: 'none',
 });
 
