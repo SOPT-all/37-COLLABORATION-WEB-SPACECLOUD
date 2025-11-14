@@ -1,7 +1,7 @@
-import './app/styles/reset.css.ts';
-import './app/styles/global.css.ts';
-import './app/styles/font.css.ts';
-import { AppRouterProvider, AppThemeProvider } from "./app/providers";
+import './styles/reset.css.ts';
+import './styles/global.css.ts';
+import './styles/font.css.ts';
+import { AppRouterProvider, AppThemeProvider } from "./providers";
 
 function App() {
   return (
