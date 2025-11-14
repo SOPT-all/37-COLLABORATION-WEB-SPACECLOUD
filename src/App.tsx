@@ -1,6 +1,6 @@
-import './shared/styles/reset.css.ts';
-import './shared/styles/global.css.ts';
-import './shared/styles/font.css.ts';
+import './app/styles/reset.css.ts';
+import './app/styles/global.css.ts';
+import './app/styles/font.css.ts';
 import { AppRouterProvider, AppThemeProvider } from "./app/providers";
 
 function App() {

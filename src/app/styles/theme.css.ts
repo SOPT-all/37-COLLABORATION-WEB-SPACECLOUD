@@ -1,5 +1,5 @@
 import { createTheme } from '@vanilla-extract/css';
-import { vars } from './token.css.ts';
+import { vars } from '../../shared/styles/token.css.ts';
 
 // 임시 테마
 // 디자인 시스템 공개 후 수정
