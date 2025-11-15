@@ -1,6 +1,6 @@
 export const fontWeightToken = {
-  regular: null,
-  medium: null,
-  semibold: null,
-  bigBold: null,
+  regular: '400',
+  medium: '500',
+  semibold: '600',
+  bold: '700',
 };
