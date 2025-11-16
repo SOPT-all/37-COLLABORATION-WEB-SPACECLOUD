@@ -1,8 +1,5 @@
 import clsx from 'clsx';
-import HeartIcon from '@shared/assets/ic/ic_heart.svg?react';
-import LocationIcon from '@shared/assets/ic/ic_location.svg?react';
-import PeopleIcon from '@shared/assets/ic/ic_people.svg?react';
-import SquareChatIcon from '@shared/assets/ic/ic_squarechat.svg?react';
+import { LocationIcon, PeopleIcon, SquareChatIcon, HeartIcon } from '@/shared/assets/icons';
 import * as styles from './PlaceCard.css';
 
 interface PlaceCardProps {
