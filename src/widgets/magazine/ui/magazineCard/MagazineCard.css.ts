@@ -1,16 +1,19 @@
-import { style } from "@vanilla-extract/css";
+import { style } from '@vanilla-extract/css';
+import { radiusToken } from '@/shared/styles/tokens';
 
-export const container = style({
-  position: "relative",
-  width: "34.375rem",
-  height: "18.4375rem",
-  borderRadius: "12px",
-  overflow: "hidden",
-});
+export const container = style([
+  radiusToken.r12,
+  {
+    position: 'relative',
+    width: '55rem',
+    height: '29.5rem',
+    overflow: 'hidden',
+  },
+]);
 
 export const image = style({
-  width: "100%",
-  height: "100%",
-  objectFit: "cover",
-  display: "block",
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover',
+  display: 'block',
 });

@@ -27,23 +27,23 @@ const PlaceCard = ({
   location,
 }: PlaceCardProps) => {
   return (
-    <div className={styles.card}>
+    <article className={styles.card}>
       <div className={styles.imageWrapper}>
         <img src={imageUrl} alt={name} className={styles.image} loading='lazy' draggable={false} />
       </div>
 
       <div className={styles.textArea}>
         <div className={styles.titleRow}>
-          <div className={styles.name}>{name}</div>
-          <div className={styles.location}>
+          <h3 className={styles.name}>{name}</h3>
+          <p className={styles.location}>
             <LocationIcon className={styles.locationIcon} aria-hidden />
             <span>{location}</span>
-          </div>
+          </p>
         </div>
 
         <ul className={styles.tagsRow}>
-          {tags.map((tag) => (
-            <li key={tag} className={styles.tag}>
+          {tags.map((tag, index) => (
+            <li key={`${tag}-${index}`} className={styles.tag}>
               #{tag}
             </li>
           ))}
@@ -55,11 +55,17 @@ const PlaceCard = ({
               <PeopleIcon className={styles.capacityIcon} aria-hidden />
               <span className={styles.metaText}>최대 {capacity}인</span>
             </div>
-            <div className={clsx(styles.metaItem, styles.metaComment)}>
+            <div
+              className={clsx(styles.metaItem, styles.metaComment)}
+              aria-label={`후기 ${commentCount}개`}
+            >
               <SquareChatIcon className={styles.commentIcon} aria-hidden />
               <span className={styles.metaText}>{commentCount}</span>
             </div>
-            <div className={clsx(styles.metaItem, styles.metaLike)}>
+            <div
+              className={clsx(styles.metaItem, styles.metaLike)}
+              aria-label={`좋아요 ${likeCount}개`}
+            >
               <HeartIcon className={styles.likeIcon} aria-hidden />
               <span className={styles.metaTextTight}>{likeCount}</span>
             </div>
@@ -71,7 +77,7 @@ const PlaceCard = ({
           </p>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

@@ -1,17 +1,19 @@
 import { style } from '@vanilla-extract/css';
-import { colorToken } from '@/shared/styles/tokens';
+import { colorToken, radiusToken } from '@/shared/styles/tokens';
 import { typography } from '@/shared/styles/typography.css';
 
-export const card = style({
-  width: '36.2rem',
-  height: '27.6rem',
-  borderRadius: '16px',
-  background: '#fff',
-  boxShadow: '0 1px 8px 0 rgba(0, 0, 0, 0.10)',
-  overflow: 'hidden',
-  display: 'flex',
-  flexDirection: 'column',
-});
+export const card = style([
+  radiusToken.r16,
+  {
+    width: '36.2rem',
+    height: '27.6rem',
+    background: '#fff',
+    boxShadow: '0 1px 8px 0 rgba(0, 0, 0, 0.10)',
+    overflow: 'hidden',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+]);
 
 export const imageWrapper = style({
   width: '100%',
