@@ -4,7 +4,6 @@ import { vars } from '@shared/styles/token.css.ts';
 export const typography = styleVariants({
   // ===== Head =====
   head_b_24: {
-    fontFamily: vars.font.family.pretendard,
     fontWeight: vars.font.weight.bold,
     fontSize: vars.font.size.s24,
     lineHeight: vars.font.lineHeight.h28,
@@ -12,7 +11,6 @@ export const typography = styleVariants({
   },
 
   head_sb_20: {
-    fontFamily: vars.font.family.pretendard,
     fontWeight: vars.font.weight.semibold,
     fontSize: vars.font.size.s20,
     lineHeight: vars.font.lineHeight.h20,
@@ -21,7 +19,6 @@ export const typography = styleVariants({
 
   // ===== Body =====
   body_sb_18: {
-    fontFamily: vars.font.family.pretendard,
     fontWeight: vars.font.weight.semibold,
     fontSize: vars.font.size.s18,
     lineHeight: vars.font.lineHeight.h20,
@@ -29,7 +26,6 @@ export const typography = styleVariants({
   },
 
   body_m_18: {
-    fontFamily: vars.font.family.pretendard,
     fontWeight: vars.font.weight.medium,
     fontSize: vars.font.size.s18,
     lineHeight: vars.font.lineHeight.h20,
@@ -37,7 +33,6 @@ export const typography = styleVariants({
   },
 
   body_sb_16: {
-    fontFamily: vars.font.family.pretendard,
     fontWeight: vars.font.weight.semibold,
     fontSize: vars.font.size.s16,
     lineHeight: vars.font.lineHeight.h24,
@@ -45,7 +40,6 @@ export const typography = styleVariants({
   },
 
   body_m_16: {
-    fontFamily: vars.font.family.pretendard,
     fontWeight: vars.font.weight.medium,
     fontSize: vars.font.size.s16,
     lineHeight: vars.font.lineHeight.h18,
@@ -53,7 +47,6 @@ export const typography = styleVariants({
   },
 
   body_sb_14: {
-    fontFamily: vars.font.family.pretendard,
     fontWeight: vars.font.weight.semibold,
     fontSize: vars.font.size.s14,
     lineHeight: vars.font.lineHeight.h16,
@@ -62,7 +55,6 @@ export const typography = styleVariants({
 
   // 이미지 스펙 기준: 이름은 14지만 Font Size는 12px로 설정되어 있음
   body_m_14: {
-    fontFamily: vars.font.family.pretendard,
     fontWeight: vars.font.weight.medium,
     fontSize: vars.font.size.s12,
     lineHeight: vars.font.lineHeight.h14,
@@ -70,7 +62,6 @@ export const typography = styleVariants({
   },
 
   body_sb_12: {
-    fontFamily: vars.font.family.pretendard,
     fontWeight: vars.font.weight.semibold,
     fontSize: vars.font.size.s12,
     lineHeight: vars.font.lineHeight.h16,
@@ -78,7 +69,6 @@ export const typography = styleVariants({
   },
 
   body_r_13: {
-    fontFamily: vars.font.family.pretendard,
     fontWeight: vars.font.weight.regular,
     fontSize: vars.font.size.s13,
     lineHeight: vars.font.lineHeight.h18,
@@ -86,7 +76,6 @@ export const typography = styleVariants({
   },
 
   body_m_12: {
-    fontFamily: vars.font.family.pretendard,
     fontWeight: vars.font.weight.medium,
     fontSize: vars.font.size.s12,
     lineHeight: vars.font.lineHeight.h14,
@@ -94,7 +83,6 @@ export const typography = styleVariants({
   },
 
   body_r_12: {
-    fontFamily: vars.font.family.pretendard,
     fontWeight: vars.font.weight.regular,
     fontSize: vars.font.size.s12,
     lineHeight: vars.font.lineHeight.h18,
@@ -102,7 +90,6 @@ export const typography = styleVariants({
   },
 
   body_r_12_2: {
-    fontFamily: vars.font.family.pretendard,
     fontWeight: vars.font.weight.regular,
     fontSize: vars.font.size.s12,
     lineHeight: vars.font.lineHeight.h14,
@@ -110,7 +97,6 @@ export const typography = styleVariants({
   },
 
   body_r_10: {
-    fontFamily: vars.font.family.pretendard,
     fontWeight: vars.font.weight.regular,
     fontSize: vars.font.size.s10,
     lineHeight: vars.font.lineHeight.h12,
