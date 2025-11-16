@@ -7,7 +7,7 @@ export const card = style([
   {
     width: '36.2rem',
     height: '27.6rem',
-    background: '#fff',
+    background: colorToken.grayscale.white,
     boxShadow: '0 1px 8px 0 rgba(0, 0, 0, 0.10)',
     overflow: 'hidden',
     display: 'flex',
