@@ -10,7 +10,6 @@ const RootLayout = () => {
       <main className={rootLayout}>
         <Outlet />
       </main>
-      <footer>하하</footer>
     </>
   );
 };
