@@ -22,7 +22,7 @@ export const colorToken = {
     gray500: '#B3B3B3',
     gray400: '#C5C5C5',
     gray300: '#EBEBEB',
-    gary200: '#F0F0F0',
+    gray200: '#F0F0F0',
     gray100: '#FAFAFA',
     white: '#FFFFFF',
   },
