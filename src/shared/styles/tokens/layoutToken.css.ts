@@ -1,3 +1,3 @@
 export const layoutToken = {
-  maxWidth: null,
+  minWidth: '1366px',
 };

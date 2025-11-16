@@ -5,3 +5,5 @@ export { layoutToken } from './layoutToken.css.ts';
 export { radiusToken } from './radiusToken.css.ts';
 export { spaceToken } from './spaceToken.css.ts';
 export { fontSizeToken } from './fontSizeToken.css.ts';
+export { lineHeightToken } from './lineHeightToken.css.ts';
+export { letterSpacingToken } from './letterSpacingToken.css.ts';
