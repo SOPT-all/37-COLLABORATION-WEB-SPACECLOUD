@@ -1,5 +1,9 @@
 import { globalStyle } from '@vanilla-extract/css';
-import { vars } from '../../shared/styles/token.css.ts';
+import { vars } from '@shared/styles/token.css.ts';
+
+globalStyle('html', {
+  fontSize: '62.5%',
+});
 
 globalStyle('html, body, #root', {
   height: '100%',
@@ -7,20 +11,17 @@ globalStyle('html, body, #root', {
 
 globalStyle('body', {
   margin: 0,
-  backgroundColor: vars.color.background,
-  color: vars.color.foreground,
-  fontFamily: vars.font.body,
-  fontSize: vars.fontSize.md,
-  fontWeight: vars.fontWeight.regular,
+  backgroundColor: vars.color.grayscale.white,
+  color: vars.color.grayscale.gray900,
+  fontFamily: vars.font.family.pretendard,
+  fontSize: vars.font.size.s16,
+  fontWeight: vars.font.weight.medium,
   WebkitFontSmoothing: 'antialiased',
   MozOsxFontSmoothing: 'grayscale',
 });
 
 globalStyle('#root', {
-  maxWidth: vars.layout.maxWidth,
   margin: '0 auto',
-  paddingLeft: vars.space.lg,
-  paddingRight: vars.space.lg,
 });
 
 globalStyle('a', {
