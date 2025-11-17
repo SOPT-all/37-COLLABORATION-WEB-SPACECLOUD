@@ -91,9 +91,17 @@ export const meta = style([
   },
 ]);
 
-export const metaItem = style({
-  display: 'flex',
-  alignItems: 'center',
+export const metaItem = recipe({
+  base: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  variants: {
+    gap: {
+      default: { gap: spaceToken.s3 },
+      tight: { gap: spaceToken.s2 },
+    },
+  },
 });
 
 export const metaSpacing = recipe({
@@ -104,8 +112,6 @@ export const metaSpacing = recipe({
     size: {
       comment: { marginLeft: spaceToken.s8 },
       like: { marginLeft: spaceToken.s7 },
-      default: { marginLeft: spaceToken.s3 },
-      tight: { marginLeft: spaceToken.s2 },
     },
   },
 });

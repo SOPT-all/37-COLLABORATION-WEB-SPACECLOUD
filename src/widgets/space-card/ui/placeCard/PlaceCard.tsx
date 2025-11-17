@@ -64,23 +64,23 @@ const PlaceCard = ({
 
         <div className={s.bottomRow}>
           <div className={s.meta}>
-            <div className={s.metaItem}>
+            <div className={s.metaItem({ gap: 'default' })}>
               <PeopleIcon className={s.icon({ size: 'md' })} aria-hidden='true' />
-              <span className={s.metaSpacing({ size: 'default' })}>최대 {capacity}인</span>
+              <span>최대 {capacity}인</span>
             </div>
             <div
-              className={clsx(s.metaItem, s.metaSpacing({ size: 'comment' }))}
+              className={clsx(s.metaItem({ gap: 'default' }), s.metaSpacing({ size: 'comment' }))}
               aria-label={`후기 ${commentCount}개`}
             >
               <SquareChatIcon className={s.icon({ size: 'sm' })} aria-hidden='true' />
-              <span className={s.metaSpacing({ size: 'default' })}>{commentCount}</span>
+              <span>{commentCount}</span>
             </div>
             <div
-              className={clsx(s.metaItem, s.metaSpacing({ size: 'like' }))}
+              className={clsx(s.metaItem({ gap: 'tight' }), s.metaSpacing({ size: 'like' }))}
               aria-label={`좋아요 ${likeCount}개`}
             >
               <HeartIcon className={s.icon({ size: 'md' })} aria-hidden='true' />
-              <span className={s.metaSpacing({ size: 'tight' })}>{likeCount}</span>
+              <span>{likeCount}</span>
             </div>
           </div>
 
