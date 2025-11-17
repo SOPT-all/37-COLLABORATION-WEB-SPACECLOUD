@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { colorToken, radiusToken } from '@/shared/styles/tokens';
+import { colorToken, radiusToken, spaceToken } from '@/shared/styles/tokens';
 import { typography } from '@/shared/styles/typography.css';
 
 export const card = style([
@@ -28,7 +28,7 @@ export const image = style({
 });
 
 export const textArea = style({
-  padding: '2.4rem 2rem',
+  padding: `${spaceToken.s24} ${spaceToken.s20}`,
   display: 'flex',
   flexDirection: 'column',
   flex: 1,
@@ -37,21 +37,21 @@ export const textArea = style({
 export const tagAndTitle = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '0.8rem',
+  gap: spaceToken.s8,
 });
 
 export const placeTags = style({
   display: 'flex',
   flexWrap: 'wrap',
-  gap: '0.8rem',
+  gap: spaceToken.s8,
   listStyle: 'none',
   margin: 0,
   padding: 0,
 });
 
 export const placeTag = style({
-  padding: '0.2rem 1rem',
-  borderRadius: '20px',
+  padding: `${spaceToken.s2} ${spaceToken.s10}`,
+  borderRadius: radiusToken.r20,
   backgroundColor: colorToken.primary[200],
 });
 
@@ -72,12 +72,12 @@ export const title = style([
 export const ratingRow = style({
   display: 'flex',
   alignItems: 'center',
-  gap: '1.2rem',
+  gap: spaceToken.s12,
 });
 
 export const stars = style({
   display: 'flex',
-  gap: '0.2rem',
+  gap: spaceToken.s2,
 });
 
 export const starIcon = style({
@@ -88,7 +88,7 @@ export const starIcon = style({
 export const priceWrapper = style({
   display: 'flex',
   alignItems: 'center',
-  gap: '0.4rem',
+  gap: spaceToken.s4,
 });
 
 export const price = style([
@@ -108,7 +108,7 @@ export const unit = style([
 export const description = style([
   typography.body_r_12,
   {
-    marginTop: '0.8rem',
+    marginTop: spaceToken.s8,
     color: colorToken.grayscale.gray900,
   },
 ]);
