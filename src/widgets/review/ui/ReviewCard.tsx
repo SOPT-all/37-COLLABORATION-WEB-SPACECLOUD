@@ -2,30 +2,36 @@ import { StarIcon } from '@/shared/assets/icons';
 import * as s from './ReviewCard.css';
 
 interface ReviewCardProps {
-  imageUrl: string;
+  review_image_url: string;
   placeTags: string[];
   title: string;
-  starCount: number;
+  score: number;
   price: number;
   unit: string;
-  description: string;
+  detail: string;
 }
 
 const ReviewCard = ({
-  imageUrl,
+  review_image_url,
   placeTags,
   title,
-  starCount,
+  score,
   price,
   unit,
-  description,
+  detail,
 }: ReviewCardProps) => {
-  const stars = Array.from({ length: Math.max(0, starCount) }, (_, index) => index);
+  const stars = Array.from({ length: Math.max(0, score) }, (_, index) => index);
 
   return (
     <article className={s.card}>
       <div className={s.imageWrapper}>
-        <img src={imageUrl} alt={title} className={s.image} loading='lazy' draggable={false} />
+        <img
+          src={review_image_url}
+          alt={title}
+          className={s.image}
+          loading='lazy'
+          draggable={false}
+        />
       </div>
 
       <div className={s.textArea}>
@@ -42,7 +48,7 @@ const ReviewCard = ({
           </div>
 
           <div className={s.ratingRow}>
-            <div className={s.stars} role='img' aria-label={`별 ${starCount}개`}>
+            <div className={s.stars} role='img' aria-label={`별 ${score}개`}>
               {stars.map((index) => (
                 <StarIcon key={`star-${index}`} className={s.starIcon} aria-hidden='true' />
               ))}
@@ -55,7 +61,7 @@ const ReviewCard = ({
           </div>
         </div>
 
-        <p className={s.description}>{description}</p>
+        <p className={s.description}>{detail}</p>
       </div>
     </article>
   );

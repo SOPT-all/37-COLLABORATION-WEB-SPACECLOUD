@@ -52,17 +52,11 @@ const PlaceCard = ({
               <PeopleIcon className={s.capacityIcon} aria-hidden />
               <span className={s.metaText}>최대 {capacity}인</span>
             </div>
-            <div
-              className={clsx(s.metaItem, s.metaComment)}
-              aria-label={`후기 ${commentCount}개`}
-            >
+            <div className={clsx(s.metaItem, s.metaComment)} aria-label={`후기 ${commentCount}개`}>
               <SquareChatIcon className={s.commentIcon} aria-hidden />
               <span className={s.metaText}>{commentCount}</span>
             </div>
-            <div
-              className={clsx(s.metaItem, s.metaLike)}
-              aria-label={`좋아요 ${likeCount}개`}
-            >
+            <div className={clsx(s.metaItem, s.metaLike)} aria-label={`좋아요 ${likeCount}개`}>
               <HeartIcon className={s.likeIcon} aria-hidden />
               <span className={s.metaTextTight}>{likeCount}</span>
             </div>
