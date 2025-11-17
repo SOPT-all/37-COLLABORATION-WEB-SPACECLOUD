@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+import { recipe } from '@vanilla-extract/recipes';
 import { colorToken, radiusToken, spaceToken } from '@/shared/styles/tokens';
 import { typography } from '@/shared/styles/typography.css';
 
@@ -95,20 +96,18 @@ export const metaItem = style({
   alignItems: 'center',
 });
 
-export const metaComment = style({
-  marginLeft: spaceToken.s8,
-});
-
-export const metaLike = style({
-  marginLeft: spaceToken.s7,
-});
-
-export const metaText = style({
-  marginLeft: spaceToken.s3,
-});
-
-export const metaTextTight = style({
-  marginLeft: spaceToken.s2,
+export const metaSpacing = recipe({
+  base: {
+    marginLeft: 0,
+  },
+  variants: {
+    size: {
+      comment: { marginLeft: spaceToken.s8 },
+      like: { marginLeft: spaceToken.s7 },
+      default: { marginLeft: spaceToken.s3 },
+      tight: { marginLeft: spaceToken.s2 },
+    },
+  },
 });
 
 export const price = style([
@@ -128,30 +127,18 @@ export const priceUnit = style([
   },
 ]);
 
-const iconBase = {
-  display: 'block',
-};
-
-export const locationIcon = style({
-  ...iconBase,
-  width: '1.4rem',
-  height: '1.4rem',
-});
-
-export const capacityIcon = style({
-  ...iconBase,
-  width: '1.2rem',
-  height: '1.2rem',
-});
-
-export const commentIcon = style({
-  ...iconBase,
-  width: '1rem',
-  height: '1rem',
-});
-
-export const likeIcon = style({
-  ...iconBase,
-  width: '1.2rem',
-  height: '1.2rem',
+export const icon = recipe({
+  base: {
+    display: 'block',
+  },
+  variants: {
+    size: {
+      lg: { width: '1.4rem', height: '1.4rem' },
+      md: { width: '1.2rem', height: '1.2rem' },
+      sm: { width: '1rem', height: '1rem' },
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+  },
 });

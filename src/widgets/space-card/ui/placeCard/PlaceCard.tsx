@@ -33,7 +33,7 @@ const PlaceCard = ({
         <div className={s.titleRow}>
           <h3 className={s.name}>{name}</h3>
           <p className={s.location}>
-            <LocationIcon className={s.locationIcon} aria-hidden='true' />
+            <LocationIcon className={s.icon({ size: 'lg' })} aria-hidden='true' />
             <span>{location}</span>
           </p>
         </div>
@@ -49,16 +49,22 @@ const PlaceCard = ({
         <div className={s.bottomRow}>
           <div className={s.meta}>
             <div className={s.metaItem}>
-              <PeopleIcon className={s.capacityIcon} aria-hidden='true' />
-              <span className={s.metaText}>최대 {capacity}인</span>
+              <PeopleIcon className={s.icon({ size: 'md' })} aria-hidden='true' />
+              <span className={s.metaSpacing({ size: 'default' })}>최대 {capacity}인</span>
             </div>
-            <div className={clsx(s.metaItem, s.metaComment)} aria-label={`후기 ${commentCount}개`}>
-              <SquareChatIcon className={s.commentIcon} aria-hidden='true' />
-              <span className={s.metaText}>{commentCount}</span>
+            <div
+              className={clsx(s.metaItem, s.metaSpacing({ size: 'comment' }))}
+              aria-label={`후기 ${commentCount}개`}
+            >
+              <SquareChatIcon className={s.icon({ size: 'sm' })} aria-hidden='true' />
+              <span className={s.metaSpacing({ size: 'default' })}>{commentCount}</span>
             </div>
-            <div className={clsx(s.metaItem, s.metaLike)} aria-label={`좋아요 ${likeCount}개`}>
-              <HeartIcon className={s.likeIcon} aria-hidden='true' />
-              <span className={s.metaTextTight}>{likeCount}</span>
+            <div
+              className={clsx(s.metaItem, s.metaSpacing({ size: 'like' }))}
+              aria-label={`좋아요 ${likeCount}개`}
+            >
+              <HeartIcon className={s.icon({ size: 'md' })} aria-hidden='true' />
+              <span className={s.metaSpacing({ size: 'tight' })}>{likeCount}</span>
             </div>
           </div>
 
