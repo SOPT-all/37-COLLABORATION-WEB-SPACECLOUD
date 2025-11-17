@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { LocationIcon, PeopleIcon, SquareChatIcon, HeartIcon } from '@/shared/assets/icons';
-import * as styles from './PlaceCard.css';
+import * as s from './PlaceCard.css';
 
 interface PlaceCardProps {
   imageUrl: string;
@@ -24,53 +24,53 @@ const PlaceCard = ({
   location,
 }: PlaceCardProps) => {
   return (
-    <article className={styles.card}>
-      <div className={styles.imageWrapper}>
-        <img src={imageUrl} alt={name} className={styles.image} loading='lazy' draggable={false} />
+    <article className={s.card}>
+      <div className={s.imageWrapper}>
+        <img src={imageUrl} alt={name} className={s.image} loading='lazy' draggable={false} />
       </div>
 
-      <div className={styles.textArea}>
-        <div className={styles.titleRow}>
-          <h3 className={styles.name}>{name}</h3>
-          <p className={styles.location}>
-            <LocationIcon className={styles.locationIcon} aria-hidden />
+      <div className={s.textArea}>
+        <div className={s.titleRow}>
+          <h3 className={s.name}>{name}</h3>
+          <p className={s.location}>
+            <LocationIcon className={s.locationIcon} aria-hidden />
             <span>{location}</span>
           </p>
         </div>
 
-        <ul className={styles.tagsRow}>
+        <ul className={s.tagsRow}>
           {tags.map((tag, index) => (
-            <li key={`${tag}-${index}`} className={styles.tag}>
+            <li key={`${tag}-${index}`} className={s.tag}>
               #{tag}
             </li>
           ))}
         </ul>
 
-        <div className={styles.bottomRow}>
-          <div className={styles.meta}>
-            <div className={styles.metaItem}>
-              <PeopleIcon className={styles.capacityIcon} aria-hidden />
-              <span className={styles.metaText}>최대 {capacity}인</span>
+        <div className={s.bottomRow}>
+          <div className={s.meta}>
+            <div className={s.metaItem}>
+              <PeopleIcon className={s.capacityIcon} aria-hidden />
+              <span className={s.metaText}>최대 {capacity}인</span>
             </div>
             <div
-              className={clsx(styles.metaItem, styles.metaComment)}
+              className={clsx(s.metaItem, s.metaComment)}
               aria-label={`후기 ${commentCount}개`}
             >
-              <SquareChatIcon className={styles.commentIcon} aria-hidden />
-              <span className={styles.metaText}>{commentCount}</span>
+              <SquareChatIcon className={s.commentIcon} aria-hidden />
+              <span className={s.metaText}>{commentCount}</span>
             </div>
             <div
-              className={clsx(styles.metaItem, styles.metaLike)}
+              className={clsx(s.metaItem, s.metaLike)}
               aria-label={`좋아요 ${likeCount}개`}
             >
-              <HeartIcon className={styles.likeIcon} aria-hidden />
-              <span className={styles.metaTextTight}>{likeCount}</span>
+              <HeartIcon className={s.likeIcon} aria-hidden />
+              <span className={s.metaTextTight}>{likeCount}</span>
             </div>
           </div>
 
-          <p className={styles.price}>
+          <p className={s.price}>
             {price.toLocaleString()}
-            <span className={styles.priceUnit}>원/시간</span>
+            <span className={s.priceUnit}>원/시간</span>
           </p>
         </div>
       </div>
