@@ -2,17 +2,15 @@ import { style } from '@vanilla-extract/css';
 import { colorToken, radiusToken, spaceToken } from '@/shared/styles/tokens';
 import { typography } from '@/shared/styles/typography.css';
 
-export const card = style([
-  {
-    display: 'flex',
-    width: '55rem',
-    height: '29.5rem',
-    overflow: 'hidden',
-    borderRadius: radiusToken.r16,
-    background: colorToken.grayscale.white,
-    boxShadow: '0 1px 8px 0 rgba(0, 0, 0, 0.10)',
-  },
-]);
+export const card = style({
+  display: 'flex',
+  width: '55rem',
+  height: '29.5rem',
+  overflow: 'hidden',
+  borderRadius: radiusToken.r16,
+  background: colorToken.grayscale.white,
+  boxShadow: '0 1px 8px 0 rgba(0, 0, 0, 0.10)',
+});
 
 export const imageWrapper = style({
   overflow: 'hidden',

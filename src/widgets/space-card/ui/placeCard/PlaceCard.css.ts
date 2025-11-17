@@ -2,18 +2,16 @@ import { style } from '@vanilla-extract/css';
 import { colorToken, radiusToken, spaceToken } from '@/shared/styles/tokens';
 import { typography } from '@/shared/styles/typography.css';
 
-export const card = style([
-  {
-    display: 'flex',
-    flexDirection: 'column',
-    overflow: 'hidden',
-    width: '36.2rem',
-    height: '27.6rem',
-    borderRadius: radiusToken.r16,
-    background: colorToken.grayscale.white,
-    boxShadow: '0 1px 8px 0 rgba(0, 0, 0, 0.10)',
-  },
-]);
+export const card = style({
+  display: 'flex',
+  flexDirection: 'column',
+  overflow: 'hidden',
+  width: '36.2rem',
+  height: '27.6rem',
+  borderRadius: radiusToken.r16,
+  background: colorToken.grayscale.white,
+  boxShadow: '0 1px 8px 0 rgba(0, 0, 0, 0.10)',
+});
 
 export const imageWrapper = style({
   overflow: 'hidden',
