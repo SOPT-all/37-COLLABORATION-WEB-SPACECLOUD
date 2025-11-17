@@ -7,9 +7,9 @@ interface MagazineCardProps {
 
 const MagazineCard = ({ imageUrl, alt }: MagazineCardProps) => {
   return (
-    <div className={s.container}>
+    <article className={s.container}>
       <img className={s.image} src={imageUrl} alt={alt} loading='lazy' draggable={false} />
-    </div>
+    </article>
   );
 };
 
