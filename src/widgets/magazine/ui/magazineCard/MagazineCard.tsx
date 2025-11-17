@@ -1,14 +1,20 @@
 import * as s from './MagazineCard.css';
 
 interface MagazineCardProps {
-  imageUrl: string;
-  alt: string;
+  title: string;
+  magazineImageUrl: string;
 }
 
-const MagazineCard = ({ imageUrl, alt }: MagazineCardProps) => {
+const MagazineCard = ({ magazineImageUrl, title }: MagazineCardProps) => {
   return (
     <article className={s.container}>
-      <img className={s.image} src={imageUrl} alt={alt} loading='lazy' draggable={false} />
+      <img
+        className={s.image}
+        src={magazineImageUrl}
+        alt={title}
+        loading='lazy'
+        draggable={false}
+      />
     </article>
   );
 };
