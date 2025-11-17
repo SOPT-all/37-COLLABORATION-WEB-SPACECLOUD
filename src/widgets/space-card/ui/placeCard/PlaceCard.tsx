@@ -3,30 +3,46 @@ import { LocationIcon, PeopleIcon, SquareChatIcon, HeartIcon } from '@/shared/as
 import * as s from './PlaceCard.css';
 
 interface PlaceCardProps {
-  imageUrl: string;
+  id: number;
   name: string;
-  tags: string[];
   capacity: number;
   commentCount: number;
   likeCount: number;
   price: number;
+  priceUnit: string;
+  thumbnailImageUrl: string;
+  tags: string[];
   location: string;
 }
 
+const PRICE_UNIT_TEXT: Record<string, string> = {
+  HOUR: '시간',
+  MONTH: '월',
+  PACKAGE: '패키지',
+};
+
 const PlaceCard = ({
-  imageUrl,
+  id,
   name,
-  tags,
   capacity,
   commentCount,
   likeCount,
   price,
+  priceUnit,
+  thumbnailImageUrl,
+  tags,
   location,
 }: PlaceCardProps) => {
   return (
     <article className={s.card}>
       <div className={s.imageWrapper}>
-        <img src={imageUrl} alt={name} className={s.image} loading='lazy' draggable={false} />
+        <img
+          src={thumbnailImageUrl}
+          alt={name}
+          className={s.image}
+          loading='lazy'
+          draggable={false}
+        />
       </div>
 
       <div className={s.textArea}>
@@ -39,8 +55,8 @@ const PlaceCard = ({
         </div>
 
         <ul className={s.tagsRow}>
-          {tags.map((tag, index) => (
-            <li key={`${tag}-${index}`} className={s.tag}>
+          {tags.map((tag) => (
+            <li key={`${id}-${tag}`} className={s.tag}>
               #{tag}
             </li>
           ))}
@@ -70,7 +86,7 @@ const PlaceCard = ({
 
           <p className={s.price}>
             {price.toLocaleString()}
-            <span className={s.priceUnit}>원/시간</span>
+            <span className={s.priceUnit}>원/{PRICE_UNIT_TEXT[priceUnit] ?? priceUnit}</span>
           </p>
         </div>
       </div>
