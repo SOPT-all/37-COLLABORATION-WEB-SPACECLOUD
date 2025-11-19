@@ -3,3 +3,5 @@ export { default as LocationIcon } from './ic-location.svg?react';
 export { default as PeopleIcon } from './ic-people.svg?react';
 export { default as SquareChatIcon } from './ic-squarechat.svg?react';
 export { default as StarIcon } from './ic-star.svg?react';
+export { default as ArrowDownIcon } from './ic-arrow-down.svg?react';
+export { default as ArrowUpIcon } from './ic-arrow-up.svg?react';
