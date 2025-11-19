@@ -44,7 +44,7 @@ const ReviewCard = ({
         <div className={s.tagAndTitle}>
           <div className={s.categories}>
             {categories.map((category) => (
-              <Chip key={`${id}-${category}`} size='sm'>
+              <Chip key={`${id}-${category}`}>
                 {category}
               </Chip>
             ))}

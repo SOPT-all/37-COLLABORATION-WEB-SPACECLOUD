@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { LocationIcon, PeopleIcon, SquareChatIcon, HeartIcon } from '@/shared/assets/icons';
 import { CardLayout, cardImage as cardLayoutImage } from '@/shared/ui/cardLayout';
+import { Chip } from '@/shared/ui/chip';
 import * as s from './PlaceCard.css';
 
 interface PlaceCardProps {
@@ -14,6 +15,7 @@ interface PlaceCardProps {
   thumbnailImageUrl: string;
   hashtags: string[];
   address: string;
+  coupon: boolean;
 }
 
 const PRICE_UNIT_TEXT: Record<string, string> = {
@@ -33,18 +35,31 @@ const PlaceCard = ({
   thumbnailImageUrl,
   hashtags,
   address,
+  coupon,
 }: PlaceCardProps) => {
   return (
     <CardLayout
       orientation='vertical'
+      imageWrapperClassName={s.imageWrapper}
       image={
-        <img
-          src={thumbnailImageUrl}
-          alt={name}
-          className={cardLayoutImage}
-          loading='lazy'
-          draggable={false}
-        />
+        <>
+          {coupon && (
+            <Chip
+              className={s.couponBadge}
+              role='status'
+              aria-label='쿠폰할인'
+            >
+              쿠폰할인
+            </Chip>
+          )}
+          <img
+            src={thumbnailImageUrl}
+            alt={name}
+            className={cardLayoutImage}
+            loading='lazy'
+            draggable={false}
+          />
+        </>
       }
       bodyClassName={s.textArea}
     >

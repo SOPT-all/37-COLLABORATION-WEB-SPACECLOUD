@@ -3,6 +3,16 @@ import { recipe } from '@vanilla-extract/recipes';
 import { colorToken, spaceToken } from '@/shared/styles/tokens';
 import { typography } from '@/shared/styles/typography.css';
 
+export const imageWrapper = style({
+  position: 'relative',
+});
+
+export const couponBadge = style({
+  position: 'absolute',
+  top: '1.7rem',
+  left: '1.9rem',
+});
+
 export const textArea = style({
   display: 'flex',
   flexDirection: 'column',
