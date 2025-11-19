@@ -1,5 +1,6 @@
 import { StarIcon } from '@/shared/assets/icons';
 import { CardLayout, cardImage as cardLayoutImage } from '@/shared/ui/cardLayout';
+import { Categories } from '@/shared/ui/Categories';
 import * as s from './ReviewCard.css';
 
 interface ReviewCardProps {
@@ -8,7 +9,7 @@ interface ReviewCardProps {
   title: string;
   detail: string;
   reviewImageUrl: string;
-  placeTags: string[];
+  categories: string[];
   price: number;
   unit: string;
 }
@@ -19,7 +20,7 @@ const ReviewCard = ({
   title,
   detail,
   reviewImageUrl,
-  placeTags,
+  categories,
   price,
   unit,
 }: ReviewCardProps) => {
@@ -41,13 +42,7 @@ const ReviewCard = ({
     >
       <div>
         <div className={s.tagAndTitle}>
-          <ul className={s.placeTags} aria-label='공간 태그'>
-            {placeTags.map((tag) => (
-              <li key={`${id}-${tag}`} className={s.placeTag}>
-                <span className={s.placeTagText}>{tag}</span>
-              </li>
-            ))}
-          </ul>
+          <Categories categories={categories} id={id} />
           <h3 className={s.title}>{title}</h3>
         </div>
 

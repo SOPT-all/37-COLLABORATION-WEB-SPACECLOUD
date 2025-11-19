@@ -12,8 +12,8 @@ interface PlaceCardProps {
   price: number;
   priceUnit: string;
   thumbnailImageUrl: string;
-  tags: string[];
-  location: string;
+  hashtags: string[];
+  address: string;
 }
 
 const PRICE_UNIT_TEXT: Record<string, string> = {
@@ -31,8 +31,8 @@ const PlaceCard = ({
   price,
   priceUnit,
   thumbnailImageUrl,
-  tags,
-  location,
+  hashtags,
+  address,
 }: PlaceCardProps) => {
   return (
     <CardLayout
@@ -52,12 +52,12 @@ const PlaceCard = ({
         <h3 className={s.name}>{name}</h3>
         <p className={s.location}>
           <LocationIcon className={s.icon({ size: 'lg' })} aria-hidden='true' />
-          <span>{location}</span>
+          <span>{address}</span>
         </p>
       </div>
 
       <ul className={s.tagsRow}>
-        {tags.map((tag) => (
+        {hashtags.map((tag) => (
           <li key={`${id}-${tag}`} className={s.tag}>
             #{tag}
           </li>

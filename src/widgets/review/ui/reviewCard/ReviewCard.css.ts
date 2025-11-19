@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { colorToken, radiusToken, spaceToken } from '@/shared/styles/tokens';
+import { colorToken, spaceToken } from '@/shared/styles/tokens';
 import { typography } from '@/shared/styles/typography.css';
 
 export const textArea = style({
@@ -14,28 +14,6 @@ export const tagAndTitle = style({
   flexDirection: 'column',
   gap: spaceToken.s8,
 });
-
-export const placeTags = style({
-  display: 'flex',
-  flexWrap: 'wrap',
-  gap: spaceToken.s8,
-  listStyle: 'none',
-  margin: 0,
-  padding: 0,
-});
-
-export const placeTag = style({
-  padding: `${spaceToken.s2} ${spaceToken.s10}`,
-  borderRadius: radiusToken.r20,
-  backgroundColor: colorToken.primary[200],
-});
-
-export const placeTagText = style([
-  typography.body_r_12,
-  {
-    color: colorToken.grayscale.white,
-  },
-]);
 
 export const title = style([
   typography.body_sb_16,
