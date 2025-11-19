@@ -1,6 +1,7 @@
 import * as s from './MagazineCard.css';
 
 interface MagazineCardProps {
+  id: number;
   title: string;
   magazineImageUrl: string;
 }
