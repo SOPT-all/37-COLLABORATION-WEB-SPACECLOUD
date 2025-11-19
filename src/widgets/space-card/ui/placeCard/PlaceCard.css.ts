@@ -1,31 +1,7 @@
 import { style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
-import { colorToken, radiusToken, spaceToken } from '@/shared/styles/tokens';
+import { colorToken, spaceToken } from '@/shared/styles/tokens';
 import { typography } from '@/shared/styles/typography.css';
-
-export const card = style({
-  display: 'flex',
-  flexDirection: 'column',
-  overflow: 'hidden',
-  width: '36.2rem',
-  height: '27.6rem',
-  borderRadius: radiusToken.r16,
-  background: colorToken.grayscale.white,
-  boxShadow: '0 1px 8px 0 rgba(0, 0, 0, 0.10)',
-});
-
-export const imageWrapper = style({
-  overflow: 'hidden',
-  width: '100%',
-  height: '16.2rem',
-});
-
-export const image = style({
-  display: 'block',
-  width: '100%',
-  height: '100%',
-  objectFit: 'cover',
-});
 
 export const textArea = style({
   display: 'flex',
