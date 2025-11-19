@@ -1,4 +1,5 @@
 import { StarIcon } from '@/shared/assets/icons';
+import { getPriceUnitLabel, type PriceUnitCode } from '@/shared/constants/priceUnit';
 import { CardLayout, cardImage as cardLayoutImage } from '@/shared/ui/cardLayout';
 import { Chip } from '@/shared/ui/chip';
 import * as s from './ReviewCard.css';
@@ -11,7 +12,7 @@ interface ReviewCardProps {
   reviewImageUrl: string;
   categories: string[];
   price: number;
-  unit: string;
+  priceUnit: PriceUnitCode;
 }
 
 const ReviewCard = ({
@@ -22,7 +23,7 @@ const ReviewCard = ({
   reviewImageUrl,
   categories,
   price,
-  unit,
+  priceUnit,
 }: ReviewCardProps) => {
   const stars = Array.from({ length: Math.max(0, score) }, (_, index) => index);
 
@@ -44,9 +45,7 @@ const ReviewCard = ({
         <div className={s.tagAndTitle}>
           <div className={s.categories}>
             {categories.map((category) => (
-              <Chip key={`${id}-${category}`}>
-                {category}
-              </Chip>
+              <Chip key={`${id}-${category}`}>{category}</Chip>
             ))}
           </div>
           <h3 className={s.title}>{title}</h3>
@@ -61,7 +60,7 @@ const ReviewCard = ({
 
           <div className={s.priceWrapper}>
             <span className={s.price}>{price.toLocaleString()}</span>{' '}
-            <span className={s.unit}>{unit}</span>
+            <span className={s.unit}>원/{getPriceUnitLabel(priceUnit)}</span>
           </div>
         </div>
       </div>

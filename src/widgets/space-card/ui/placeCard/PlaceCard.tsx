@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { LocationIcon, PeopleIcon, SquareChatIcon, HeartIcon } from '@/shared/assets/icons';
+import { getPriceUnitLabel, type PriceUnitCode } from '@/shared/constants/priceUnit';
 import { CardLayout, cardImage as cardLayoutImage } from '@/shared/ui/cardLayout';
 import { Chip } from '@/shared/ui/chip';
 import * as s from './PlaceCard.css';
@@ -11,18 +12,12 @@ interface PlaceCardProps {
   commentCount: number;
   likeCount: number;
   price: number;
-  priceUnit: string;
+  priceUnit: PriceUnitCode;
   thumbnailImageUrl: string;
   hashtags: string[];
   address: string;
   coupon: boolean;
 }
-
-const PRICE_UNIT_TEXT: Record<string, string> = {
-  HOUR: '시간',
-  MONTH: '월',
-  PACKAGE: '패키지',
-};
 
 const PlaceCard = ({
   id,
@@ -103,7 +98,7 @@ const PlaceCard = ({
 
         <p className={s.price}>
           {price.toLocaleString()}
-          <span className={s.priceUnit}>원/{PRICE_UNIT_TEXT[priceUnit] ?? priceUnit}</span>
+          <span className={s.priceUnit}>원/{getPriceUnitLabel(priceUnit)}</span>
         </p>
       </div>
     </CardLayout>
