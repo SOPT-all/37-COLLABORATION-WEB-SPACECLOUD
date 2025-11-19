@@ -1,6 +1,6 @@
 import { StarIcon } from '@/shared/assets/icons';
 import { CardLayout, cardImage as cardLayoutImage } from '@/shared/ui/cardLayout';
-import { Categories } from '@/shared/ui/Categories';
+import { Chip } from '@/shared/ui/chip';
 import * as s from './ReviewCard.css';
 
 interface ReviewCardProps {
@@ -42,7 +42,13 @@ const ReviewCard = ({
     >
       <div>
         <div className={s.tagAndTitle}>
-          <Categories categories={categories} id={id} />
+          <div className={s.categories}>
+            {categories.map((category) => (
+              <Chip key={`${id}-${category}`} size='sm'>
+                {category}
+              </Chip>
+            ))}
+          </div>
           <h3 className={s.title}>{title}</h3>
         </div>
 

@@ -15,6 +15,12 @@ export const tagAndTitle = style({
   gap: spaceToken.s8,
 });
 
+export const categories = style({
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: spaceToken.s8,
+});
+
 export const title = style([
   typography.body_sb_16,
   {
