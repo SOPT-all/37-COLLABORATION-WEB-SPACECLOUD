@@ -4,7 +4,7 @@ import * as s from './Header.css';
 
 const Header = () => {
   return (
-    <div className={s.container}>
+    <header className={s.container}>
       <div className={s.leftContainer}>
         <MenuIcon />
       </div>
@@ -17,7 +17,7 @@ const Header = () => {
         </div>
         <ChatIcon />
       </div>
-    </div>
+    </header>
   );
 };
 
