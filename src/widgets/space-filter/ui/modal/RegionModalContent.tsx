@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 import Button from '@/shared/ui/Button';
-import { RightArrowIcon } from '@/shared/assets/icons';
+import { ArrowRightIcon } from '@/shared/assets/icons';
 import { AREA_FILTERS } from '@/shared/configs/region';
 import type { ModalProps } from '@/shared/types/common';
 import * as s from './RegionModalContent.css';
@@ -32,10 +32,11 @@ const RegionModalContent = ({ onClose }: ModalProps) => {
     <div className={s.wrapper}>
       <header className={s.header}>
         <span className={clsx({ [s.active]: showArea })}>{!showArea ? '시/도 선택' : '서울'}</span>
-        <RightArrowIcon
+        <ArrowRightIcon
           width={6}
           height={11}
           stroke={showArea ? vars.color.grayscale.gray900 : vars.color.grayscale.gray700}
+          strokeWidth={1.3}
         />
         <span>동네 선택</span>
       </header>
