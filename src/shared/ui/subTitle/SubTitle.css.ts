@@ -8,6 +8,7 @@ export const subTitle = recipe({
     display: 'flex',
     alignContent: 'center',
     color: colorToken.grayscale.black,
+    whiteSpace: 'nowrap',
   },
   variants: {
     variant: {
@@ -58,6 +59,12 @@ export const newBadgeRow = style({
   display: 'inline-flex',
   alignItems: 'flex-end',
   gap: '0.2rem',
+});
+
+export const newBadgeTitle = style({
+  display: 'inline-block',
+  width: '27.7rem',
+  textAlign: 'left',
 });
 
 export const newBadgeIcon = style({

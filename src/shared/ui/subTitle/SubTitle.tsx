@@ -1,6 +1,15 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 import { InfoIcon, NewBadge } from '@shared/assets/icons';
-import { adBadge, adIcon, adLabel, newBadgeIcon, newBadgeRow, subTitle, titleRow } from './SubTitle.css';
+import {
+  adBadge,
+  adIcon,
+  adLabel,
+  newBadgeIcon,
+  newBadgeRow,
+  newBadgeTitle,
+  subTitle,
+  titleRow,
+} from './SubTitle.css';
 
 type SubTitleVariant = NonNullable<Parameters<typeof subTitle>[0]>['variant'];
 type IconGap = NonNullable<Parameters<typeof titleRow>[0]>['iconGap'];
@@ -19,7 +28,7 @@ const SubTitle = ({ children, variant, iconGap = 'wide', ...rest }: SubTitleProp
     <h2 className={subTitle({ variant })} {...rest}>
       {isSmall25 ? (
         <span className={newBadgeRow}>
-          <span>{children}</span>
+          <span className={newBadgeTitle}>{children}</span>
           <NewBadge className={newBadgeIcon} />
         </span>
       ) : null}
