@@ -1,14 +1,24 @@
-import { style } from '@vanilla-extract/css';
+import { recipe } from '@vanilla-extract/recipes';
 import { colorToken } from '@/shared/styles/tokens';
 
-export const dividerGray300 = style({
-  width: '100%',
-  height: '1px',
-  backgroundColor: colorToken.grayscale.gray300,
-});
+export const divider = recipe({
+  base: { width: '100%' },
 
-export const dividerGray400 = style({
-  width: '100%',
-  height: '1px',
-  backgroundColor: colorToken.grayscale.gray400,
+  variants: {
+    tone: {
+      gray300: { backgroundColor: colorToken.grayscale.gray300 },
+      gray400: { backgroundColor: colorToken.grayscale.gray400 },
+    },
+
+    thick: {
+      thin: { height: '1px' },
+      medium: { height: '2px' },
+      thick: { height: '4px' },
+    },
+
+    defaultVariants: {
+      tone: 'gray300',
+      thick: 'thin',
+    },
+  },
 });
