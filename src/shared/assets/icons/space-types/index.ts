@@ -25,3 +25,5 @@ export { default as Gallery } from './ic-gallery.svg?react';
 export { default as VirtualOffice } from './ic-virtual-office.svg?react';
 export { default as DayCamping } from './ic-day-camping.svg?react';
 export { default as House } from './ic-house.svg?react';
+export { default as IcFilter } from './ic-filter.svg?react';
+export { default as IcMap } from './ic-map.svg?react';
