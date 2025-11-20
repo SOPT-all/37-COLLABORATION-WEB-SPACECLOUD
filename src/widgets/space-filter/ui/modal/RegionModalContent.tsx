@@ -33,16 +33,17 @@ const RegionModalContent = ({ onClose }: ModalProps) => {
       <header className={s.header}>
         <span className={clsx({ [s.active]: showArea })}>{!showArea ? '시/도 선택' : '서울'}</span>
         <ArrowRightIcon
-          width={6}
-          height={11}
+          width={7}
+          height={12}
           stroke={showArea ? vars.color.grayscale.gray900 : vars.color.grayscale.gray700}
           strokeWidth={1.3}
         />
         <span>동네 선택</span>
       </header>
-      <div className={s.regionGrid}>
-        {!showArea &&
-          regions.map((region) => (
+
+      {!showArea && (
+        <div className={s.regionGrid}>
+          {regions.map((region) => (
             <Button
               key={region.key}
               styleType='location'
@@ -53,8 +54,10 @@ const RegionModalContent = ({ onClose }: ModalProps) => {
             >
               <span className={s.regionLabel}>{region.label}</span>
             </Button>
-          ))}
-      </div>
+          ))}{' '}
+        </div>
+      )}
+
       {showArea && (
         <div className={s.areaGrid}>
           {AREA_FILTERS.map((area) => (
