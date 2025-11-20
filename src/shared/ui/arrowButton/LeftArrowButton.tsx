@@ -13,14 +13,10 @@ const LeftArrowButton = ({
   className,
   ...rest
 }: LeftArrowButtonProps) => {
-  const handleClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
-    onClick?.(e);
-  };
-
   return (
     <button
       className={clsx(s.buttonContainer, className)}
-      onClick={handleClick}
+      onClick={onClick}
       type='button'
       aria-label='왼쪽으로 이동'
       disabled={!isActive || rest.disabled}
