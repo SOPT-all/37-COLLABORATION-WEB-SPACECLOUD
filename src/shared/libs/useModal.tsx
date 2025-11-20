@@ -9,7 +9,11 @@ import { overlay } from 'overlay-kit';
 import { Modal } from '../ui/modal/Modal';
 
 export const useModal = () => {
-  const openModal = (content: ReactNode, trigger?: HTMLElement | null) => {
+  const openModal = (
+    content: ReactNode,
+    trigger?: HTMLElement | null,
+    border?: 'none' | 'gray300',
+  ) => {
     let location: CSSProperties | undefined;
 
     if (trigger) {
@@ -23,7 +27,12 @@ export const useModal = () => {
     }
 
     overlay.open(({ isOpen, unmount }) => (
-      <Modal isOpen={isOpen} onClose={unmount} location={location}>
+      <Modal
+        isOpen={isOpen}
+        onClose={unmount}
+        location={location}
+        border={border ? border : 'none'}
+      >
         {isValidElement(content)
           ? cloneElement(content as ReactElement<{ onClose: () => void }>, { onClose: unmount })
           : content}

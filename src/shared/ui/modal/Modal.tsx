@@ -4,12 +4,17 @@ import * as s from './Modal.css';
 
 interface Props extends ChildrenProps, ModalProps {
   location?: CSSProperties;
+  border: 'none' | 'gray300';
 }
 
-export const Modal = ({ onClose, children, location }: Props) => {
+export const Modal = ({ onClose, children, location, border }: Props) => {
   return (
     <div className={s.overlay} onClick={onClose}>
-      <section className={s.content} onClick={(e) => e.stopPropagation()} style={location}>
+      <section
+        className={s.content({ border: `${border}` })}
+        onClick={(e) => e.stopPropagation()}
+        style={location}
+      >
         {children}
       </section>
     </div>
