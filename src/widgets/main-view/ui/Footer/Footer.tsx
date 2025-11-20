@@ -2,23 +2,46 @@ import * as s from './Footer.css';
 import { DividerIcon, ArrowRightGrayIcon } from '@/shared/assets/icons';
 import Logo2 from '@shared/assets/images/img-logo2.png';
 
+const FOOTER_TOP_MENU = [
+  { id: 1, label: '배너 광고 문의' },
+  { id: 2, label: '이용약관' },
+  { id: 3, label: '개인정보처리방침' },
+  { id: 4, label: '운영정책' },
+  { id: 5, label: '콘텐츠산업진흥법에 의한 표시' },
+  { id: 6, label: '고객문의' },
+];
+
+const BUSINESS_INFO_ROW1 = [
+  { id: 1, label: '상호명: 주식회사 앤스페이스' },
+  { id: 2, label: '대표: 정수현' },
+  { id: 3, label: '사업자등록번호: 230-81-03117' },
+  { id: 4, label: '통신판매업신고번호: 2024-서울영등포-1094' },
+];
+
+const BUSINESS_INFO_ROW2 = [
+  { id: 1, label: '영업소재지: 서울특별시 영등포구 여의대로8 여의도파크센터 B동 2401호' },
+  { id: 2, label: '이메일: office@spacecloud.kr' },
+  { id: 3, label: '제휴문의: marketing@spacecloud.kr' },
+];
+
+const BUSINESS_INFO_ROW3 = [
+  { id: 1, label: '대표전화: 1599-4312(평일 오후 2시 ~ 오후 6시)' },
+  { id: 2, label: '온라인 1:1 문의 바로가기(평일 오전 10시 ~ 오후 6시)' },
+];
+
 const Footer = () => {
   return (
-    <div className={s.container}>
+    <footer className={s.container}>
       <div className={s.logoContainer}>
         <img src={Logo2} alt='로고2' className={s.logoImage} />
+
         <div className={s.contentSection}>
-          <p>배너 광고 문의</p>
-          <DividerIcon />
-          <p>이용약관</p>
-          <DividerIcon />
-          <p>개인정보처리방침</p>
-          <DividerIcon />
-          <p>운영정책</p>
-          <DividerIcon />
-          <p>콘텐츠산업진흥법에 의한 표시</p>
-          <DividerIcon />
-          <p>고객문의</p>
+          {FOOTER_TOP_MENU.map((item) => (
+            <span key={item.id} className={s.contentSection}>
+              <p>{item.label}</p>
+              {item.id !== FOOTER_TOP_MENU[FOOTER_TOP_MENU.length - 1].id && <DividerIcon />}
+            </span>
+          ))}
         </div>
       </div>
 
@@ -26,31 +49,34 @@ const Footer = () => {
 
       <div className={s.centerContainer}>
         <div className={s.contentSection}>
-          <p>상호명: 주식회사 앤스페이스</p>
-          <DividerIcon />
-          <p>대표: 정수현</p>
-          <DividerIcon />
-          <p>사업자등록번호: 230-81-03117</p>
-          <DividerIcon />
-          <p>통신판매업신고번호: 2024-서울영등포-1094</p>
-          <DividerIcon />
+          {BUSINESS_INFO_ROW1.map((item) => (
+            <span key={item.id} className={s.contentSection}>
+              <p>{item.label}</p>
+              <DividerIcon />
+            </span>
+          ))}
           <div className={s.arrowContent}>
             <p>사업자등록정보</p>
             <ArrowRightGrayIcon />
           </div>
         </div>
+
         <div className={s.contentSection}>
-          <p>영업소재지: 서울특별시 영등포구 여의대로8 여의도파크센터 B동 2401호</p>
-          <DividerIcon />
-          <p>이메일: office@spacecloud.kr</p>
-          <DividerIcon />
-          <p>제휴문의: marketing@spacecloud.kr</p>
+          {BUSINESS_INFO_ROW2.map((item) => (
+            <span key={item.id} className={s.contentSection}>
+              <p>{item.label}</p>
+              {item.id !== BUSINESS_INFO_ROW2[BUSINESS_INFO_ROW2.length - 1].id && <DividerIcon />}
+            </span>
+          ))}
         </div>
+
         <div className={s.contentSection}>
-          <p>대표전화: 1599-4312(평일 오후 2시 ~ 오후 6시)</p>
-          <DividerIcon />
-          <p>온라인 1:1 문의 바로가기(평일 오전 10시 ~ 오후 6시)</p>
-          <DividerIcon />
+          {BUSINESS_INFO_ROW3.map((item) => (
+            <span key={item.id} className={s.contentSection}>
+              <p>{item.label}</p>
+              {item.id !== BUSINESS_INFO_ROW3[BUSINESS_INFO_ROW3.length - 1].id && <DividerIcon />}
+            </span>
+          ))}
         </div>
       </div>
 
@@ -65,7 +91,7 @@ const Footer = () => {
           <p>Copyright NSPACE Corp. All Rights Reserved.</p>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
