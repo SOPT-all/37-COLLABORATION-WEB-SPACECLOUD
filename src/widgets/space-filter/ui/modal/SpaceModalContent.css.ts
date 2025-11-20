@@ -28,25 +28,12 @@ export const space = style({
   gap: vars.space.s8,
 });
 
-export const button = style({
-  display: 'flex',
-  alignItems: 'center',
-  gap: vars.space.s4,
-  backgroundColor: vars.color.grayscale.gray100,
-  color: vars.color.grayscale.gray800,
-  borderRadius: vars.radius.r5,
-  padding: `9px 10px`,
-});
-
 export const icon = style({
   margin: vars.space.s6,
 });
 
-export const label = style([
-  typography.body_m_16,
-  {
-    width: '104px',
-    textAlign: 'left',
-    color: vars.color.grayscale.gray800,
-  },
-]);
+export const label = style({
+  width: '104px',
+  textAlign: 'left',
+  color: vars.color.grayscale.gray800,
+});

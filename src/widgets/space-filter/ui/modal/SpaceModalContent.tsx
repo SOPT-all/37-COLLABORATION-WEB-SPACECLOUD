@@ -1,5 +1,6 @@
 import type { ModalProps } from '@/shared/types/common';
 import { SPACE_ICON_MAP } from '@/shared/configs/space';
+import Button from '@/shared/ui/Button';
 import * as s from './SpaceModalContent.css';
 
 // api 응답값
@@ -137,10 +138,18 @@ const SpaceModalContent = ({ onClose }: ModalProps) => {
               {items.map((item) => {
                 const Icon = SPACE_ICON_MAP[item.code];
                 return (
-                  <button key={item.code} className={s.button} onClick={onClose}>
+                  <Button
+                    key={item.code}
+                    styleType='places'
+                    width='auto'
+                    gap='g4'
+                    justify='start'
+                    font='body_m_16'
+                    onClick={onClose}
+                  >
                     <Icon className={s.icon} width={18} height={18} />
                     <span className={s.label}>{item.name}</span>
-                  </button>
+                  </Button>
                 );
               })}
             </div>
