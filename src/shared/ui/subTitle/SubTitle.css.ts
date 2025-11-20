@@ -1,12 +1,12 @@
 import { style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
-import { colorToken } from '@/shared/styles/tokens';
+import { colorToken, spaceToken } from '@/shared/styles/tokens';
 import { typography } from '@/shared/styles/typography.css';
 
 export const subTitle = recipe({
   base: {
     display: 'flex',
-    alignContent: 'center',
+    alignItems: 'center',
     color: colorToken.grayscale.black,
     whiteSpace: 'nowrap',
   },
@@ -15,21 +15,21 @@ export const subTitle = recipe({
       small24: [
         typography.head_sb_20,
         {
-          height: '2rem',
-          marginBottom: '2.4rem',
+          height: spaceToken.s20,
+          marginBottom: spaceToken.s24,
         },
       ],
       small25: [
         typography.head_sb_20,
         {
-          height: '2.8rem',
-          marginBottom: '2.5rem',
+          height: spaceToken.s28,
+          marginBottom: spaceToken.s25,
         },
       ],
       large: [
         typography.head_b_24,
         {
-          marginBottom: '2.4rem',
+          marginBottom: spaceToken.s24,
         },
       ],
     },
@@ -46,8 +46,8 @@ export const titleRow = recipe({
   },
   variants: {
     iconGap: {
-      wide: { gap: '0.8rem' },
-      tight: { gap: '0.4rem' },
+      wide: { gap: spaceToken.s8 },
+      tight: { gap: spaceToken.s4 },
     },
   },
   defaultVariants: {
@@ -58,7 +58,7 @@ export const titleRow = recipe({
 export const newBadgeRow = style({
   display: 'inline-flex',
   alignItems: 'flex-end',
-  gap: '0.2rem',
+  gap: spaceToken.s2,
 });
 
 export const newBadgeTitle = style({
@@ -70,15 +70,15 @@ export const newBadgeTitle = style({
 export const newBadgeIcon = style({
   display: 'block',
   alignSelf: 'flex-start',
-  width: '38px',
-  height: '23px',
+  width: '3.8rem',
+  height: '2.3rem',
 });
 
 export const adBadge = recipe({
   base: {
     display: 'inline-flex',
     alignItems: 'flex-end',
-    gap: '0.4rem',
+    gap: spaceToken.s4,
     color: colorToken.grayscale.gray900,
   },
 });
