@@ -1,7 +1,5 @@
 const MagazineSection = () => {
-    return (<></>
-
-    )
-}
+  return <></>;
+};
 
 export default MagazineSection;
