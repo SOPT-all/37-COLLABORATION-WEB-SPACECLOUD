@@ -9,6 +9,6 @@ export const titleFont = style({
   fontFamily: fontToken.family.pretendard,
   fontSize: '32px',
   fontWeight: fontToken.weight.semibold,
-  letterSpacing: fontToken.letterSpacing.tight_03,
-  lineHeight: '44px',
+  letterSpacing: '-0.006rem',
+  lineHeight: '43.2px',
 });
