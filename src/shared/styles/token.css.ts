@@ -1,11 +1,5 @@
 import { createThemeContract } from '@vanilla-extract/css';
-import {
-  colorToken,
-  fontToken,
-  layoutToken,
-  radiusToken,
-  spaceToken,
-} from "./tokens";
+import { colorToken, fontToken, layoutToken, radiusToken, spaceToken } from './tokens';
 
 export const vars = createThemeContract({
   color: colorToken,
