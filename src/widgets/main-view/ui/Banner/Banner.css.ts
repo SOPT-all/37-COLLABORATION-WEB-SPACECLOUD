@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { colorToken, radiusToken, zIndexToken } from '@/shared/styles/tokens';
+import { colorToken, radiusToken, zIndexToken, fontToken } from '@/shared/styles/tokens';
 import { typography } from '@/shared/styles/typography.css';
 
 export const wrapper = style({
@@ -30,7 +30,10 @@ export const counter = style({
   height: '16px',
   borderRadius: radiusToken.r50,
   zIndex: zIndexToken.z900,
-  paddingTop: '2px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  fontFamily: fontToken.family.pretendard,
 });
 
 export const counterFont = style([
