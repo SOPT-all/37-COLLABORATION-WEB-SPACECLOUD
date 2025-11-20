@@ -1,4 +1,4 @@
-export const REGION_FILTERS = [
+export const AREA_FILTERS = [
   { key: null, label: '서울 전체' },
   { key: 'HONGDAE_HAPJEONG_SANGSU_YEONNAM', label: '홍대·합정·상수·연남' },
   { key: 'GANGNAM_YEOKSAM_SEONLEUNG_SAMSUNG', label: '강남역·역삼·선릉·삼성' },
