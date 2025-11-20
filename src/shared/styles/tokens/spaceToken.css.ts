@@ -1,8 +1,12 @@
 export const spaceToken = {
+  s4: '4px',
   s8: '8px',
   s10: '10px',
+  s11: '11px',
   s12: '12px',
+  s15: '15px',
   s16: '16px',
+  s18: '16px',
   s20: '20px',
   s24: '24px',
   s26: '26px',
