@@ -7,16 +7,18 @@ export const container = style({
   display: 'inline-block',
 });
 
-export const sortMenu = style([
-  typography.body_m_14,
-  {
-    padding: '10px 0',
-    backgroundColor: colorToken.grayscale.white,
-    color: colorToken.grayscale.black,
-    display: 'flex',
-    alignItems: 'center',
-  },
-]);
+export const sortMenuWrapper = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  width: '156px',
+  height: '36px',
+  padding: '10px 16px',
+  background: 'white',
+  cursor: 'pointer',
+});
+
+export const sortMenu = style([typography.body_m_14]);
 
 export const optionsContainer = style({
   position: 'absolute',
@@ -54,13 +56,4 @@ export const optionList = style([
 export const icon = style({
   width: '16px',
   height: '16px',
-});
-
-export const buttonContainer = style({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  width: '156px',
-  height: '36px',
-  padding: `${spaceToken.s10} ${spaceToken.s16}`,
 });
