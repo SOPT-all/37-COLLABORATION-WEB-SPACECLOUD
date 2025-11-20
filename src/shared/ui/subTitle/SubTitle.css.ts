@@ -54,6 +54,19 @@ export const titleRow = recipe({
   },
 });
 
+export const newBadgeRow = style({
+  display: 'inline-flex',
+  alignItems: 'flex-end',
+  gap: '0.2rem',
+});
+
+export const newBadgeIcon = style({
+  display: 'block',
+  alignSelf: 'flex-start',
+  width: '38px',
+  height: '23px',
+});
+
 export const adBadge = recipe({
   base: {
     display: 'inline-flex',
