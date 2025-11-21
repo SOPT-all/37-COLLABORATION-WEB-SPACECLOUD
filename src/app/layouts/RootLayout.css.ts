@@ -5,5 +5,5 @@ export const rootLayout = style({
   width: '100%',
   maxWidth: '1129px',
   margin: '0 auto',
-  padding: `0 ${vars.space.s20} ${vars.space.s20} ${vars.space.s20}`,
+  paddingBottom: `${vars.space.s20}`,
 });
