@@ -1,4 +1,4 @@
-import FilterMapButtons from '@widgets/filter/ui/FilterMapButtons.tsx';
+import FilterMapButtons from '@widgets/filter/ui/data-filter/button/FilterMapButtons.tsx';
 
 const SearchPage = () => {
   return (
