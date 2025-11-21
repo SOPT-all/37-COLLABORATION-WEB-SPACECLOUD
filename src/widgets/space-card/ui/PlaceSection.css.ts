@@ -26,6 +26,8 @@ export const list = style({
   flexWrap: 'nowrap',
   width: '100%',
   overflowX: 'hidden',
+  paddingTop: spaceToken.s10, // 임시 패딩값
+  paddingBottom: spaceToken.s10, // 임시 패딩값
 });
 
 export const listGap = styleVariants(
