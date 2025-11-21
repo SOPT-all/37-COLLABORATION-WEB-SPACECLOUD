@@ -41,7 +41,7 @@ export const regionLabel = style({
 export const areaGrid = style({
   display: 'grid',
   gridTemplateColumns: 'repeat(2, 1fr)',
-  gap: vars.space.s8,
+  columnGap: vars.space.s8,
 });
 
 export const areaLabel = style({
