@@ -21,3 +21,8 @@ export const moreButtonWrapper = style({
   justifyContent: 'center',
   width: '100%',
 });
+
+export const sentinel = style({
+  width: '100%',
+  height: spaceToken.s32,
+});

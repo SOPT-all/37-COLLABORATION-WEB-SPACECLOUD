@@ -16,12 +16,12 @@ export const card = recipe({
       vertical: {
         flexDirection: 'column',
         width: '36.2rem',
-        height: '27.6rem',
+        minHeight: '27.6rem',
       },
       horizontal: {
         flexDirection: 'row',
         width: '55rem',
-        height: '29.5rem',
+        minHeight: '29.5rem',
       },
     },
   },

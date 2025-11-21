@@ -2,6 +2,7 @@ import type { ComponentProps } from 'react';
 import ReviewCard from './reviewCard/ReviewCard';
 import ReviewMoreButton from './reviewMoreButton/ReviewMoreButton';
 import * as s from './ReviewSection.css';
+import { useInfiniteScroll } from '@/shared/hooks/useInfiniteScroll';
 
 type ReviewCardProps = ComponentProps<typeof ReviewCard>;
 
@@ -11,7 +12,15 @@ interface ReviewSectionProps {
 }
 
 const ReviewSection = ({ reviews, onClickMore }: ReviewSectionProps) => {
-  const visibleReviews = reviews.slice(0, 4);
+  const { visibleCount, hasMore, showMoreButton, sentinelRef, startInfiniteScroll, isInfiniteMode } =
+    useInfiniteScroll(reviews.length, { initialCount: 4, batchSize: 4 });
+
+  const visibleReviews = reviews.slice(0, visibleCount);
+
+  const handleClickMore = () => {
+    startInfiniteScroll();
+    onClickMore?.();
+  };
 
   return (
     <section className={s.section}>
@@ -21,9 +30,13 @@ const ReviewSection = ({ reviews, onClickMore }: ReviewSectionProps) => {
         ))}
       </div>
 
-      <div className={s.moreButtonWrapper}>
-        <ReviewMoreButton onClick={onClickMore} />
-      </div>
+      {showMoreButton && (
+        <div className={s.moreButtonWrapper}>
+          <ReviewMoreButton onClick={handleClickMore} />
+        </div>
+      )}
+
+      {isInfiniteMode && hasMore && <div ref={sentinelRef} className={s.sentinel} aria-hidden />}
     </section>
   );
 };
