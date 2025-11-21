@@ -54,7 +54,7 @@ const RegionModalContent = ({ onClose }: ModalProps) => {
             >
               <span className={s.regionLabel}>{region.label}</span>
             </Button>
-          ))}{' '}
+          ))}
         </div>
       )}
 
