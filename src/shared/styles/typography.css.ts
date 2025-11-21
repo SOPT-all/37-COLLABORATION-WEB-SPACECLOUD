@@ -56,7 +56,7 @@ export const typography = styleVariants({
   // 이미지 스펙 기준: 이름은 14지만 Font Size는 12px로 설정되어 있음
   body_m_14: {
     fontWeight: vars.font.weight.medium,
-    fontSize: vars.font.size.s12,
+    fontSize: vars.font.size.s14,
     lineHeight: vars.font.lineHeight.h14,
     letterSpacing: vars.font.letterSpacing.tight_03,
   },
