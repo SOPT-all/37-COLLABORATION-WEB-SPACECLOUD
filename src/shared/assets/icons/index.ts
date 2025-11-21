@@ -6,7 +6,7 @@ export { default as StarIcon } from './ic-star.svg?react';
 export { default as InfoIcon } from './ic-info.svg?react';
 export { default as NewBadge } from './ic-new-badge.svg?react';
 export { default as ChatIcon } from './ic-chat.svg?react';
-export { default as MenuIcon } from './ic-menu.svg?react'
+export { default as MenuIcon } from './ic-menu.svg?react';
 export { default as SearchIcon } from './ic-search.svg?react';
 export { default as DividerIcon } from './ic-divider.svg?react';
 export { default as ArrowRightGrayIcon } from './ic-arrow-right-gray.svg?react';
