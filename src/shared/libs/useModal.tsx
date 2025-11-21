@@ -13,6 +13,7 @@ export const useModal = () => {
     content: ReactNode,
     trigger?: HTMLElement | null,
     border?: 'none' | 'gray300',
+    onExit?: () => void, // 모달 close 시 실행될 콜백
   ) => {
     let location: CSSProperties | undefined;
 
@@ -26,18 +27,27 @@ export const useModal = () => {
       };
     }
 
-    overlay.open(({ isOpen, unmount }) => (
-      <Modal
-        isOpen={isOpen}
-        onClose={unmount}
-        location={location}
-        border={border ? border : 'none'}
-      >
-        {isValidElement(content)
-          ? cloneElement(content as ReactElement<{ onClose: () => void }>, { onClose: unmount })
-          : content}
-      </Modal>
-    ));
+    overlay.open(({ isOpen, unmount }) => {
+      const handleClose = () => {
+        onExit?.();
+        unmount();
+      };
+
+      return (
+        <Modal
+          isOpen={isOpen}
+          location={location}
+          border={border ? border : 'none'}
+          onClose={handleClose}
+        >
+          {isValidElement(content)
+            ? cloneElement(content as ReactElement<{ onClose: () => void }>, {
+                onClose: handleClose,
+              })
+            : content}
+        </Modal>
+      );
+    });
   };
 
   return { openModal };
