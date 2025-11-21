@@ -8,6 +8,7 @@ import CapacityModalContent from './modal/CapacityModalContent';
 import CalendarModalContent from './modal/CalendarModalContent';
 import { CloseIcon } from '@/shared/assets/icons';
 import type { ChildrenProps, SpaceFilterValue } from '@/shared/types/common';
+import dayjs from 'dayjs';
 
 const FILTER_INFO = [
   { key: 'space', label: '공간', Component: SpaceModalContent },
@@ -86,7 +87,13 @@ const MainFilter = ({ children, filter, onFilterChange }: MainFilterProps) => {
             >
               {hasValue ? (
                 <div className={s.selected}>
-                  <span className={s.selectedValue}>{formatValue(filter[key])}</span>
+                  <span className={s.selectedValue}>
+                    {key === 'capacity'
+                      ? `${formatValue(filter[key])}명`
+                      : key === 'date'
+                        ? dayjs(formatValue(filter[key])).format('M월 D일')
+                        : formatValue(filter[key])}
+                  </span>
                   <CloseIcon onClick={(e) => handleReset(e, key)} />
                 </div>
               ) : (
