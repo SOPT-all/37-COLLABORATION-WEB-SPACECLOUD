@@ -32,14 +32,14 @@ export const buttonBase = recipe({
       locationFilter: {
         color: vars.color.grayscale.gray600,
         backgroundColor: vars.color.grayscale.gray100,
-        padding: `13px 20px`,
+        padding: `15px 89px`,
         borderRadius: vars.radius.r5,
       },
       // 지역 필터 모달이 활성화 시 사용하는 지역 필터 버튼 스타일입니다.
       locationFilterActive: {
         color: vars.color.grayscale.gray900,
         border: `2px solid ${vars.color.primary['300']}`,
-        padding: `13px 20px`,
+        padding: `15px 89px`,
         borderRadius: vars.radius.r5,
       },
       // 지역 필터에서 요소가 선택되었을 때 사용합니다.
@@ -47,7 +47,7 @@ export const buttonBase = recipe({
         color: vars.color.primary['300'],
         backgroundColor: vars.color.grayscale.gray100,
         border: `2px solid ${vars.color.primary['100']}`,
-        padding: `13px 20px`,
+        padding: `15px 89px`,
         borderRadius: vars.radius.r5,
       },
       // 지역 필터에 요소가 선택되어 있고, 모달이 활성화되었을 때 사용합니다.
@@ -55,7 +55,7 @@ export const buttonBase = recipe({
         color: vars.color.primary['300'],
         backgroundColor: vars.color.grayscale.gray100,
         border: `2px solid ${vars.color.primary['300']}`,
-        padding: `13px 20px`,
+        padding: `15px 89px`,
         borderRadius: vars.radius.r5,
       },
       // 공간 선택 버튼 스타일링에 사용합니다.
