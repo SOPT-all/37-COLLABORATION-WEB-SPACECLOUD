@@ -5,6 +5,7 @@ import { colorToken, radiusToken } from '@/shared/styles/tokens';
 export const card = recipe({
   base: {
     display: 'flex',
+    flex: '0 0 auto',
     overflow: 'hidden',
     borderRadius: radiusToken.r16,
     background: colorToken.grayscale.white,

@@ -1,8 +1,10 @@
+import { useEffect, useRef, useState } from 'react';
 import SubTitle from '@shared/ui/subTitle/SubTitle';
+import { LeftArrowButton, RightArrowButton } from '@shared/ui/arrowButton';
 import PlaceCard, { type PlaceCardProps } from './placeCard/PlaceCard';
 import * as s from './PlaceSection.css';
 
-type SubTitleVariants = 'small24' | 'small25' | 'large';
+type SubTitleVariants = 'small24' | 'large';
 
 interface PlaceSectionProps {
   title: string;
@@ -57,13 +59,69 @@ const PlaceSection = ({
   subtitleVariant = 'small24',
   places = mockPlaces,
 }: PlaceSectionProps) => {
+  const listRef = useRef<HTMLDivElement | null>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const updateArrowState = () => {
+    const listElement = listRef.current;
+    if (!listElement) return;
+
+    const { scrollLeft, scrollWidth, clientWidth } = listElement;
+    setCanScrollLeft(scrollLeft > 0);
+    setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 1);
+  };
+
+  useEffect(() => {
+    const listElement = listRef.current;
+    if (!listElement) return;
+
+    updateArrowState();
+    const handleScroll = () => updateArrowState();
+
+    listElement.addEventListener('scroll', handleScroll);
+    return () => {
+      listElement.removeEventListener('scroll', handleScroll);
+    };
+  }, [places.length, subtitleVariant]);
+
+  const handleScroll = (direction: 'left' | 'right') => {
+    const listElement = listRef.current;
+    if (!listElement) return;
+
+    const firstCard = listElement.firstElementChild as HTMLElement | null;
+    const cardWidth = firstCard?.getBoundingClientRect().width ?? 0;
+    const style = getComputedStyle(listElement);
+    const gapPx = parseFloat(style.columnGap || style.gap || '0') || 0;
+    const scrollAmount = cardWidth + gapPx;
+
+    listElement.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth',
+    });
+
+    window.requestAnimationFrame(updateArrowState);
+  };
+
   return (
     <section className={s.section}>
       <SubTitle variant={subtitleVariant}>{title}</SubTitle>
-      <div className={s.list}>
-        {places.map((place) => (
-          <PlaceCard key={place.id} {...place} />
-        ))}
+      <div className={`${s.carousel} ${s.carouselGap[subtitleVariant]}`}>
+        <LeftArrowButton
+          className={s.arrowLeft}
+          isActive={canScrollLeft}
+          onClick={() => handleScroll('left')}
+        />
+        <div className={`${s.list} ${s.listGap[subtitleVariant]}`} ref={listRef}>
+          {places.map((place) => (
+            <PlaceCard key={place.id} {...place} />
+          ))}
+        </div>
+        <RightArrowButton
+          className={s.arrowRight}
+          isActive={canScrollRight}
+          onClick={() => handleScroll('right')}
+        />
       </div>
     </section>
   );
