@@ -2,6 +2,7 @@ import type { ModalProps } from '@/shared/types/common';
 import { SPACE_ICON_MAP } from '@/shared/configs/space';
 import Button from '@/shared/ui/Button';
 import * as s from './SpaceModalContent.css';
+import type { FilterValue } from '../MainFilter';
 
 // api 응답값
 const dummy = {
@@ -118,7 +119,6 @@ const dummy = {
     },
   ],
 };
-
 type GroupType = keyof typeof dummy;
 
 const GROUP_LABEL = {
@@ -126,7 +126,17 @@ const GROUP_LABEL = {
   gathering: '모임 공간',
 };
 
-const SpaceModalContent = ({ onClose }: ModalProps) => {
+interface SpaceModalContentProps extends ModalProps {
+  value: FilterValue;
+}
+
+const SpaceModalContent = ({ onClose, /*value,*/ onChange }: SpaceModalContentProps) => {
+  // 버튼 클릭 시 상태 업데이트 및 모달 닫기
+  const handleClick = (code: string, name: string) => {
+    onChange?.({ code, name });
+    onClose?.();
+  };
+
   return (
     <div className={s.wrapper}>
       {Object.entries(dummy).map(([key, items]) => {
@@ -137,15 +147,18 @@ const SpaceModalContent = ({ onClose }: ModalProps) => {
             <div className={s.space}>
               {items.map((item) => {
                 const Icon = SPACE_ICON_MAP[item.code];
+                // const isSelected = value === item.code;
+
                 return (
                   <Button
                     key={item.code}
+                    // styleType={isSelected ? 'placeSelected' : 'places'}
                     styleType='places'
                     width='auto'
                     gap='g4'
                     justify='start'
                     font='body_m_16'
-                    onClick={onClose}
+                    onClick={() => handleClick(item.code, item.name)}
                   >
                     <Icon className={s.icon} width={18} height={18} />
                     <span className={s.label}>{item.name}</span>
