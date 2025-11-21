@@ -1,21 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import dayjs from 'dayjs';
 import Calendar from 'react-calendar';
 import Button from '@/shared/ui/Button';
 import * as s from './CalendarModalContent.css';
 import type { ModalProps } from '@/shared/types/common';
 
-const CalendarModalContent = ({ onClose }: ModalProps) => {
+const CalendarModalContent = ({ onClose, onChange }: ModalProps) => {
   const [date, setDate] = useState<Date | null>(null);
+
   const handleDateChange = (newDate: Date) => {
     setDate(newDate);
-    const formatDate = dayjs(newDate).format('YYYY-MM-DD');
-    console.log(formatDate);
+  };
+  const handleClick = (value: string) => {
+    onChange?.(value);
+    onClose?.();
   };
 
-  useEffect(() => {
-    console.log(date);
-  }, [date]);
   return (
     <div className={s.wrapper}>
       <div className={s.calendarWrapper}>
@@ -31,7 +31,11 @@ const CalendarModalContent = ({ onClose }: ModalProps) => {
           minDetail='year'
         />
       </div>
-      <Button styleType='cta' font='body_sb_16' onClick={onClose}>
+      <Button
+        styleType='cta'
+        font='body_sb_16'
+        onClick={() => handleClick(dayjs(date).format('YYYY-MM-DD'))}
+      >
         날짜 적용하기
       </Button>
     </div>
