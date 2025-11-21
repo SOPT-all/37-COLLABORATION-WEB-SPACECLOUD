@@ -5,3 +5,13 @@ export { default as SquareChatIcon } from './ic-squarechat.svg?react';
 export { default as StarIcon } from './ic-star.svg?react';
 export { default as InfoIcon } from './ic-info.svg?react';
 export { default as NewBadge } from './ic-new-badge.svg?react';
+export { default as ChatIcon } from './ic-chat.svg?react';
+export { default as MenuIcon } from './ic-menu.svg?react'
+export { default as SearchIcon } from './ic-search.svg?react';
+export { default as DividerIcon } from './ic-divider.svg?react';
+export { default as ArrowRightGrayIcon } from './ic-arrow-right-gray.svg?react';
+export { default as ChatbotIcon } from './ic-chatbot.svg?react';
+export { default as ArrowRightIcon } from './ic-arrow-right.svg?react';
+export { default as ArrowLeftIcon } from './ic-arrow-left.svg?react';
+export { default as ArrowDownIcon } from './ic-arrow-down.svg?react';
+export { default as ArrowUpIcon } from './ic-arrow-up.svg?react';
