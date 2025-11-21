@@ -2,31 +2,23 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import Button from '@/shared/ui/Button';
 import { ArrowRightIcon } from '@/shared/assets/icons';
-import { AREA_FILTERS } from '@/shared/configs/region';
-import type { ModalProps } from '@/shared/types/common';
+import { AREA_FILTERS, REGIONS } from '@/shared/configs/region';
 import * as s from './RegionModalContent.css';
 import { vars } from '@/shared/styles/token.css';
+import type { FilterValue } from '../MainFilter';
+import type { ModalProps } from '@/shared/types/common';
 
-const regions = [
-  { key: 'Seoul', label: '서울', isActive: true },
-  { key: 'Gyeonggi', label: '경기', isActive: false },
-  { key: 'Incheon', label: '인천', isActive: false },
-  { key: 'Busan', label: '부산', isActive: false },
-  { key: 'Gwangju', label: '광주', isActive: false },
-  { key: 'Daegu', label: '대구', isActive: false },
-  { key: 'Daejeon', label: '대전', isActive: false },
-  { key: 'Ulsan', label: '울산', isActive: false },
-  { key: 'Jeju', label: '제주', isActive: false },
-  { key: 'Gangwon', label: '강원', isActive: false },
-  { key: 'Gyeongnam', label: '경남', isActive: false },
-  { key: 'Gyeongbuk', label: '경북', isActive: false },
-  { key: 'Jeonla', label: '전남/전북', isActive: false },
-  { key: 'ChungBuk', label: '충북', isActive: false },
-  { key: 'ChungnamAndSejong', label: '충남/세종', isActive: false },
-];
+interface RegionModalContentProps extends ModalProps {
+  value?: FilterValue;
+}
 
-const RegionModalContent = ({ onClose }: ModalProps) => {
-  const [showArea, setShowArea] = useState(false);
+const RegionModalContent = ({ onClose, onChange, value }: RegionModalContentProps) => {
+  const [showArea, setShowArea] = useState(!!value);
+
+  const handleClick = (key: string | null, content: string) => {
+    onChange?.({ key, content });
+    onClose?.();
+  };
 
   return (
     <div className={s.wrapper}>
@@ -43,7 +35,7 @@ const RegionModalContent = ({ onClose }: ModalProps) => {
 
       {!showArea && (
         <div className={s.regionGrid}>
-          {regions.map((region) => (
+          {REGIONS.map((region) => (
             <Button
               key={region.key}
               styleType='location'
@@ -67,7 +59,7 @@ const RegionModalContent = ({ onClose }: ModalProps) => {
               width='min'
               gap='g4'
               font='body_m_14'
-              onClick={onClose}
+              onClick={() => handleClick(area.key, area.label)}
             >
               <span className={s.areaLabel}>{area.label}</span>
             </Button>
