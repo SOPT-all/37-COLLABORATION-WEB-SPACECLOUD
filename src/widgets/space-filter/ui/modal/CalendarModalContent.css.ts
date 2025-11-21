@@ -118,7 +118,7 @@ globalStyle(`${wrapper} .react-calendar__tile--now::after`, {
   top: '50%',
   left: '50%',
   width: 30,
-  height: 30,
+  height: 32,
   border: `1px solid ${vars.color.primary[200]}`,
   borderRadius: '50%',
   transform: 'translate(-50%, -50%)',
@@ -136,7 +136,7 @@ globalStyle(`${wrapper} .react-calendar__month-view__days__day`, {
 // 날짜 크기 제어
 globalStyle(`${wrapper} .react-calendar__month-view__days__day abbr`, {
   width: 30,
-  height: 30,
+  height: 32,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -153,8 +153,8 @@ globalStyle(`${wrapper} .react-calendar__tile--active abbr`, {
   justifyContent: 'center',
   alignItems: 'center',
   width: 30,
-  height: 30,
-  backgroundColor: vars.color.primary[50],
-  border: `1px solid ${vars.color.primary[200]}`,
+  height: 32,
+  color: vars.color.grayscale.white,
+  backgroundColor: vars.color.primary[200],
   borderRadius: '50%',
 });
