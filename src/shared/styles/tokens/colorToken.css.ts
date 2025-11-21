@@ -18,6 +18,7 @@ export const colorToken = {
     gray900: '#333333',
     gray800: '#656565',
     gray700: '#767676',
+    gray70050: '#76767680',
     gray600: '#949494',
     gray500: '#B3B3B3',
     gray400: '#C5C5C5',

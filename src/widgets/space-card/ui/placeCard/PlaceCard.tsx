@@ -39,11 +39,7 @@ const PlaceCard = ({
       image={
         <>
           {coupon && (
-            <Chip
-              className={s.couponBadge}
-              role='status'
-              aria-label='쿠폰할인'
-            >
+            <Chip className={s.couponBadge} role='status' aria-label='쿠폰할인'>
               쿠폰할인
             </Chip>
           )}
