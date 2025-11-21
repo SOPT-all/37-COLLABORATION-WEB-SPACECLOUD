@@ -89,11 +89,16 @@ export const buttonBase = recipe({
           color: vars.color.primary[200],
         },
       },
+      // 인원수 카운터 버튼 스타일링에 사용합니다.
+      counter: {
+        padding: `${vars.space.s12} ${vars.space.s14}`,
+      },
       // 인원수 적용하기, 상세 필터 적용하기 버튼 스타일링에 사용합니다.
       cta: {
         backgroundColor: vars.color.primary['200'],
         color: vars.color.grayscale.white,
         padding: '16px 16px',
+        borderRadius: vars.radius.r50,
       },
       dataFilter: {
         backgroundColor: 'transparent',
