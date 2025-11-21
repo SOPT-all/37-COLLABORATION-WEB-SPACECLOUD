@@ -1,14 +1,8 @@
-import { createTheme } from '@vanilla-extract/css';
+import { createGlobalTheme } from '@vanilla-extract/css';
 import { vars } from '@shared/styles/token.css.ts';
-import {
-  colorToken,
-  fontToken,
-  layoutToken,
-  radiusToken,
-  spaceToken,
-} from "@shared/styles/tokens";
+import { colorToken, fontToken, layoutToken, radiusToken, spaceToken } from '@shared/styles/tokens';
 
-export const theme = createTheme(vars, {
+createGlobalTheme(':root', vars, {
   color: colorToken,
   space: spaceToken,
   radius: radiusToken,
