@@ -37,7 +37,7 @@ const MainFilter = ({ children, filter, onFilterChange }: MainFilterProps) => {
     onFilterChange(key, null);
   };
 
-  const getStyleType = (key: FilterKey, hasValue: boolean, isOpen: boolean) => {
+  const getStyleType = (hasValue: boolean, isOpen: boolean) => {
     if (!hasValue && !isOpen) return 'mainFilter'; // 값 X, 닫힘
     if (!hasValue && isOpen) return 'mainFilterActive'; // 값 X, 열림
     if (hasValue && !isOpen) return 'mainFilterSelected'; // 값 0, 닫힘
@@ -48,7 +48,7 @@ const MainFilter = ({ children, filter, onFilterChange }: MainFilterProps) => {
   const formatValue = (value: FilterValue) => {
     if (!value) return '';
     if (typeof value === 'object') {
-      return value.name;
+      return value.content;
     }
     return value;
   };
@@ -64,7 +64,7 @@ const MainFilter = ({ children, filter, onFilterChange }: MainFilterProps) => {
           return (
             <Button
               key={key}
-              styleType={getStyleType(key, hasValue, isOpen)}
+              styleType={getStyleType(hasValue, isOpen)}
               font='body_m_18'
               width='filter'
               isOpen={isOpen}
@@ -86,7 +86,7 @@ const MainFilter = ({ children, filter, onFilterChange }: MainFilterProps) => {
             >
               {hasValue ? (
                 <div className={s.selected}>
-                  <span>{formatValue(filter[key])}</span>
+                  <span className={s.selectedValue}>{formatValue(filter[key])}</span>
                   <CloseIcon onClick={(e) => handleReset(e, key)} />
                 </div>
               ) : (

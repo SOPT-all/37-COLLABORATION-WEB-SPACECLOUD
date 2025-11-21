@@ -17,3 +17,12 @@ export const selected = style({
   justifyContent: 'space-between',
   alignItems: 'center',
 });
+
+export const selectedValue = style({
+  width: '143px',
+  textAlign: 'left',
+  display: 'block',
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+});
