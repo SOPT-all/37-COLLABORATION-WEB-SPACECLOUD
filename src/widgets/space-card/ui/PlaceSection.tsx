@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
-import SubTitle from '@shared/ui/subTitle/SubTitle';
+import SubTitle, { type SubTitleVariant } from '@shared/ui/subTitle/SubTitle';
 import { LeftArrowButton, RightArrowButton } from '@shared/ui/arrowButton';
 import PlaceCard, { type PlaceCardProps } from './placeCard/PlaceCard';
 import * as s from './PlaceSection.css';
 
-type SubTitleVariants = 'small24' | 'large';
+type PlaceSubTitleVariant = Extract<SubTitleVariant, 'small24' | 'large'>;
 
 interface PlaceSectionProps {
   title: string;
-  subtitleVariant?: SubTitleVariants;
+  subtitleVariant?: PlaceSubTitleVariant;
   places?: PlaceCardProps[];
 }
 
@@ -111,6 +111,7 @@ const PlaceSection = ({
           className={s.arrowLeft}
           isActive={canScrollLeft}
           onClick={() => handleScroll('left')}
+          aria-label='이전 장소 카드 보기'
         />
         <div className={`${s.list} ${s.listGap[subtitleVariant]}`} ref={listRef}>
           {places.map((place) => (
@@ -121,6 +122,7 @@ const PlaceSection = ({
           className={s.arrowRight}
           isActive={canScrollRight}
           onClick={() => handleScroll('right')}
+          aria-label='다음 장소 카드 보기'
         />
       </div>
     </section>

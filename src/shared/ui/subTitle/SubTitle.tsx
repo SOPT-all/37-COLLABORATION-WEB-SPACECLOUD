@@ -11,7 +11,7 @@ import {
   titleRow,
 } from './SubTitle.css';
 
-type SubTitleVariant = NonNullable<Parameters<typeof subTitle>[0]>['variant'];
+export type SubTitleVariant = NonNullable<Parameters<typeof subTitle>[0]>['variant'];
 type IconGap = NonNullable<Parameters<typeof titleRow>[0]>['iconGap'];
 
 interface SubTitleProps extends ComponentPropsWithoutRef<'h2'> {
