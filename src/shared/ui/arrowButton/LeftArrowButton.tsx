@@ -11,6 +11,7 @@ const LeftArrowButton = ({
   isActive = true,
   onClick,
   className,
+  disabled,
   ...rest
 }: LeftArrowButtonProps) => {
   return (
@@ -19,7 +20,7 @@ const LeftArrowButton = ({
       onClick={onClick}
       type='button'
       aria-label='왼쪽으로 이동'
-      disabled={!isActive || rest.disabled}
+      disabled={disabled ?? !isActive}
       {...rest}
     >
       <ArrowLeftIcon />

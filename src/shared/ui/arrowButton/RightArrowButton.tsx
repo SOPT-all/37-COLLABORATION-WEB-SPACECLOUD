@@ -11,6 +11,7 @@ const RightArrowButton = ({
   isActive = true,
   onClick,
   className,
+  disabled,
   ...rest
 }: RightArrowButtonProps) => {
   return (
@@ -18,7 +19,7 @@ const RightArrowButton = ({
       className={clsx(s.buttonContainer, className)}
       type='button'
       onClick={onClick}
-      disabled={!isActive || rest.disabled}
+      disabled={disabled ?? !isActive}
       aria-label='오른쪽으로 이동'
       {...rest}
     >
