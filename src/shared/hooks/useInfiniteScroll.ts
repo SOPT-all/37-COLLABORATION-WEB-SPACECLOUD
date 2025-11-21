@@ -1,14 +1,16 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-// initialCount: 처음에 몇 개까지 보여줄지
-// batchSize: 한 번에 추가로 보여줄 카드 개수
 interface UseInfiniteScrollOptions {
+  // 처음에 몇 개까지 보여줄지
   initialCount: number;
+  // 한 번에 추가로 보여줄 카드 개수
   batchSize: number;
+  // 처음부터 무한 스크롤 시작할지
+  startInfiniteMode?: boolean;
 }
 
 export const useInfiniteScroll = (total: number, options?: UseInfiniteScrollOptions) => {
-  const { initialCount = 4, batchSize = 4 } = options ?? {};
+  const { initialCount = 4, batchSize = 4, startInfiniteMode = false } = options ?? {};
 
   const dataKey = `${initialCount}-${total}`;
 
@@ -16,17 +18,19 @@ export const useInfiniteScroll = (total: number, options?: UseInfiniteScrollOpti
     key: dataKey,
     value: initialCount,
   }));
-  const [infiniteModeKey, setInfiniteModeKey] = useState<string | null>(null);
+  const [infiniteModeKey, setInfiniteModeKey] = useState<string | null>(() =>
+    startInfiniteMode ? dataKey : null,
+  );
   const sentinelRef = useRef<HTMLDivElement | null>(null);
 
   const currentVisibleCount = visibleState.key === dataKey ? visibleState.value : initialCount;
-  const isInfiniteMode = infiniteModeKey === dataKey;
+  const isInfiniteMode = startInfiniteMode || infiniteModeKey === dataKey;
 
   const clampedVisibleCount = Math.min(currentVisibleCount, total);
   const hasMore = clampedVisibleCount < total;
   const initialVisibleCount = Math.min(initialCount, total);
 
-  const bumpVisibleCount = useCallback(
+  const loadMore = useCallback(
     (count: number) => {
       setVisibleState((prev) => {
         const base = prev.key === dataKey ? prev.value : initialCount;
@@ -50,21 +54,21 @@ export const useInfiniteScroll = (total: number, options?: UseInfiniteScrollOpti
         const entry = entries[0];
         if (!entry.isIntersecting) return;
 
-        bumpVisibleCount(batchSize);
+        loadMore(batchSize);
       },
       { rootMargin: '100px 0px' },
     );
 
     observer.observe(sentinel);
     return () => observer.disconnect();
-  }, [batchSize, bumpVisibleCount, hasMore, isInfiniteMode]);
+  }, [batchSize, loadMore, hasMore, isInfiniteMode]);
 
   // 맨 처음에만 더보기 버튼 보여주기
   const showMoreButton = initialVisibleCount < total && !isInfiniteMode;
 
   const startInfiniteScroll = () => {
     setInfiniteModeKey(dataKey);
-    bumpVisibleCount(batchSize);
+    loadMore(batchSize);
   };
 
   return {
