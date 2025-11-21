@@ -1,3 +1,21 @@
+export const REGIONS = [
+  { key: 'Seoul', label: '서울', isActive: true },
+  { key: 'Gyeonggi', label: '경기', isActive: false },
+  { key: 'Incheon', label: '인천', isActive: false },
+  { key: 'Busan', label: '부산', isActive: false },
+  { key: 'Gwangju', label: '광주', isActive: false },
+  { key: 'Daegu', label: '대구', isActive: false },
+  { key: 'Daejeon', label: '대전', isActive: false },
+  { key: 'Ulsan', label: '울산', isActive: false },
+  { key: 'Jeju', label: '제주', isActive: false },
+  { key: 'Gangwon', label: '강원', isActive: false },
+  { key: 'Gyeongnam', label: '경남', isActive: false },
+  { key: 'Gyeongbuk', label: '경북', isActive: false },
+  { key: 'Jeonla', label: '전남/전북', isActive: false },
+  { key: 'ChungBuk', label: '충북', isActive: false },
+  { key: 'ChungnamAndSejong', label: '충남/세종', isActive: false },
+];
+
 export const AREA_FILTERS = [
   { key: null, label: '서울 전체' },
   { key: 'HONGDAE_HAPJEONG_SANGSU_YEONNAM', label: '홍대·합정·상수·연남' },
