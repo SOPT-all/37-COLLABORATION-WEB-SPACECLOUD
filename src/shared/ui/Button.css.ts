@@ -29,33 +29,33 @@ export const buttonBase = recipe({
         },
       },
       // 지역 필터 버튼 스타일링에 사용합니다.
-      locationFilter: {
+      mainFilter: {
         color: vars.color.grayscale.gray600,
         backgroundColor: vars.color.grayscale.gray100,
-        padding: `15px 89px`,
+        padding: `15px 0`,
         borderRadius: vars.radius.r5,
       },
       // 지역 필터 모달이 활성화 시 사용하는 지역 필터 버튼 스타일입니다.
-      locationFilterActive: {
+      mainFilterActive: {
         color: vars.color.grayscale.gray900,
         border: `2px solid ${vars.color.primary['300']}`,
-        padding: `15px 89px`,
+        padding: `11px 0`,
         borderRadius: vars.radius.r5,
       },
       // 지역 필터에서 요소가 선택되었을 때 사용합니다.
-      locationFilterSelected: {
+      mainFilterSelected: {
         color: vars.color.primary['300'],
         backgroundColor: vars.color.grayscale.gray100,
         border: `2px solid ${vars.color.primary['100']}`,
-        padding: `15px 89px`,
+        padding: `11px 0`,
         borderRadius: vars.radius.r5,
       },
       // 지역 필터에 요소가 선택되어 있고, 모달이 활성화되었을 때 사용합니다.
-      locationFilterSelectedActive: {
+      mainFilterSelectedActive: {
         color: vars.color.primary['300'],
         backgroundColor: vars.color.grayscale.gray100,
         border: `2px solid ${vars.color.primary['300']}`,
-        padding: `15px 89px`,
+        padding: `11px 0`,
         borderRadius: vars.radius.r5,
       },
       // 공간 선택 버튼 스타일링에 사용합니다.
@@ -118,6 +118,7 @@ export const buttonBase = recipe({
       full: { width: '100%' },
       auto: { width: 'auto' },
       min: { width: 'min-content' },
+      filter: { width: '210px' },
     },
     gap: {
       none: {},
@@ -131,10 +132,18 @@ export const buttonBase = recipe({
       end: { justifyContent: 'flex-end' },
       between: { justifyContent: 'space-between' },
     },
+    // 모달이 열린 버튼에만 zIndex를 추가합니다.
+    isOpen: {
+      true: {
+        zIndex: 1,
+      },
+      false: {},
+    },
   },
   defaultVariants: {
     width: 'full',
     gap: 'none',
+    isOpen: false,
   },
 });
 
