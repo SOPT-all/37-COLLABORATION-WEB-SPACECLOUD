@@ -1,4 +1,3 @@
-// Modal.css.ts
 import { style } from '@vanilla-extract/css';
 import { colorToken, radiusToken } from '@shared/styles/tokens';
 import { recipe } from '@vanilla-extract/recipes';
