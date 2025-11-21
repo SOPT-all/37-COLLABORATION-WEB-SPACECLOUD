@@ -13,8 +13,8 @@ export const carousel = style({
 
 export const carouselGap = styleVariants(
   {
-    small24: spaceToken.s32,
-    large: spaceToken.s26,
+    small24: spaceToken.s20,
+    large: spaceToken.s16,
   },
   (gap) => ({
     width: `calc(36.2rem * 3 + ${gap} * 2)`,
@@ -30,8 +30,8 @@ export const list = style({
 
 export const listGap = styleVariants(
   {
-    small24: spaceToken.s32,
-    large: spaceToken.s26,
+    small24: spaceToken.s20,
+    large: spaceToken.s16,
   },
   (gap) => ({
     gap,
