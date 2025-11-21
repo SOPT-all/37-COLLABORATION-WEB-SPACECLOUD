@@ -1,6 +1,7 @@
 import * as s from './Footer.css';
-import { DividerIcon, ArrowRightGrayIcon } from '@/shared/assets/icons';
+import { DividerIcon, ArrowRightIcon } from '@/shared/assets/icons';
 import Logo2 from '@shared/assets/images/img-logo2.png';
+import { vars } from '@/shared/styles/token.css';
 
 const FOOTER_TOP_MENU = [
   { id: 1, label: '배너 광고 문의' },
@@ -56,8 +57,13 @@ const Footer = () => {
             </span>
           ))}
           <div className={s.arrowContent}>
-            <p>사업자등록정보</p>
-            <ArrowRightGrayIcon />
+            <p className={s.padding}>사업자등록정보</p>
+            <ArrowRightIcon
+              width={7}
+              height={12}
+              stroke={vars.color.grayscale.gray600}
+              strokeWidth={1.3}
+            />
           </div>
         </div>
 

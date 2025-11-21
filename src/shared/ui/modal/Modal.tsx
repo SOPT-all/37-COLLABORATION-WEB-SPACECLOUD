@@ -2,9 +2,12 @@ import { type CSSProperties, useEffect, useRef } from 'react';
 import type { ChildrenProps, ModalProps } from '@shared/types/common.ts';
 import * as s from './Modal.css.ts';
 
-interface Props extends ChildrenProps, ModalProps {
-  location?: CSSProperties;
+type Border = PartialVariants<typeof s.content> & {
   border: 'none' | 'gray300';
+};
+  
+interface Props extends ChildrenProps, ModalProps, Border {
+  location?: CSSProperties;
 }
 
 export const Modal = ({ isOpen, onClose, children, location, border }: Props) => {

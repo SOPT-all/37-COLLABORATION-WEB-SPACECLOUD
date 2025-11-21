@@ -71,6 +71,23 @@ export const buttonBase = recipe({
         color: vars.color.grayscale.gray800,
         border: `1px solid ${vars.color.grayscale.gray300}`,
         padding: `12px 22px`,
+
+        ':hover': {
+          backgroundColor: vars.color.primary[50],
+          color: vars.color.primary[200],
+          border: `1px solid ${vars.color.primary[200]}`,
+        },
+      },
+      // 위치 세부 필터 버튼 스타일링에 사용합니다.
+      area: {
+        backgroundColor: vars.color.grayscale.white,
+        color: vars.color.grayscale.gray900,
+        padding: `12px`,
+
+        ':hover': {
+          backgroundColor: vars.color.primary[50],
+          color: vars.color.primary[200],
+        },
       },
       // 인원수 적용하기, 상세 필터 적용하기 버튼 스타일링에 사용합니다.
       cta: {

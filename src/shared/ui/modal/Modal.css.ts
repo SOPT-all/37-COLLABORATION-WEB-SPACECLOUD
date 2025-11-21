@@ -13,7 +13,7 @@ export const dialog = style({
 
 export const content = recipe({
   base: {
-    backgroundColor: '#ffffff',
+    backgroundColor: colorToken.grayscale.white,
     width: 'fit-content',
     height: 'fit-content',
     maxWidth: '69dvw',

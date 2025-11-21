@@ -1,6 +1,7 @@
 import { style } from '@vanilla-extract/css';
 import { colorToken, spaceToken } from '@/shared/styles/tokens';
 import { typography } from '@/shared/styles/typography.css';
+import { vars } from '@/shared/styles/token.css';
 
 export const container = style({
   backgroundColor: colorToken.grayscale.gray300,
@@ -53,4 +54,8 @@ export const bottomContainer = style({
 export const arrowContent = style({
   display: 'flex',
   alignItems: 'center',
+});
+
+export const padding = style({
+  paddingRight: vars.space.s6,
 });
