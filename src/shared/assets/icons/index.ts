@@ -3,6 +3,8 @@ export { default as LocationIcon } from './ic-location.svg?react';
 export { default as PeopleIcon } from './ic-people.svg?react';
 export { default as SquareChatIcon } from './ic-squarechat.svg?react';
 export { default as StarIcon } from './ic-star.svg?react';
+export { default as InfoIcon } from './ic-info.svg?react';
+export { default as NewBadge } from './ic-new-badge.svg?react';
 export { default as ResetIcon } from './ic-reset.svg?react';
 export { default as ChatIcon } from './ic-chat.svg?react';
 export { default as MenuIcon } from './ic-menu.svg?react';

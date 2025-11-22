@@ -5,7 +5,7 @@ import { CardLayout, cardImage as cardLayoutImage } from '@/shared/ui/cardLayout
 import { Chip } from '@/shared/ui/chip';
 import * as s from './PlaceCard.css';
 
-interface PlaceCardProps {
+export interface PlaceCardProps {
   id: number;
   name: string;
   capacity: number;

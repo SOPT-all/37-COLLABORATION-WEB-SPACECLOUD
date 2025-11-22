@@ -11,4 +11,12 @@ export const buttonContainer = style({
   alignItems: 'center',
   cursor: 'pointer',
   backgroundColor: colorToken.grayscale.white,
+  selectors: {
+    '&:disabled': {
+      cursor: 'not-allowed',
+      opacity: 0.5,
+      pointerEvents: 'none',
+      boxShadow: 'none',
+    },
+  },
 });
