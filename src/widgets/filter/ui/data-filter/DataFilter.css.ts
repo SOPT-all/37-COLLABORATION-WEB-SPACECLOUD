@@ -34,7 +34,6 @@ export const wrapper = styleVariants({
   form: {
     display: 'flex',
     flexDirection: 'column',
-    paddingTop: `${vars.space.s12}`,
     maxWidth: '58.4rem',
   },
   priceUnit: {
@@ -50,13 +49,13 @@ export const section = recipe({
     flexDirection: 'column',
     paddingLeft: vars.space.s38,
     paddingRight: vars.space.s38,
+    paddingTop: vars.space.s24,
   },
 
   variants: {
     gap: {
       tight: { gap: vars.space.s12 },
       normal: { gap: vars.space.s20 },
-      loose: { gap: vars.space.s24 },
     },
     paddingY: {
       tight: { paddingTop: vars.space.s12, paddingBottom: vars.space.s20 },
