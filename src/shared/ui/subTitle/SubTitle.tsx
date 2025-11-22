@@ -35,7 +35,7 @@ const SubTitle = ({ children, variant, iconGap = 'wide', ...rest }: SubTitleProp
       {isLarge ? (
         <span className={titleRow({ iconGap })}>
           <span>{children}</span>
-          <span className={adBadge()}>
+          <span className={adBadge}>
             <InfoIcon className={adIcon} />
             <span className={adLabel}>광고</span>
           </span>

@@ -12,11 +12,7 @@ interface PlaceSectionProps {
   places: PlaceCardProps[];
 }
 
-const PlaceSection = ({
-  title,
-  subtitleVariant = 'small24',
-  places,
-}: PlaceSectionProps) => {
+const PlaceSection = ({ title, subtitleVariant = 'small24', places }: PlaceSectionProps) => {
   const listRef = useRef<HTMLDivElement | null>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -41,7 +37,7 @@ const PlaceSection = ({
     return () => {
       listElement.removeEventListener('scroll', handleScroll);
     };
-  }, [places.length, subtitleVariant]);
+  }, [places.length]);
 
   const handleScroll = (direction: 'left' | 'right') => {
     const listElement = listRef.current;

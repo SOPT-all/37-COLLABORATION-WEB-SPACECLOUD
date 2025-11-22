@@ -74,13 +74,11 @@ export const newBadgeIcon = style({
   height: '2.3rem',
 });
 
-export const adBadge = recipe({
-  base: {
-    display: 'inline-flex',
-    alignItems: 'flex-end',
-    gap: spaceToken.s4,
-    color: colorToken.grayscale.gray900,
-  },
+export const adBadge = style({
+  display: 'inline-flex',
+  alignItems: 'flex-end',
+  gap: spaceToken.s4,
+  color: colorToken.grayscale.gray900,
 });
 
 export const adIcon = style({
