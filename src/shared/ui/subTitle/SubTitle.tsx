@@ -15,36 +15,43 @@ export type SubTitleVariant = NonNullable<Parameters<typeof subTitle>[0]>['varia
 type IconGap = NonNullable<Parameters<typeof titleRow>[0]>['iconGap'];
 
 interface SubTitleProps extends ComponentPropsWithoutRef<'h2'> {
-  children: ReactNode;
   variant?: SubTitleVariant;
+}
+
+interface SubTitleWithAdBadgeProps {
+  children: ReactNode;
   iconGap?: IconGap;
 }
 
-const SubTitle = ({ children, variant, iconGap = 'wide', ...rest }: SubTitleProps) => {
-  const isLarge = variant === 'large';
-  const isSmall25 = variant === 'small25';
+const SubTitleRoot = ({ children, variant = 'small24', ...rest }: SubTitleProps) => (
+  <h2 className={subTitle({ variant })} {...rest}>
+    {children}
+  </h2>
+);
 
-  return (
-    <h2 className={subTitle({ variant })} {...rest}>
-      {isSmall25 ? (
-        <span className={newBadgeRow}>
-          <span className={newBadgeTitle}>{children}</span>
-          <NewBadge className={newBadgeIcon} />
-        </span>
-      ) : null}
-      {isLarge ? (
-        <span className={titleRow({ iconGap })}>
-          <span>{children}</span>
-          <span className={adBadge}>
-            <InfoIcon className={adIcon} />
-            <span className={adLabel}>광고</span>
-          </span>
-        </span>
-      ) : !isSmall25 ? (
-        children
-      ) : null}
-    </h2>
-  );
+const SubTitleWithNewBadge = ({ children }: { children: ReactNode }) => (
+  <span className={newBadgeRow}>
+    <span className={newBadgeTitle}>{children}</span>
+    <NewBadge className={newBadgeIcon} />
+  </span>
+);
+
+const SubTitleWithAdBadge = ({ children, iconGap = 'wide' }: SubTitleWithAdBadgeProps) => (
+  <span className={titleRow({ iconGap })}>
+    <span>{children}</span>
+    <span className={adBadge}>
+      <InfoIcon className={adIcon} />
+      <span className={adLabel}>광고</span>
+    </span>
+  </span>
+);
+
+const SubTitle = Object.assign(SubTitleRoot, {
+  NewBadge: SubTitleWithNewBadge,
+  AdBadge: SubTitleWithAdBadge,
+}) as typeof SubTitleRoot & {
+  NewBadge: typeof SubTitleWithNewBadge;
+  AdBadge: typeof SubTitleWithAdBadge;
 };
 
 export default SubTitle;
