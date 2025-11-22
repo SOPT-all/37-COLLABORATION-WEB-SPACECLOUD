@@ -56,6 +56,7 @@ export const section = recipe({
     gap: {
       tight: { gap: vars.space.s12 },
       normal: { gap: vars.space.s20 },
+      loose: { gap: vars.space.s24 },
     },
     paddingY: {
       tight: { paddingTop: vars.space.s12, paddingBottom: vars.space.s20 },
