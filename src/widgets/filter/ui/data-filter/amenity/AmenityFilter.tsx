@@ -26,9 +26,9 @@ type AmenityFilterRowProps = {
 
 const AmenityFilterRow = ({ heading, value }: AmenityFilterRowProps) => {
   return (
-    <div key={heading}>
+    <div>
       <h4 className={S.label.subHeading}>{AMENITY_CATEGORY_LABEL[heading]}</h4>
-      <ul style={{ display: 'flex', gap: '10px', padding: 0, flexWrap: 'wrap' }}>
+      <ul className={AS.amenityList}>
         {value.map((item) => (
           <li key={item.amenity} style={{ width: 'fit-content', listStyle: 'none' }}>
             <span className={clsx(AS.amenityItemBase({ active: false }), typography.body_m_14)}>

@@ -1,5 +1,6 @@
 import { recipe } from '@vanilla-extract/recipes';
 import { vars } from '@shared/styles/token.css.ts';
+import { style } from '@vanilla-extract/css';
 
 export const amenityItemBase = recipe({
   base: {
@@ -29,3 +30,5 @@ export const amenityItemBase = recipe({
     active: false,
   },
 });
+
+export const amenityList = style({ display: 'flex', gap: '10px', padding: 0, flexWrap: 'wrap' });
