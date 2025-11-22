@@ -1,6 +1,8 @@
 import { style, styleVariants } from '@vanilla-extract/css';
 import { spaceToken } from '@/shared/styles/tokens';
 
+const shadowPadding = spaceToken.s10;
+
 export const section = style({
   display: 'flex',
   flexDirection: 'column',
@@ -24,12 +26,17 @@ export const carouselGap = styleVariants(
 export const list = style({
   display: 'flex',
   flexWrap: 'nowrap',
-  width: '100%',
-  overflowX: 'hidden',
-  paddingTop: spaceToken.s10,
-  paddingBottom: spaceToken.s10,
-  marginTop: `-${spaceToken.s10}`,
-  marginBottom: `-${spaceToken.s10}`,
+  overflowX: 'auto',
+  overflowY: 'visible',
+  boxSizing: 'border-box',
+  padding: shadowPadding,
+  margin: `-${shadowPadding}`,
+  width: `calc(100% + ${shadowPadding} * 2)`,
+  scrollbarWidth: 'none',
+  msOverflowStyle: 'none',
+  selectors: {
+    '&::-webkit-scrollbar': { display: 'none' },
+  },
 });
 
 export const listGap = styleVariants(
