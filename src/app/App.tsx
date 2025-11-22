@@ -1,15 +1,17 @@
 import './styles/reset.css.ts';
 import './styles/global.css.ts';
-import { AppRouterProvider, AppThemeProvider } from './providers';
+import './styles/theme.css.ts';
+import { AppRouterProvider } from './providers';
 import { OverlayProvider } from 'overlay-kit';
+import { QueryProvider } from '@app/providers/QueryProvider.tsx';
 
 function App() {
   return (
-    <AppThemeProvider>
+    <QueryProvider>
       <OverlayProvider>
         <AppRouterProvider />
       </OverlayProvider>
-    </AppThemeProvider>
+    </QueryProvider>
   );
 }
 

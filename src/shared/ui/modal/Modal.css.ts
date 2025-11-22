@@ -1,17 +1,14 @@
 import { style } from '@vanilla-extract/css';
+import { colorToken, radiusToken } from '@shared/styles/tokens';
 import { recipe } from '@vanilla-extract/recipes';
-import { radiusToken, colorToken } from '@/shared/styles/tokens';
 
-export const overlay = style({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  backgroundColor: colorToken.opacity.dim,
+export const dialog = style({
+  border: 'none',
+  padding: 0,
+  background: 'transparent',
+  '::backdrop': {
+    backgroundColor: colorToken.opacity.dim,
+  },
 });
 
 export const content = recipe({

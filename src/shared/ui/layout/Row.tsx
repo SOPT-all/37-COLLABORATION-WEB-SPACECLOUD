@@ -1,6 +1,6 @@
 import type { ChildrenProps } from '@shared/types/common.ts';
 import type { PartialVariants } from '@shared/types/variants.ts';
-import { rowBase } from '@shared/ui/Row.css.ts';
+import { rowBase } from '@shared/ui/layout/Row.css.ts';
 import clsx from 'clsx';
 
 type RowProps = ChildrenProps &
