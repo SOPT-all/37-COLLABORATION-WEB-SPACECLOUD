@@ -16,6 +16,8 @@ globalStyle('body', {
   fontFamily: vars.font.family.pretendard,
   fontSize: vars.font.size.s16,
   fontWeight: vars.font.weight.medium,
+  lineHeight: vars.font.lineHeight.h18,
+  letterSpacing: vars.font.letterSpacing.tight_05,
   WebkitFontSmoothing: 'antialiased',
   MozOsxFontSmoothing: 'grayscale',
 });

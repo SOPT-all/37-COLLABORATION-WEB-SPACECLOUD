@@ -71,6 +71,23 @@ export const buttonBase = recipe({
         color: vars.color.grayscale.gray800,
         border: `1px solid ${vars.color.grayscale.gray300}`,
         padding: `12px 22px`,
+
+        ':hover': {
+          backgroundColor: vars.color.primary[50],
+          color: vars.color.primary[200],
+          border: `1px solid ${vars.color.primary[200]}`,
+        },
+      },
+      // 위치 세부 필터 버튼 스타일링에 사용합니다.
+      area: {
+        backgroundColor: vars.color.grayscale.white,
+        color: vars.color.grayscale.gray900,
+        padding: `12px`,
+
+        ':hover': {
+          backgroundColor: vars.color.primary[50],
+          color: vars.color.primary[200],
+        },
       },
       // 인원수 적용하기, 상세 필터 적용하기 버튼 스타일링에 사용합니다.
       cta: {
@@ -78,6 +95,7 @@ export const buttonBase = recipe({
         color: vars.color.grayscale.white,
         padding: '16px 16px',
       },
+      // 데이터 필터 on, off 버튼 스타일링에 사용합니다.
       dataFilter: {
         backgroundColor: 'transparent',
         color: vars.color.primary['200'],
@@ -85,10 +103,71 @@ export const buttonBase = recipe({
         border: `2px solid ${vars.color.primary['200']}`,
         borderRadius: vars.radius.r50,
       },
+      // 데이터 필터 on, off 버튼 활성화 시 사용합니다.
       dataFilterActive: {
         backgroundColor: vars.color.secondary.yellow100,
         color: vars.color.primary['200'],
         padding: '10px 18px',
+      },
+      // 결제 유형 버튼 스타일링에 사용합니다.
+      paymentType: {
+        backgroundColor: vars.color.grayscale.white,
+        borderRadius: vars.radius.r4,
+        border: `1px solid ${vars.color.grayscale.gray300}`,
+        color: vars.color.grayscale.gray900,
+        padding: '16px 24px',
+        ':hover': {
+          boxShadow: `inset 0 0 0 1px ${vars.color.primary['200']}`,
+        },
+      },
+      // 결제 유형 버튼 활성화 시 스타일링에 사용합니다.
+      paymentTypeActive: {
+        boxShadow: `inset 0 0 0 1px ${vars.color.primary['200']}`,
+        backgroundColor: vars.color.primary['50'],
+      },
+      // 가격 단위 버튼 스타일링에 사용합니다.
+      priceUnit: {
+        backgroundColor: vars.color.grayscale.white,
+        color: vars.color.grayscale.gray800,
+        padding: `${vars.space.s11} ${vars.space.s10}`,
+        ':hover': {
+          color: vars.color.primary['200'],
+          boxShadow: `inset 0 0 0 1px ${vars.color.primary['200']}`,
+          borderRadius: vars.radius.r20,
+        },
+      },
+      // 가격 단위 버튼 활성화 시 스타일링에 사용합니다.
+      priceUnitActive: {
+        color: vars.color.primary['200'],
+        boxShadow: `inset 0 0 0 1px ${vars.color.primary['200']}`,
+        backgroundColor: vars.color.primary['50'],
+        borderRadius: vars.radius.r20,
+        padding: `${vars.space.s11} ${vars.space.s10}`,
+      },
+      priceFilter: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: vars.space.s6,
+        padding: `${vars.space.s12} ${vars.space.s16}`,
+        backgroundColor: vars.color.grayscale.white,
+        border: `1px solid ${vars.color.grayscale.gray300}`,
+        minWidth: '13.6rem',
+        color: vars.color.grayscale.gray600,
+        '&:hover': {
+          color: vars.color.grayscale.gray800,
+          border: `1px solid ${vars.color.primary['200']}`,
+        },
+      },
+      filterButton: {
+        color: vars.color.grayscale.white,
+        backgroundColor: vars.color.primary['200'],
+        borderRadius: vars.radius.r50,
+      },
+      reset: {
+        color: vars.color.grayscale.gray900,
+        padding: 0,
+        height: 'fit-content',
+        alignSelf: 'center',
       },
     },
     // 버튼의 너비를 지정합니다.
@@ -101,6 +180,9 @@ export const buttonBase = recipe({
       none: {},
       g4: {
         gap: vars.space.s4,
+      },
+      g6: {
+        gap: vars.space.s6,
       },
     },
     justify: {

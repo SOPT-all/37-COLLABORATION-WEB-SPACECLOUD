@@ -8,7 +8,7 @@ import type { PartialVariants, TypographyVariants } from '@shared/types/variants
 type ButtonProps = ChildrenProps &
   ButtonHTMLAttributes<HTMLButtonElement> &
   PartialVariants<typeof buttonBase> & {
-    font: TypographyVariants;
+    font?: TypographyVariants;
     style?: string;
   };
 
@@ -31,7 +31,7 @@ const Button = ({
           gap: gap,
           styleType: styleType,
         }),
-        typography[font],
+        font && typography[font],
         style,
       )}
       {...rest}
