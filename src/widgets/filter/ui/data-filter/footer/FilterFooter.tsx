@@ -5,18 +5,26 @@ import Button from '@shared/ui/Button.tsx';
 import { ResetIcon } from '@shared/assets/icons';
 
 type FilterFooterProps = {
-  onClose?: () => void;
+  onReset: () => void;
+  onApply: () => void;
 };
 
-const FilterFooter = ({ onClose }: FilterFooterProps) => {
+const FilterFooter = ({ onApply, onReset }: FilterFooterProps) => {
   return (
     <footer className={clsx(S.section({ paddingY: 'tight' }), S.formFooter)}>
       <Row justify='between' gap='12.7rem'>
-        <Button type='reset' width='min' styleType={'reset'} font='body_m_16' gap='g4'>
+        <Button
+          type='reset'
+          width='min'
+          styleType={'reset'}
+          font='body_m_16'
+          gap='g4'
+          onClick={onReset}
+        >
           <ResetIcon />
           <span>상세필터 초기화</span>
         </Button>
-        <Button type='button' onClick={onClose} styleType='filterButton' font='body_sb_16'>
+        <Button type='button' onClick={onApply} styleType='filterButton' font='body_sb_16'>
           상세필터 적용하기
         </Button>
       </Row>

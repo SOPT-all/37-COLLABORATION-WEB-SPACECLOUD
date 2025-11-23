@@ -22,15 +22,15 @@ const PriceUnitFilterRoot = ({ children, heading }: PriceUnitFilterProps) => {
 type PriceUnitButtonProps = {
   label: string;
   onClick?: () => void;
-  active?: boolean;
+  isActive: boolean;
 };
 
-const PriceUnitButton = ({ label, onClick, active }: PriceUnitButtonProps) => {
+const PriceUnitButton = ({ label, onClick, isActive }: PriceUnitButtonProps) => {
   return (
     <Button
       onClick={onClick}
       type='button'
-      styleType={active ? 'priceUnitActive' : 'priceUnit'}
+      styleType={isActive ? 'priceUnitActive' : 'priceUnit'}
       font='body_m_12'
     >
       {label}

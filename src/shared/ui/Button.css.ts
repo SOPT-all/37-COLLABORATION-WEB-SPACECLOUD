@@ -113,7 +113,7 @@ export const buttonBase = recipe({
       paymentType: {
         backgroundColor: vars.color.grayscale.white,
         borderRadius: vars.radius.r4,
-        border: `1px solid ${vars.color.grayscale.gray300}`,
+        boxShadow: `inset 0 0 0 1px ${vars.color.grayscale.gray300}`,
         color: vars.color.grayscale.gray900,
         padding: '16px 24px',
         ':hover': {
@@ -122,6 +122,9 @@ export const buttonBase = recipe({
       },
       // 결제 유형 버튼 활성화 시 스타일링에 사용합니다.
       paymentTypeActive: {
+        borderRadius: vars.radius.r4,
+        padding: '16px 24px',
+        color: vars.color.grayscale.gray900,
         boxShadow: `inset 0 0 0 1px ${vars.color.primary['200']}`,
         backgroundColor: vars.color.primary['50'],
       },
