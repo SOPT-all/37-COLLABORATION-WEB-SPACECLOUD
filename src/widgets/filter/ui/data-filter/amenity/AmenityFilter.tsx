@@ -22,16 +22,28 @@ type AmenityFilterRowProps = {
     amenity: Amenity;
     label: string;
   }[];
+  facility: Amenity[];
+  onClick: (amenity: Amenity) => void;
 };
 
-const AmenityFilterRow = ({ heading, value }: AmenityFilterRowProps) => {
+const AmenityFilterRow = ({ heading, value, onClick, facility }: AmenityFilterRowProps) => {
   return (
     <div>
       <h4 className={S.label.subHeading}>{AMENITY_CATEGORY_LABEL[heading]}</h4>
       <ul className={AS.amenityList}>
         {value.map((item) => (
-          <li key={item.amenity} style={{ width: 'fit-content', listStyle: 'none' }}>
-            <span className={clsx(AS.amenityItemBase({ active: false }), typography.body_m_14)}>
+          <li
+            role='button'
+            key={item.amenity}
+            style={{ width: 'fit-content', listStyle: 'none' }}
+            onClick={() => onClick(item.amenity)}
+          >
+            <span
+              className={clsx(
+                AS.amenityItemBase({ active: facility.includes(item.amenity) }),
+                typography.body_m_14,
+              )}
+            >
               {item.label}
             </span>
           </li>
