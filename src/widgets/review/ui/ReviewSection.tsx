@@ -1,5 +1,5 @@
 import type { ComponentProps } from 'react';
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { useIntersectionObserver } from '@/shared/hooks/useIntersectionObserver';
 import ReviewCard from './reviewCard/ReviewCard';
 import ReviewMoreButton from './reviewMoreButton/ReviewMoreButton';
@@ -24,23 +24,21 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
   const { data, isLoading, isError, fetchNextPage, isFetchingNextPage } = useReviewListQuery();
   const [isInfiniteMode, setInfiniteMode] = useState(false);
 
+  const lastPage = data?.pages.at(-1);
   const reviews: ReviewCardProps[] = data?.pages.flatMap((page) => page.data.content) ?? [];
-
-  const hasNext = data?.pages.at(-1)?.data.hasNext ?? false;
-  const showMoreButton = hasNext && !isInfiniteMode;
-  const nextSkeletonCount = data?.pages.at(-1)?.data.content.length || DEFAULT_SKELETON_COUNT;
+  const skeletonCount = lastPage?.data.content.length ?? DEFAULT_SKELETON_COUNT;
+  const canFetchMore = isInfiniteMode && (lastPage?.data.hasNext ?? false);
   const nextPageIndex = data?.pages.length ?? 1;
+  const showMoreButton = (lastPage?.data.hasNext ?? false) && !isInfiniteMode;
 
-  const handleIntersect = useCallback(() => {
-    if (!isInfiniteMode) return;
-    if (!hasNext) return;
-    if (isFetchingNextPage) return;
+  const handleIntersect = () => {
+    if (!canFetchMore || isFetchingNextPage) return;
     fetchNextPage();
-  }, [fetchNextPage, hasNext, isFetchingNextPage, isInfiniteMode]);
+  };
 
   const sentinelRef = useIntersectionObserver<HTMLDivElement>({
     onIntersect: handleIntersect,
-    enabled: isInfiniteMode && hasNext,
+    enabled: canFetchMore,
     rootMargin: '100px 0px',
   });
 
@@ -52,23 +50,21 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
 
   if (isError) return null;
 
-  if (isLoading) {
-    return (
-      <section className={s.section}>
-        <div className={s.grid} aria-label='리뷰 로딩 중'>
-          {renderSkeletons(nextSkeletonCount, 'initial-skeleton')}
-        </div>
-      </section>
-    );
-  }
+  const renderLoading = () => (
+    <section className={s.section}>
+      <div className={s.grid} aria-label='리뷰 로딩 중'>
+        {renderSkeletons(skeletonCount, 'initial-skeleton')}
+      </div>
+    </section>
+  );
 
-  return (
+  const renderContent = () => (
     <section className={s.section}>
       <div className={s.grid}>
         {reviews.map((review) => (
-          <ReviewCard key={review.id} {...review} />
+          <ReviewCard key={`review-${review.id}`} {...review} />
         ))}
-        {isFetchingNextPage && renderSkeletons(nextSkeletonCount, `page-${nextPageIndex}-skeleton`)}
+        {isFetchingNextPage && renderSkeletons(skeletonCount, `page-${nextPageIndex}-skeleton`)}
       </div>
 
       {showMoreButton && (
@@ -77,9 +73,13 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
         </div>
       )}
 
-      {isInfiniteMode && hasNext && <div ref={sentinelRef} className={s.sentinel} aria-hidden />}
+      {isInfiniteMode && canFetchMore && (
+        <div ref={sentinelRef} className={s.sentinel} aria-hidden />
+      )}
     </section>
   );
+
+  return isLoading ? renderLoading() : renderContent();
 };
 
 export default ReviewSection;
