@@ -15,10 +15,11 @@ import {
   parseFilterFromSearchParams,
 } from '@widgets/filter/model/filter.helper.ts';
 import { useDataFilter } from '@widgets/filter/model/useDataFilter.ts';
+import { FILTER_QUERY_KEYS } from '@widgets/filter/model/filter.constants.ts';
 
 type DataFilterProps = ModalProps & {
   currentParams: URLSearchParams;
-  handleSearchParams: (params: URLSearchParams) => void;
+  handleSearchParams: (params: URLSearchParams, filterTypeObject: Record<string, string>) => void;
 };
 
 const DataFilter = ({ onClose, handleSearchParams, currentParams }: DataFilterProps) => {
@@ -34,7 +35,7 @@ const DataFilter = ({ onClose, handleSearchParams, currentParams }: DataFilterPr
 
   const handleApply = () => {
     const params = buildSearchParamsFromFilter({ purchaseType, priceRange, priceUnit, facility });
-    handleSearchParams(params);
+    handleSearchParams(params, FILTER_QUERY_KEYS);
     onClose?.();
   };
 

@@ -4,16 +4,12 @@ import Row from '@shared/ui/layout/Row.tsx';
 import { vars } from '@shared/styles/token.css.ts';
 import { useModal } from '@shared/libs/useModal.tsx';
 import DataFilter from '@widgets/filter/ui/data-filter/DataFilter.tsx';
-import { useSearchParams } from 'react-router';
+import { useFilterParams } from '@shared/libs/useFilterParams.ts';
 
 const FilterMapButtons = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const { searchParams, handleSearchParams } = useFilterParams();
   const currentParams = searchParams;
   const { openModal } = useModal();
-
-  const handleSearchParams = (params: URLSearchParams) => {
-    setSearchParams(params, { replace: true });
-  };
 
   const openMap = () => undefined;
   return (
