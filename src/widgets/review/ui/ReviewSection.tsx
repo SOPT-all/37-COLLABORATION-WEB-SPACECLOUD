@@ -1,5 +1,4 @@
-import type { ComponentProps } from 'react';
-import { useState } from 'react';
+import { type ComponentProps, useState } from 'react';
 import { useIntersectionObserver } from '@/shared/hooks/useIntersectionObserver';
 import ReviewCard from './reviewCard/ReviewCard';
 import ReviewMoreButton from './reviewMoreButton/ReviewMoreButton';
@@ -73,7 +72,7 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
         </div>
       )}
 
-      {isInfiniteMode && canFetchMore && (
+      {canFetchMore && (
         <div ref={sentinelRef} className={s.sentinel} aria-hidden />
       )}
     </section>
