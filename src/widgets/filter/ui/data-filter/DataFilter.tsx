@@ -1,6 +1,5 @@
 import * as S from '@widgets/filter/ui/data-filter/DataFilter.css.ts';
 import type { ModalProps } from '@shared/types/common.ts';
-import { useState } from 'react';
 import AmenityFilter from '@widgets/filter/ui/data-filter/amenity/AmenityFilter.tsx';
 import { AMENITY_GROUP_WITH_LABEL } from '@widgets/filter/config/amenity.config.ts';
 import PriceUnitFilter from '@widgets/filter/ui/data-filter/price-unit/PriceUnitFilter.tsx';
@@ -11,11 +10,33 @@ import PaymentTypeFilter from '@widgets/filter/ui/data-filter/priceType/PaymentT
 import { PAYMENT_TYPE_META } from '@widgets/filter/config/paymentType.config.ts';
 import { MAX_PRICE, MIN_PRICE, PRICE_STEP } from '@widgets/filter/config/price.config.ts';
 import FilterFooter from '@widgets/filter/ui/data-filter/footer/FilterFooter.tsx';
+import {
+  buildSearchParamsFromFilter,
+  parseFilterFromSearchParams,
+} from '@widgets/filter/model/filter.helper.ts';
+import { useDataFilter } from '@widgets/filter/model/useDataFilter.ts';
 
-type DataFilterProps = ModalProps;
+type DataFilterProps = ModalProps & {
+  currentParams: URLSearchParams;
+  handleSearchParams: (params: URLSearchParams) => void;
+};
 
-const DataFilter = ({ onClose }: DataFilterProps) => {
-  const [priceRange, setPriceRange] = useState<[number, number]>([MIN_PRICE, MAX_PRICE]);
+const DataFilter = ({ onClose, handleSearchParams, currentParams }: DataFilterProps) => {
+  const initialFilter = parseFilterFromSearchParams(currentParams);
+  const {
+    handlePriceRangeChange,
+    handlePriceUnit,
+    reset,
+    handlePaymentType,
+    handleFacility,
+    state: { purchaseType, priceRange, priceUnit, facility },
+  } = useDataFilter(initialFilter);
+
+  const handleApply = () => {
+    const params = buildSearchParamsFromFilter({ purchaseType, priceRange, priceUnit, facility });
+    handleSearchParams(params);
+    onClose?.();
+  };
 
   return (
     <form className={S.wrapper.form}>
@@ -26,7 +47,9 @@ const DataFilter = ({ onClose }: DataFilterProps) => {
             key={key}
             paymentType={key}
             label={value.label}
+            isActive={purchaseType === key}
             description={value.description}
+            onClick={() => handlePaymentType(key)}
           />
         ))}
       </PaymentTypeFilter>
@@ -34,7 +57,12 @@ const DataFilter = ({ onClose }: DataFilterProps) => {
       {/* 가격단위 필터 섹션 */}
       <PriceUnitFilter heading='가격 단위'>
         {typedEntries(PRICE_UNIT_LABEL).map(([key, label]) => (
-          <PriceUnitFilter.Button key={key} label={label} />
+          <PriceUnitFilter.Button
+            key={key}
+            label={label}
+            onClick={() => handlePriceUnit(key)}
+            isActive={priceUnit === key}
+          />
         ))}
       </PriceUnitFilter>
 
@@ -46,7 +74,7 @@ const DataFilter = ({ onClose }: DataFilterProps) => {
           minLimit={MIN_PRICE}
           step={PRICE_STEP}
           value={priceRange}
-          onChange={setPriceRange}
+          onChange={handlePriceRangeChange}
         />
         <PriceFilter.Buttons currentMinValue={priceRange[0]} currentMaxValue={priceRange[1]} />
       </PriceFilter>
@@ -54,12 +82,18 @@ const DataFilter = ({ onClose }: DataFilterProps) => {
       {/* 편의시설 필터 섹션 */}
       <AmenityFilter>
         {typedEntries(AMENITY_GROUP_WITH_LABEL).map(([heading, value]) => (
-          <AmenityFilter.Row key={heading} heading={heading} value={value} />
+          <AmenityFilter.Row
+            key={heading}
+            heading={heading}
+            value={value}
+            facility={facility}
+            onClick={handleFacility}
+          />
         ))}
       </AmenityFilter>
 
       {/* 리셋, 적용 버튼 섹션 */}
-      <FilterFooter onClose={onClose} />
+      <FilterFooter onReset={reset} onApply={handleApply} />
     </form>
   );
 };
