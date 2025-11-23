@@ -4,6 +4,7 @@ import ReviewCard from './reviewCard/ReviewCard';
 import ReviewMoreButton from './reviewMoreButton/ReviewMoreButton';
 import * as s from './ReviewSection.css';
 import { useReviewListQuery } from '../api/useReviewListQuery';
+import ReviewCardSkeleton from './reviewCard/ReviewCardSkeleton';
 
 type ReviewCardProps = ComponentProps<typeof ReviewCard>;
 
@@ -20,6 +21,7 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
 
   const hasNext = data?.pages.at(-1)?.data.hasNext ?? false;
   const showMoreButton = hasNext && !isInfiniteMode;
+  const nextSkeletonCount = data?.pages.at(-1)?.data.content.length || 4;
 
   const handleClickMore = () => {
     setInfiniteMode(true);
@@ -49,7 +51,19 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
     return () => observer.disconnect();
   }, [fetchNextPage, hasNext, isFetchingNextPage, isInfiniteMode]);
 
-  if (isLoading || isError) return null;
+  if (isError) return null;
+
+  if (isLoading) {
+    return (
+      <section className={s.section}>
+        <div className={s.grid} aria-label='리뷰 로딩 중'>
+          {Array.from({ length: nextSkeletonCount }).map((_, index) => (
+            <ReviewCardSkeleton key={`initial-skeleton-${index}`} />
+          ))}
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className={s.section}>
@@ -57,6 +71,12 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
         {reviews.map((review) => (
           <ReviewCard key={review.id} {...review} />
         ))}
+        {isFetchingNextPage &&
+          Array.from({ length: nextSkeletonCount }).map((_, index) => (
+            <ReviewCardSkeleton
+              key={`skeleton-${index}`}
+            />
+          ))}
       </div>
 
       {showMoreButton && (
