@@ -7,7 +7,7 @@ const INITIAL_PAGE = 1;
 
 export const useReviewListQuery = (params?: ReviewListQueryParams) =>
   useInfiniteQuery<ReviewListResponse>({
-    queryKey: queryKeys.reviews.list(params),
+    queryKey: params ? [queryKeys.REVIEWS, params] : [queryKeys.REVIEWS],
     initialPageParam: INITIAL_PAGE,
     queryFn: ({ pageParam }) => {
       const currentPage = typeof pageParam === 'number' ? pageParam : INITIAL_PAGE;
