@@ -1,5 +1,9 @@
 import ky from 'ky';
-import { authRequestInterceptor, authResponseInterceptor, retryInterceptor } from "./interceptor.ts";
+import {
+  authRequestInterceptor,
+  authResponseInterceptor,
+  retryInterceptor,
+} from './interceptor.ts';
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 
