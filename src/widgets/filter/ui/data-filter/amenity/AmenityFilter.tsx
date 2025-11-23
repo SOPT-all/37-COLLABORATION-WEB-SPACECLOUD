@@ -32,12 +32,7 @@ const AmenityFilterRow = ({ heading, value, onClick, facility }: AmenityFilterRo
       <h4 className={S.label.subHeading}>{AMENITY_CATEGORY_LABEL[heading]}</h4>
       <ul className={AS.amenityList}>
         {value.map((item) => (
-          <li
-            role='button'
-            key={item.amenity}
-            style={{ width: 'fit-content', listStyle: 'none' }}
-            onClick={() => onClick(item.amenity)}
-          >
+          <li role='button' key={item.amenity} onClick={() => onClick(item.amenity)}>
             <span
               className={clsx(
                 AS.amenityItemBase({ active: facility.includes(item.amenity) }),
