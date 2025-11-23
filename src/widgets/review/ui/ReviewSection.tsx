@@ -41,6 +41,7 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
     rootMargin: '100px 0px',
   });
 
+  // 더보기 버튼 클릭 시 무한 스크롤 모드로 전환
   const handleClickMore = () => {
     setInfiniteMode(true);
     fetchNextPage();
@@ -72,9 +73,7 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
         </div>
       )}
 
-      {canFetchMore && (
-        <div ref={sentinelRef} className={s.sentinel} aria-hidden />
-      )}
+      {canFetchMore && <div ref={sentinelRef} className={s.sentinel} aria-hidden />}
     </section>
   );
 
