@@ -2,15 +2,22 @@ import type { ComponentProps } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import ReviewCard from './reviewCard/ReviewCard';
 import ReviewMoreButton from './reviewMoreButton/ReviewMoreButton';
-import * as s from './ReviewSection.css';
 import { useReviewListQuery } from '../api/useReviewListQuery';
 import ReviewCardSkeleton from './reviewCard/ReviewCardSkeleton';
+import * as s from './ReviewSection.css';
 
 type ReviewCardProps = ComponentProps<typeof ReviewCard>;
 
 interface ReviewSectionProps {
   onClickMore?: () => void;
 }
+
+const DEFAULT_SKELETON_COUNT = 4;
+
+const renderSkeletons = (count: number, prefix: string) =>
+  Array.from({ length: count }).map((_, index) => (
+    <ReviewCardSkeleton key={`${prefix}-${index}`} />
+  ));
 
 const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
   const { data, isLoading, isError, fetchNextPage, isFetchingNextPage } = useReviewListQuery();
@@ -21,7 +28,8 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
 
   const hasNext = data?.pages.at(-1)?.data.hasNext ?? false;
   const showMoreButton = hasNext && !isInfiniteMode;
-  const nextSkeletonCount = data?.pages.at(-1)?.data.content.length || 4;
+  const nextSkeletonCount = data?.pages.at(-1)?.data.content.length || DEFAULT_SKELETON_COUNT;
+  const nextPageIndex = (data?.pages.length ?? 1);
 
   const handleClickMore = () => {
     setInfiniteMode(true);
@@ -57,9 +65,7 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
     return (
       <section className={s.section}>
         <div className={s.grid} aria-label='리뷰 로딩 중'>
-          {Array.from({ length: nextSkeletonCount }).map((_, index) => (
-            <ReviewCardSkeleton key={`initial-skeleton-${index}`} />
-          ))}
+          {renderSkeletons(nextSkeletonCount, 'initial-skeleton')}
         </div>
       </section>
     );
@@ -71,12 +77,7 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
         {reviews.map((review) => (
           <ReviewCard key={review.id} {...review} />
         ))}
-        {isFetchingNextPage &&
-          Array.from({ length: nextSkeletonCount }).map((_, index) => (
-            <ReviewCardSkeleton
-              key={`skeleton-${index}`}
-            />
-          ))}
+        {isFetchingNextPage && renderSkeletons(nextSkeletonCount, `page-${nextPageIndex}-skeleton`)}
       </div>
 
       {showMoreButton && (
