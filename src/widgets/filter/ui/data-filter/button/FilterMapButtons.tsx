@@ -7,8 +7,7 @@ import DataFilter from '@widgets/filter/ui/data-filter/DataFilter.tsx';
 import { useFilterParams } from '@shared/libs/useFilterParams.ts';
 
 const FilterMapButtons = () => {
-  const { searchParams, handleSearchParams } = useFilterParams();
-  const currentParams = searchParams;
+  const { searchParams: currentParams, handleSearchParams } = useFilterParams();
   const { openModal } = useModal();
 
   const openMap = () => undefined;
