@@ -1,5 +1,6 @@
 import type { ComponentProps } from 'react';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
+import { useIntersectionObserver } from '@/shared/hooks/useIntersectionObserver';
 import ReviewCard from './reviewCard/ReviewCard';
 import ReviewMoreButton from './reviewMoreButton/ReviewMoreButton';
 import { useReviewListQuery } from '../api/useReviewListQuery';
@@ -22,42 +23,32 @@ const renderSkeletons = (count: number, prefix: string) =>
 const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
   const { data, isLoading, isError, fetchNextPage, isFetchingNextPage } = useReviewListQuery();
   const [isInfiniteMode, setInfiniteMode] = useState(false);
-  const sentinelRef = useRef<HTMLDivElement | null>(null);
 
   const reviews: ReviewCardProps[] = data?.pages.flatMap((page) => page.data.content) ?? [];
 
   const hasNext = data?.pages.at(-1)?.data.hasNext ?? false;
   const showMoreButton = hasNext && !isInfiniteMode;
   const nextSkeletonCount = data?.pages.at(-1)?.data.content.length || DEFAULT_SKELETON_COUNT;
-  const nextPageIndex = (data?.pages.length ?? 1);
+  const nextPageIndex = data?.pages.length ?? 1;
+
+  const handleIntersect = useCallback(() => {
+    if (!isInfiniteMode) return;
+    if (!hasNext) return;
+    if (isFetchingNextPage) return;
+    fetchNextPage();
+  }, [fetchNextPage, hasNext, isFetchingNextPage, isInfiniteMode]);
+
+  const sentinelRef = useIntersectionObserver<HTMLDivElement>({
+    onIntersect: handleIntersect,
+    enabled: isInfiniteMode && hasNext,
+    rootMargin: '100px 0px',
+  });
 
   const handleClickMore = () => {
     setInfiniteMode(true);
     fetchNextPage();
     onClickMore?.();
   };
-
-  useEffect(() => {
-    if (!isInfiniteMode) return;
-    if (!hasNext) return;
-
-    const sentinel = sentinelRef.current;
-    if (!sentinel) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (!entry.isIntersecting) return;
-        if (isFetchingNextPage) return;
-
-        fetchNextPage();
-      },
-      { rootMargin: '100px 0px' },
-    );
-
-    observer.observe(sentinel);
-    return () => observer.disconnect();
-  }, [fetchNextPage, hasNext, isFetchingNextPage, isInfiniteMode]);
 
   if (isError) return null;
 
