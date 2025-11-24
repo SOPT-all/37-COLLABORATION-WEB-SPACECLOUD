@@ -11,7 +11,6 @@ const SearchPage = () => {
         <MainFilter filter={filter} onFilterChange={handleFilterChange}>
           <FilterMapButtons />
         </MainFilter>
-        <FilterMapButtons />
       </div>
 
       {/*프리미엄존 섹션입니다*/}
