@@ -29,6 +29,7 @@ const CalendarModalContent = ({ onClose, onChange }: ModalProps) => {
           next2Label={false}
           prev2Label={false}
           minDetail='year'
+          minDate={new Date()}
         />
       </div>
       <Button
