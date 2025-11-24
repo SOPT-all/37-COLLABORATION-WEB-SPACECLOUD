@@ -32,6 +32,12 @@ export const useModal = () => {
         unmount();
       };
 
+      const modalContent = isValidElement(content)
+        ? cloneElement(content as ReactElement<{ onClose: () => void }>, {
+            onClose: handleClose,
+          })
+        : content;
+
       return (
         <Modal
           isOpen={isOpen}
@@ -39,11 +45,7 @@ export const useModal = () => {
           border={border ? border : 'none'}
           onClose={handleClose}
         >
-          {isValidElement(content)
-            ? cloneElement(content as ReactElement<{ onClose: () => void }>, {
-                onClose: handleClose,
-              })
-            : content}
+          {modalContent}
         </Modal>
       );
     });
