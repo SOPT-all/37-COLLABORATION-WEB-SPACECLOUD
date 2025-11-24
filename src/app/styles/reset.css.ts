@@ -4,8 +4,9 @@ globalStyle('*, *::before, *::after', {
   boxSizing: 'border-box',
 });
 
-globalStyle('body, h1, h2, h3, h4, p, figure, blockquote, dl, dd', {
+globalStyle('body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd', {
   margin: 0,
+  fontSize: '1.6rem',
 });
 
 globalStyle('ul[role="list"], ol[role="list"]', {
@@ -49,7 +50,6 @@ globalStyle('*, *::before, *::after', {
     },
   },
 });
-
 
 globalStyle('html:focus-within', {
   scrollBehavior: 'smooth',

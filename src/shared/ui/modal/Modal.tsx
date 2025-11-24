@@ -1,26 +1,35 @@
-import type { CSSProperties } from 'react';
-import type { ChildrenProps, ModalProps } from '@/shared/types/common';
-import * as s from './Modal.css';
-import type { PartialVariants } from '@/shared/types/variants';
-import clsx from 'clsx';
+import { type CSSProperties, useEffect, useRef } from 'react';
+import type { ChildrenProps, ModalProps } from '@shared/types/common.ts';
+import * as s from './Modal.css.ts';
+import type { PartialVariants } from '@shared/types/variants.ts';
 
 type Border = PartialVariants<typeof s.content> & {
   border: 'none' | 'gray300';
 };
+
 interface Props extends ChildrenProps, ModalProps, Border {
   location?: CSSProperties;
 }
 
-export const Modal = ({ onClose, children, location, border }: Props) => {
+export const Modal = ({ isOpen, onClose, children, location, border }: Props) => {
+  const ref = useRef<HTMLDialogElement | null>(null);
+
+  useEffect(() => {
+    const dialog = ref.current;
+    if (!dialog) return;
+
+    if (isOpen && !dialog.open) {
+      dialog.showModal();
+    } else if (!isOpen && dialog.open) {
+      dialog.close();
+    }
+  }, [isOpen]);
+
   return (
-    <div className={s.overlay} onClick={onClose}>
-      <section
-        className={clsx(s.content({ border: border }))}
-        onClick={(e) => e.stopPropagation()}
-        style={location}
-      >
+    <dialog ref={ref} onClose={onClose} className={s.dialog} closedby='any'>
+      <section style={location} className={s.content({ border: `${border}` })}>
         {children}
       </section>
-    </div>
+    </dialog>
   );
 };

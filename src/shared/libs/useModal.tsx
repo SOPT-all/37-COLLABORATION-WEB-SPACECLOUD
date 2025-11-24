@@ -1,7 +1,7 @@
 import {
   cloneElement,
-  isValidElement,
   type CSSProperties,
+  isValidElement,
   type ReactElement,
   type ReactNode,
 } from 'react';

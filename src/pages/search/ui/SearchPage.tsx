@@ -1,6 +1,6 @@
 import MainFilter from '@/widgets/space-filter/ui/MainFilter';
-import FilterMapButtons from '@widgets/filter/ui/FilterMapButtons.tsx';
 import { useMainFilterParams } from '@/shared/libs/useMainFilterParams';
+import FilterMapButtons from '@widgets/filter/ui/data-filter/button/FilterMapButtons.tsx';
 
 const SearchPage = () => {
   const { filter, handleFilterChange } = useMainFilterParams();

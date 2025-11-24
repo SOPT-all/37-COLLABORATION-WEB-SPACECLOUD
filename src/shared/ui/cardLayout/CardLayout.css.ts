@@ -5,6 +5,7 @@ import { colorToken, radiusToken } from '@/shared/styles/tokens';
 export const card = recipe({
   base: {
     display: 'flex',
+    flex: '0 0 auto',
     overflow: 'hidden',
     borderRadius: radiusToken.r16,
     background: colorToken.grayscale.white,
@@ -15,12 +16,12 @@ export const card = recipe({
       vertical: {
         flexDirection: 'column',
         width: '36.2rem',
-        height: '27.6rem',
+        minHeight: '27.6rem',
       },
       horizontal: {
         flexDirection: 'row',
         width: '55rem',
-        height: '29.5rem',
+        minHeight: '29.5rem',
       },
     },
   },

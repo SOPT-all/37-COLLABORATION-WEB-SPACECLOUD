@@ -31,6 +31,7 @@ export const name = style([
     display: 'flex',
     alignItems: 'center',
     color: colorToken.grayscale.black,
+    whiteSpace: 'nowrap',
   },
 ]);
 
@@ -81,6 +82,7 @@ export const metaItem = recipe({
   base: {
     display: 'flex',
     alignItems: 'center',
+    whiteSpace: 'nowrap',
   },
   variants: {
     gap: {
@@ -116,6 +118,7 @@ export const priceUnit = style([
   typography.body_r_12_2,
   {
     color: colorToken.grayscale.gray900,
+    whiteSpace: 'nowrap',
   },
 ]);
 

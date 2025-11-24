@@ -10,7 +10,7 @@ interface ReviewCardProps {
   title: string;
   detail: string;
   reviewImageUrl: string;
-  categories: string[];
+  categories: { code: string; name: string }[];
   price: number;
   priceUnit: PriceUnitCode;
 }
@@ -44,9 +44,10 @@ const ReviewCard = ({
       <div>
         <div className={s.tagAndTitle}>
           <div className={s.categories}>
-            {categories.map((category) => (
-              <Chip key={`${id}-${category}`}>{category}</Chip>
-            ))}
+            {categories.map((category) => {
+              const categoryKey = category.code;
+              return <Chip key={`${id}-${categoryKey}`}>{category.name}</Chip>;
+            })}
           </div>
           <h3 className={s.title}>{title}</h3>
         </div>
