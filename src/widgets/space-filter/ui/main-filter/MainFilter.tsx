@@ -3,12 +3,10 @@ import Button from '@/shared/ui/Button';
 import * as s from './MainFilter.css';
 import { useModal } from '@/shared/libs/useModal';
 import { CloseIcon } from '@/shared/assets/icons';
+import { FILTER_INFO } from '@/widgets/space-filter/config/filterConfig';
+import { formatDisplayText } from '@/widgets/space-filter/lib/filterFormatters';
 import type { ChildrenProps } from '@/shared/types/common';
-import { FILTER_INFO } from '../config/filterConfig';
-import { formatDisplayText } from '../lib/filterFormatters';
-import type { FilterKey, FilterState, FilterValue } from '../types/types';
-
-export type { FilterKey, FilterValue, FilterState } from '../types/types';
+import type { FilterKey, FilterState, FilterValue } from '@/widgets/space-filter/types/types';
 
 interface MainFilterProps extends ChildrenProps {
   filter: FilterState;
