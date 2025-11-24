@@ -20,7 +20,6 @@ export const useModal = () => {
     if (trigger) {
       const rect = trigger.getBoundingClientRect();
       location = {
-        position: 'absolute',
         top: `${rect.bottom + 8}px`,
         left: `${rect.left}px`,
         margin: 0,
