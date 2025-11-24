@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import SubTitle, { type SubTitleVariant } from '@shared/ui/subTitle/SubTitle';
+import SubTitle, {
+  type SubTitleVariant,
+  type SubTitleIconGap,
+} from '@shared/ui/subTitle/SubTitle';
 import { LeftArrowButton, RightArrowButton } from '@shared/ui/arrowButton';
 import PlaceCard, { type PlaceCardProps } from './placeCard/PlaceCard';
 import * as s from './PlaceSection.css';
@@ -9,10 +12,18 @@ type PlaceSubTitleVariant = Extract<SubTitleVariant, 'small24' | 'large'>;
 interface PlaceSectionProps {
   title: string;
   subtitleVariant?: PlaceSubTitleVariant;
+  showAdBadge?: boolean;
+  adBadgeIconGap?: SubTitleIconGap;
   places: PlaceCardProps[];
 }
 
-const PlaceSection = ({ title, subtitleVariant = 'small24', places }: PlaceSectionProps) => {
+const PlaceSection = ({
+  title,
+  subtitleVariant = 'small24',
+  showAdBadge = false,
+  adBadgeIconGap = 'wide',
+  places,
+}: PlaceSectionProps) => {
   const listRef = useRef<HTMLDivElement | null>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -59,7 +70,9 @@ const PlaceSection = ({ title, subtitleVariant = 'small24', places }: PlaceSecti
 
   return (
     <section className={s.section}>
-      <SubTitle variant={subtitleVariant}>{title}</SubTitle>
+      <SubTitle variant={subtitleVariant}>
+        {showAdBadge ? <SubTitle.AdBadge iconGap={adBadgeIconGap}>{title}</SubTitle.AdBadge> : title}
+      </SubTitle>
       <div className={`${s.carousel} ${s.carouselGap[subtitleVariant]}`}>
         <LeftArrowButton
           className={s.arrowLeft}

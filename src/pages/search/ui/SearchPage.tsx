@@ -1,5 +1,7 @@
 import SubTitle from '@shared/ui/subTitle/SubTitle';
+import { premiumZoneMocks } from '@/shared/mocks/premiumZone';
 import FilterMapButtons from '@widgets/filter/ui/data-filter/button/FilterMapButtons.tsx';
+import PlaceSection from '@/widgets/space-card/ui/PlaceSection';
 
 const SearchPage = () => {
   return (
@@ -10,9 +12,12 @@ const SearchPage = () => {
       </div>
 
       {/*프리미엄존 섹션*/}
-      <SubTitle variant='large'>
-        <SubTitle.AdBadge>프리미엄존</SubTitle.AdBadge>
-      </SubTitle>
+      <PlaceSection
+        title='프리미엄존'
+        subtitleVariant='large'
+        showAdBadge
+        places={premiumZoneMocks}
+      />
 
       {/*플러스존 섹션*/}
       <SubTitle variant='large'>
