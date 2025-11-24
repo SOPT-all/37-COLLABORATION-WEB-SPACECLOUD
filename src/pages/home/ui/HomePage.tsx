@@ -1,3 +1,5 @@
+import MagazineSection from '@/widgets/magazine/ui/MagazineSection';
+
 /**
  * 페이지의 전체적인 구조만을 잡았습니다.
  * 의미없는 div보다는
@@ -23,6 +25,7 @@ const HomePage = () => {
 
       {/* 매거진 섹션 */}
       <div>매거진매거진매거진</div>
+      <MagazineSection />
 
       {/* 후기 섹션 */}
       <div>후기 섹션</div>
