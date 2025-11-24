@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router';
-import type { FilterState } from '@/widgets/space-filter/ui/MainFilter';
+import type { FilterState } from '@/widgets/space-filter/types/types';
 import { filterToSearchParams } from './filterUtils';
 
 export const useFilterSearch = (filter: FilterState) => {

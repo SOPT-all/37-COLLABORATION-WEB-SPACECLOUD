@@ -1,5 +1,4 @@
-import type { FilterState } from '@/widgets/space-filter/ui/MainFilter';
-import type { SpaceFilterValue } from '@/shared/types/common';
+import type { FilterState, SpaceFilterValue } from '@/widgets/space-filter/types/types';
 import { AREA_FILTERS } from '@/shared/configs/region';
 import { dummy } from '@/shared/configs/space';
 

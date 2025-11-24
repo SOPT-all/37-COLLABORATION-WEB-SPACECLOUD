@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import type { FilterKey, FilterState, FilterValue } from '@/widgets/space-filter/ui/MainFilter';
+import type { FilterKey, FilterState, FilterValue } from '@/widgets/space-filter/types/types';
 
 const initialFilterState: FilterState = {
   filter: null,

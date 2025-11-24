@@ -1,7 +1,6 @@
 import { useSearchParams } from 'react-router';
-import type { FilterKey, FilterValue } from '@/widgets/space-filter/ui/MainFilter';
+import type { FilterKey, FilterValue, SpaceFilterValue } from '@/widgets/space-filter/types/types';
 import { searchParamsToFilter } from './filterUtils';
-import type { SpaceFilterValue } from '@/shared/types/common';
 
 export const useFilterParams = () => {
   const [params, setParams] = useSearchParams();
