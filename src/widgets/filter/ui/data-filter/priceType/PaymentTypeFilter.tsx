@@ -22,16 +22,23 @@ type PaymentTypeButtonProps = {
   label: string;
   description: string;
   onClick?: () => void;
+  isActive: boolean;
 };
 
 const PaymentTypeButton = ({
   paymentType,
   label,
   description,
+  isActive,
   onClick,
 }: PaymentTypeButtonProps) => {
   return (
-    <Button type='button' width='full' styleType='paymentType' onClick={onClick}>
+    <Button
+      type='button'
+      width='full'
+      styleType={isActive ? 'paymentTypeActive' : 'paymentType'}
+      onClick={onClick}
+    >
       <Column justify='center' align='start' gap={vars.space.s8}>
         <Row gap={vars.space.s2}>
           <h5 className={S.label.subHeading}>{label}</h5>

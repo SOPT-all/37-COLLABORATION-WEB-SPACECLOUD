@@ -1,8 +1,14 @@
 import ky from 'ky';
-import { authRequestInterceptor, authResponseInterceptor, retryInterceptor } from "./interceptor.ts";
+import {
+  authRequestInterceptor,
+  authResponseInterceptor,
+  retryInterceptor,
+} from './interceptor.ts';
+
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 export const kyInstance = ky.create({
-  prefixUrl: `www.example.com`,
+  prefixUrl: BASE_URL,
   timeout: 10_000,
   retry: 0,
   headers: {
