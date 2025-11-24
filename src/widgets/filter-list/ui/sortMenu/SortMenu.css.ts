@@ -52,8 +52,3 @@ export const optionList = style([
     },
   },
 ]);
-
-export const icon = style({
-  width: '16px',
-  height: '16px',
-});
