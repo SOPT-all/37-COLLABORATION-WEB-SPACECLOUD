@@ -1,8 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import SubTitle, {
-  type SubTitleVariant,
-  type SubTitleIconGap,
-} from '@shared/ui/subTitle/SubTitle';
+import SubTitle, { type SubTitleVariant, type SubTitleIconGap } from '@shared/ui/subTitle/SubTitle';
 import { LeftArrowButton, RightArrowButton } from '@shared/ui/arrowButton';
 import PlaceCard, { type PlaceCardProps } from './placeCard/PlaceCard';
 import * as s from './PlaceSection.css';
@@ -71,7 +68,11 @@ const PlaceSection = ({
   return (
     <section className={s.section}>
       <SubTitle variant={subtitleVariant}>
-        {showAdBadge ? <SubTitle.AdBadge iconGap={adBadgeIconGap}>{title}</SubTitle.AdBadge> : title}
+        {showAdBadge ? (
+          <SubTitle.AdBadge iconGap={adBadgeIconGap}>{title}</SubTitle.AdBadge>
+        ) : (
+          title
+        )}
       </SubTitle>
       <div className={`${s.carousel} ${s.carouselGap[subtitleVariant]}`}>
         <LeftArrowButton
