@@ -1,8 +1,7 @@
 import MainFilter from '@/widgets/space-filter/ui/MainFilter';
 import Button from '@/shared/ui/Button';
-import { useEffect, useState } from 'react';
-import type { FilterKey, FilterState, FilterValue } from '@/widgets/space-filter/ui/MainFilter';
-import { useNavigate } from 'react-router';
+import { useFilterState } from '@/shared/libs/useFilterState';
+import { useFilterSearch } from '@/shared/libs/useFilterSearch';
 
 /**
  * 페이지의 전체적인 구조만을 잡았습니다.
@@ -11,45 +10,8 @@ import { useNavigate } from 'react-router';
  */
 
 const HomePage = () => {
-  const navigate = useNavigate();
-
-  // 필터 선택 값 관리
-  const [filter, setFilter] = useState<FilterState>({
-    filter: null,
-    location: null,
-    capacity: null,
-    reservationDate: null,
-  });
-
-  // 모달 내부 component로 넘길 필터값 업데이트 함수
-  const handleFilterChange = (key: FilterKey, value: FilterValue) => {
-    setFilter((prev) => ({ ...prev, [key]: value }));
-  };
-
-  // 파라미터 설정 및 리스트 페이지로 이동
-  const handleSearch = () => {
-    const params = new URLSearchParams();
-
-    Object.entries(filter).forEach(([key, value]) => {
-      if (value) {
-        if (typeof value === 'object') {
-          if (value.key) {
-            params.append(key, value.key);
-          } else return;
-        } else {
-          params.append(key, value);
-        }
-      }
-    });
-
-    navigate(`/search?${params.toString()}`);
-  };
-
-  const disabled = Object.values(filter).every((value) => value === null);
-
-  useEffect(() => {
-    console.log('필터값: ', filter);
-  }, [filter]);
+  const { filter, handleFilterChange, isFilterEmpty } = useFilterState();
+  const { handleSearch } = useFilterSearch(filter);
 
   return (
     <>
@@ -58,7 +20,7 @@ const HomePage = () => {
 
       {/* 4가지 필터 섹션 입니다. */}
       <MainFilter filter={filter} onFilterChange={handleFilterChange}>
-        <Button styleType='search' font='body_m_18' onClick={handleSearch} disabled={disabled}>
+        <Button styleType='search' font='body_m_18' onClick={handleSearch} disabled={isFilterEmpty}>
           검색
         </Button>
       </MainFilter>
