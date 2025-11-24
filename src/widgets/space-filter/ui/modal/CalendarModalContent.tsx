@@ -22,9 +22,9 @@ const CalendarModalContent = ({ onClose, onChange }: ModalProps) => {
         <Calendar
           value={date}
           onChange={(value) => handleDateChange(value as Date)}
-          formatDay={(locale, date) => dayjs(date).format('D')}
-          formatYear={(locale, date) => dayjs(date).format('YYYY')}
-          formatMonthYear={(locale, date) => dayjs(date).format('YYYY. MM월')}
+          formatDay={(_locale, date) => dayjs(date).format('D')}
+          formatYear={(_locale, date) => dayjs(date).format('YYYY')}
+          formatMonthYear={(_locale, date) => dayjs(date).format('YYYY. MM월')}
           calendarType='gregory'
           next2Label={false}
           prev2Label={false}
