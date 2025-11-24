@@ -31,4 +31,10 @@ export const amenityItemBase = recipe({
   },
 });
 
-export const amenityList = style({ display: 'flex', gap: '10px', padding: 0, flexWrap: 'wrap' });
+export const amenityList = style({
+  display: 'flex',
+  gap: '10px',
+  padding: 0,
+  flexWrap: 'wrap',
+  listStyle: 'none',
+});

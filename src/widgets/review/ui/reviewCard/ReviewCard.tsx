@@ -46,11 +46,7 @@ const ReviewCard = ({
           <div className={s.categories}>
             {categories.map((category) => {
               const categoryKey = category.code;
-              return (
-                <Chip key={`${id}-${categoryKey}`}>
-                  {category.name}
-                </Chip>
-              );
+              return <Chip key={`${id}-${categoryKey}`}>{category.name}</Chip>;
             })}
           </div>
           <h3 className={s.title}>{title}</h3>
