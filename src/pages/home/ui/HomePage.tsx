@@ -1,3 +1,4 @@
+import Divider from '@/shared/ui/divider/Divider';
 import Banner from '@/widgets/main-view/ui/Banner/Banner';
 import MainTitle from '@/widgets/main-view/ui/Header/MainTitle';
 
@@ -14,6 +15,9 @@ const HomePage = () => {
 
       {/* 4가지 필터 섹션 입니다. */}
       <div>필터</div>
+
+      <Divider />
+
       {/* 토클 필터 섹션 */}
       <div>토클 필터입니닷</div>
 
