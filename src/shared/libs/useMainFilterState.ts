@@ -8,7 +8,7 @@ const initialFilterState: FilterState = {
   reservationDate: null,
 };
 
-export const useFilterState = () => {
+export const useMainFilterState = () => {
   const [filter, setFilter] = useState<FilterState>(initialFilterState);
 
   const handleFilterChange = (key: FilterKey, value: FilterValue) => {

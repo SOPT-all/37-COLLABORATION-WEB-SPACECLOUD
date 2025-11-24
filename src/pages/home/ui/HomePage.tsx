@@ -1,7 +1,7 @@
 import MainFilter from '@/widgets/space-filter/ui/MainFilter';
 import Button from '@/shared/ui/Button';
-import { useFilterState } from '@/shared/libs/useFilterState';
-import { useFilterSearch } from '@/shared/libs/useFilterSearch';
+import { useMainFilterState } from '@/shared/libs/useMainFilterState';
+import { useMainFilterSearch } from '@/shared/libs/useMainFilterSearch';
 
 /**
  * 페이지의 전체적인 구조만을 잡았습니다.
@@ -10,8 +10,8 @@ import { useFilterSearch } from '@/shared/libs/useFilterSearch';
  */
 
 const HomePage = () => {
-  const { filter, handleFilterChange, isFilterEmpty } = useFilterState();
-  const { handleSearch } = useFilterSearch(filter);
+  const { filter, handleFilterChange, isFilterEmpty } = useMainFilterState();
+  const { handleSearch } = useMainFilterSearch(filter);
 
   return (
     <>

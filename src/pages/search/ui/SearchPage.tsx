@@ -1,9 +1,9 @@
 import MainFilter from '@/widgets/space-filter/ui/MainFilter';
 import FilterMapButtons from '@widgets/filter/ui/FilterMapButtons.tsx';
-import { useFilterParams } from '@/shared/libs/useFilterParams';
+import { useMainFilterParams } from '@/shared/libs/useMainFilterParams';
 
 const SearchPage = () => {
-  const { filter, handleFilterChange } = useFilterParams();
+  const { filter, handleFilterChange } = useMainFilterParams();
   return (
     <>
       {/* 필터 섹션입니다. */}
