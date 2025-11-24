@@ -2,14 +2,14 @@ import { keyframes, style } from '@vanilla-extract/css';
 import { colorToken, radiusToken, spaceToken } from '@/shared/styles/tokens';
 
 const shimmer = keyframes({
-  '0%': { backgroundPosition: '-200% 0' },
+  '0%': { backgroundPosition: '-100% 0' },
   '100%': { backgroundPosition: '200% 0' },
 });
 
 const skeletonBase = style({
   backgroundImage: `linear-gradient(90deg, ${colorToken.grayscale.gray100} 25%, ${colorToken.grayscale.gray200} 37%, ${colorToken.grayscale.gray100} 63%)`,
-  backgroundSize: '400% 100%',
-  animation: `${shimmer} 1.2s ease-in-out infinite`,
+  backgroundSize: '200% 100%',
+  animation: `${shimmer} 1.4s ease-in-out infinite`,
 });
 
 export const imageWrapper = style({
