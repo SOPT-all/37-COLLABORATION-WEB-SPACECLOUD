@@ -7,6 +7,9 @@ import * as s from './RegionModalContent.css';
 import { vars } from '@/shared/styles/token.css';
 import type { ModalContentProps } from '@/shared/types/common';
 
+const REGION_LABEL = '시/도 선택';
+const AREA_LABEL = '서울';
+
 const RegionModalContent = ({ onClose, onChange, value }: ModalContentProps) => {
   const [showArea, setShowArea] = useState(!!value);
 
@@ -18,7 +21,9 @@ const RegionModalContent = ({ onClose, onChange, value }: ModalContentProps) => 
   return (
     <div className={s.wrapper}>
       <header className={s.header}>
-        <span className={clsx({ [s.active]: showArea })}>{!showArea ? '시/도 선택' : '서울'}</span>
+        <span className={clsx({ [s.active]: showArea })}>
+          {!showArea ? REGION_LABEL : AREA_LABEL}
+        </span>
         <ArrowRightIcon
           width={7}
           height={12}
