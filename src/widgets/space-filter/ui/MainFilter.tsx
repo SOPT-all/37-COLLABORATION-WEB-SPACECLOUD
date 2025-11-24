@@ -11,10 +11,10 @@ import type { ChildrenProps, SpaceFilterValue } from '@/shared/types/common';
 import dayjs from 'dayjs';
 
 const FILTER_INFO = [
-  { key: 'space', label: '공간', Component: SpaceModalContent },
-  { key: 'area', label: '지역', Component: RegionModalContent },
+  { key: 'filter', label: '공간', Component: SpaceModalContent },
+  { key: 'location', label: '지역', Component: RegionModalContent },
   { key: 'capacity', label: '인원', Component: CapacityModalContent },
-  { key: 'date', label: '날짜', Component: CalendarModalContent },
+  { key: 'reservationDate', label: '날짜', Component: CalendarModalContent },
 ];
 
 export type FilterKey = (typeof FILTER_INFO)[number]['key'];
