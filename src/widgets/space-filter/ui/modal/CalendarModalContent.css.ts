@@ -26,7 +26,7 @@ export const sunday = style({
 });
 
 // 전체 폰트 색상
-globalStyle(`${wrapper} .react-calendar__month-view abbr`, {
+globalStyle(`${wrapper} .react-calendar__month-view__days__day abbr`, {
   color: vars.color.grayscale.black,
 });
 
@@ -157,4 +157,9 @@ globalStyle(`${wrapper} .react-calendar__tile--active abbr`, {
   color: vars.color.grayscale.white,
   backgroundColor: vars.color.primary[200],
   borderRadius: '50%',
+});
+
+// 비활성화된 날짜 색상 (다른 스타일보다 우선순위 높게)
+globalStyle(`${wrapper} .react-calendar__tile[disabled] abbr`, {
+  color: `${vars.color.grayscale.gray500} !important`,
 });
