@@ -5,14 +5,9 @@ import { ArrowRightIcon } from '@/shared/assets/icons';
 import { AREA_FILTERS, REGIONS } from '@/shared/configs/region';
 import * as s from './RegionModalContent.css';
 import { vars } from '@/shared/styles/token.css';
-import type { FilterValue } from '../MainFilter';
-import type { ModalProps } from '@/shared/types/common';
+import type { ModalContentProps } from '@/shared/types/common';
 
-interface RegionModalContentProps extends ModalProps {
-  value?: FilterValue;
-}
-
-const RegionModalContent = ({ onClose, onChange, value }: RegionModalContentProps) => {
+const RegionModalContent = ({ onClose, onChange, value }: ModalContentProps) => {
   const [showArea, setShowArea] = useState(!!value);
 
   const handleClick = (key: string | null, content: string) => {
@@ -42,7 +37,7 @@ const RegionModalContent = ({ onClose, onChange, value }: RegionModalContentProp
               width='min'
               gap='g4'
               font='body_m_12'
-              onClick={region.isActive ? () => setShowArea(true) : undefined}
+              onClick={region.isActive ? () => setShowArea((prev) => !prev) : undefined}
             >
               <span className={s.regionLabel}>{region.label}</span>
             </Button>
@@ -59,9 +54,9 @@ const RegionModalContent = ({ onClose, onChange, value }: RegionModalContentProp
               width='min'
               gap='g4'
               font='body_m_14'
-              onClick={() => handleClick(area.key, area.label)}
+              onClick={() => handleClick(area.key, area.content)}
             >
-              <span className={s.areaLabel}>{area.label}</span>
+              <span className={s.areaLabel}>{area.content}</span>
             </Button>
           ))}
         </div>
