@@ -60,7 +60,6 @@ const MainFilter = ({ children, filter, onFilterChange }: MainFilterProps) => {
         {FILTER_INFO.map(({ key, label, Component }) => {
           const hasValue = filter[key] !== null;
           const isOpen = active === key;
-          console.log(`${key}'s hasValue`, hasValue, `${key}'s hasValue`, isOpen);
 
           return (
             <Button

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Button from '@/shared/ui/Button';
 import { MinusIcon, PlusIcon } from '@/shared/assets/icons';
 import * as s from './CapacityModalContent.css.ts';
@@ -11,10 +11,6 @@ const CapacityModalContent = ({ onClose, onChange, value }: ModalContentProps) =
     onChange?.(value);
     onClose?.();
   };
-
-  useEffect(() => {
-    console.log(count);
-  }, [count]);
 
   return (
     <div className={s.wrapper}>
