@@ -1,17 +1,10 @@
-import MainFilter from '@/widgets/space-filter/ui/MainFilter';
-import { useMainFilterParams } from '@/shared/libs/useMainFilterParams';
-import FilterMapButtons from '@widgets/filter/ui/data-filter/button/FilterMapButtons.tsx';
+import FilterSection from '@/widgets/search-view/ui/FilterSection';
 
 const SearchPage = () => {
-  const { filter, handleFilterChange } = useMainFilterParams();
   return (
     <>
       {/* 필터 섹션입니다. */}
-      <div>
-        <MainFilter filter={filter} onFilterChange={handleFilterChange}>
-          <FilterMapButtons />
-        </MainFilter>
-      </div>
+      <FilterSection />
 
       {/*프리미엄존 섹션입니다*/}
       <div>프리미엄프리미엄</div>
