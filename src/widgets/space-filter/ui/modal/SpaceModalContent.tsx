@@ -4,16 +4,14 @@ import Button from '@/shared/ui/Button';
 import * as s from './SpaceModalContent.css';
 import { dummy } from '@widgets/space-filter/model/categories.mock.ts';
 import { GROUP_LABEL } from '@widgets/space-filter/config/categories.enum.ts';
-import type { GroupType } from '@widgets/space-filter/model/categories.type.ts';
 import { typedEntries } from '@shared/libs/object.ts';
 
 const SpaceModalContent = ({ onClose }: ModalProps) => {
   return (
     <div className={s.wrapper}>
       {typedEntries(dummy).map(([key, items]) => {
-        const groupName = key as GroupType;
         return (
-          <div key={groupName} className={s.group}>
+          <div key={key} className={s.group}>
             <h3 className={s.groupTitle}>{GROUP_LABEL[key]}</h3>
             <div className={s.space}>
               {items.map((item) => {

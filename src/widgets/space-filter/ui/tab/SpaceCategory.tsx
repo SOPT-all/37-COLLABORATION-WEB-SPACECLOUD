@@ -5,7 +5,7 @@ import * as S from './SpaceCategory.css';
 import SpaceList from '@widgets/space-filter/ui/tab/SpaceList.tsx';
 import { SPACE_TAB_LABEL } from '@widgets/space-filter/config/categories.enum.ts';
 import { typedEntries } from '@shared/libs/object.ts';
-import { useNavigate } from 'react-router';
+import { createSearchParams, useNavigate } from 'react-router';
 
 const SpaceCategory = () => {
   const navigate = useNavigate();
@@ -13,7 +13,10 @@ const SpaceCategory = () => {
   const currentSpaceList = dummy[activeTab];
 
   const navigateToSearch = (code: string) => {
-    navigate(`/search?${activeTab}=${code}`);
+    navigate({
+      pathname: '/search',
+      search: createSearchParams({ filter: code }).toString(),
+    });
   };
 
   return (
@@ -21,6 +24,7 @@ const SpaceCategory = () => {
       <div className={S.segmentedToggle} role='tablist' aria-label='장소 카테고리'>
         {typedEntries(SPACE_TAB_LABEL).map(([tab, label]) => (
           <button
+            key={tab}
             className={S.tab({ active: activeTab === tab })}
             type='button'
             aria-controls={`${tab}-panel`}
