@@ -1,3 +1,5 @@
+import SpaceCategory from '@widgets/space-filter/ui/tab/SpaceCategory.tsx';
+
 /**
  * 페이지의 전체적인 구조만을 잡았습니다.
  * 의미없는 div보다는
@@ -13,7 +15,7 @@ const HomePage = () => {
       <div>필터</div>
 
       {/* 토클 필터 섹션 */}
-      <div>토클 필터입니닷</div>
+      <SpaceCategory />
 
       {/* 배너 섹션 */}
       <div>배너</div>
