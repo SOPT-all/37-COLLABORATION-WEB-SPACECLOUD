@@ -10,9 +10,7 @@ import { useNavigate } from 'react-router';
 const SpaceCategory = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<GroupType>('workspace');
-  const categoriesResponse = dummy;
-  const filtered =
-    activeTab === 'workspace' ? categoriesResponse.workspace : categoriesResponse.gathering;
+  const currentSpaceList = dummy[activeTab];
 
   const navigateToSearch = (code: string) => {
     navigate(`/search?${activeTab}=${code}`);
@@ -34,7 +32,7 @@ const SpaceCategory = () => {
           </button>
         ))}
       </div>
-      <SpaceList activeTab={activeTab} spaceList={filtered} onClick={navigateToSearch} />
+      <SpaceList activeTab={activeTab} spaceList={currentSpaceList} onClick={navigateToSearch} />
     </section>
   );
 };
