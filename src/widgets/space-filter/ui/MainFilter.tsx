@@ -2,24 +2,13 @@ import { useState } from 'react';
 import Button from '@/shared/ui/Button';
 import * as s from './MainFilter.css';
 import { useModal } from '@/shared/libs/useModal';
-import SpaceModalContent from './modal/SpaceModalContent';
-import RegionModalContent from './modal/RegionModalContent';
-import CapacityModalContent from './modal/CapacityModalContent';
-import CalendarModalContent from './modal/CalendarModalContent';
 import { CloseIcon } from '@/shared/assets/icons';
-import type { ChildrenProps, SpaceFilterValue } from '@/shared/types/common';
-import dayjs from 'dayjs';
+import type { ChildrenProps } from '@/shared/types/common';
+import { FILTER_INFO } from '../config/filterConfig';
+import { formatDisplayText } from '../lib/filterFormatters';
+import type { FilterKey, FilterState, FilterValue } from '../types/types';
 
-const FILTER_INFO = [
-  { key: 'filter', label: '공간', Component: SpaceModalContent },
-  { key: 'location', label: '지역', Component: RegionModalContent },
-  { key: 'capacity', label: '인원', Component: CapacityModalContent },
-  { key: 'reservationDate', label: '날짜', Component: CalendarModalContent },
-];
-
-export type FilterKey = (typeof FILTER_INFO)[number]['key'];
-export type FilterValue = string | SpaceFilterValue | null;
-export type FilterState = Record<FilterKey, FilterValue>;
+export type { FilterKey, FilterValue, FilterState } from '../types/types';
 
 interface MainFilterProps extends ChildrenProps {
   filter: FilterState;
@@ -45,19 +34,27 @@ const MainFilter = ({ children, filter, onFilterChange }: MainFilterProps) => {
     return 'mainFilterSelectedActive'; // 값 0, 열림
   };
 
-  // 필터 버튼 내부 텍스트 변환
-  const formatValue = (value: FilterValue) => {
-    if (!value) return '';
-    if (typeof value === 'object') {
-      return value.content;
-    }
-    return value;
+  // 모달 열기 핸들러
+  const handleOpenModal = (key: FilterKey, e: React.MouseEvent<HTMLElement>) => {
+    // 모달 중복 열기 방지
+    if (active === key) return;
+
+    setActive(key);
+    const Component = FILTER_INFO.find((info) => info.key === key)?.Component;
+    if (!Component) return;
+
+    openModal(
+      <Component value={filter[key]} onChange={(value) => onFilterChange(key, value)} />,
+      e.currentTarget as HTMLElement,
+      'gray300',
+      () => setActive(null),
+    );
   };
 
   return (
     <section className={s.wrapper}>
       <div className={s.filterWrapper}>
-        {FILTER_INFO.map(({ key, label, Component }) => {
+        {FILTER_INFO.map(({ key, label }) => {
           const hasValue = filter[key] !== null;
           const isOpen = active === key;
 
@@ -68,31 +65,11 @@ const MainFilter = ({ children, filter, onFilterChange }: MainFilterProps) => {
               font='body_m_18'
               width='filter'
               isOpen={isOpen}
-              onClick={(e) => {
-                // 모달 중복 열기 방지
-                if (active === key) return;
-
-                setActive(key);
-                openModal(
-                  <Component
-                    value={filter[key]}
-                    onChange={(value) => onFilterChange(key, value)}
-                  />,
-                  e.currentTarget,
-                  'gray300',
-                  () => setActive(null),
-                );
-              }}
+              onClick={(e) => handleOpenModal(key, e)}
             >
               {hasValue ? (
                 <div className={s.selected}>
-                  <span className={s.selectedValue}>
-                    {key === 'capacity'
-                      ? `${formatValue(filter[key])}명`
-                      : key === 'date'
-                        ? dayjs(formatValue(filter[key])).format('M월 D일')
-                        : formatValue(filter[key])}
-                  </span>
+                  <span className={s.selectedValue}>{formatDisplayText(key, filter[key])}</span>
                   <CloseIcon onClick={(e) => handleReset(e, key)} />
                 </div>
               ) : (
