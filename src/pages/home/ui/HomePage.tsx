@@ -1,3 +1,4 @@
+import SpaceCategory from '@widgets/space-filter/ui/tab/SpaceCategory.tsx';
 import ReviewSection from '@widgets/review/ui/ReviewSection.tsx';
 import SubTitle from '@/shared/ui/subTitle/SubTitle';
 
@@ -11,7 +12,7 @@ const HomePage = () => {
       <div>필터</div>
 
       {/* 토클 필터 섹션 */}
-      <div>토클 필터입니닷</div>
+      <SpaceCategory />
 
       {/* 배너 섹션 */}
       <div>배너</div>
