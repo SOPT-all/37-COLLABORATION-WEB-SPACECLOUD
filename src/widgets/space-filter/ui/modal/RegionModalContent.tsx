@@ -54,7 +54,8 @@ const RegionModalContent = ({ onClose, onChange, value }: ModalContentProps) => 
               width='min'
               gap='g4'
               font='body_m_14'
-              onClick={() => handleClick(area.key, area.content)}
+              onClick={area.key === null ? undefined : () => handleClick(area.key, area.content)}
+              disabled={area.key === null}
             >
               <span className={s.areaLabel}>{area.content}</span>
             </Button>
