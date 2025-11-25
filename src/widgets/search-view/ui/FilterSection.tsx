@@ -3,9 +3,13 @@ import FilterMapButtons from '@/widgets/filter/ui/data-filter/button/FilterMapBu
 import FilterList from '@/widgets/filter-list/ui/FilterList';
 import { useMainFilterParams } from '@/shared/libs/useMainFilterParams';
 import { wrapper } from './FilterSection.css';
+import { useCategoriesQuery } from '@/widgets/space-filter/api/useCategoriesQuery';
 
 const FilterSection = () => {
-  const { filter, handleFilterChange } = useMainFilterParams();
+  const { data: categories } = useCategoriesQuery();
+  const { filter, handleFilterChange } = useMainFilterParams(
+    categories ?? { workspace: [], gathering: [] },
+  );
 
   return (
     <section className={wrapper}>

@@ -1,3 +1,5 @@
+import type { BaseApiResponse } from '@/shared/types/common';
+
 export type Space = {
   code: string;
   name: string;
@@ -9,3 +11,4 @@ export type CategoriesResponse = {
 };
 
 export type GroupType = keyof CategoriesResponse;
+export type CategoriesApiResponse = BaseApiResponse<CategoriesResponse>;
