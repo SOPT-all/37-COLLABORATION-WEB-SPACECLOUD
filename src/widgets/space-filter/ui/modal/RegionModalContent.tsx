@@ -2,36 +2,29 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import Button from '@/shared/ui/Button';
 import { ArrowRightIcon } from '@/shared/assets/icons';
-import { AREA_FILTERS } from '@/shared/configs/region';
-import type { ModalProps } from '@/shared/types/common';
-import * as s from './RegionModalContent.css';
+import { AREA_FILTERS, REGIONS } from '@/shared/configs/region';
 import { vars } from '@/shared/styles/token.css';
+import type { ModalContentProps } from '@/shared/types/common';
+import { typedEntries } from '@/shared/libs/object';
+import * as s from './RegionModalContent.css';
 
-const regions = [
-  { key: 'Seoul', label: '서울', isActive: true },
-  { key: 'Gyeonggi', label: '경기', isActive: false },
-  { key: 'Incheon', label: '인천', isActive: false },
-  { key: 'Busan', label: '부산', isActive: false },
-  { key: 'Gwangju', label: '광주', isActive: false },
-  { key: 'Daegu', label: '대구', isActive: false },
-  { key: 'Daejeon', label: '대전', isActive: false },
-  { key: 'Ulsan', label: '울산', isActive: false },
-  { key: 'Jeju', label: '제주', isActive: false },
-  { key: 'Gangwon', label: '강원', isActive: false },
-  { key: 'Gyeongnam', label: '경남', isActive: false },
-  { key: 'Gyeongbuk', label: '경북', isActive: false },
-  { key: 'Jeonla', label: '전남/전북', isActive: false },
-  { key: 'ChungBuk', label: '충북', isActive: false },
-  { key: 'ChungnamAndSejong', label: '충남/세종', isActive: false },
-];
+const REGION_LABEL = '시/도 선택';
+const AREA_LABEL = '서울';
 
-const RegionModalContent = ({ onClose }: ModalProps) => {
-  const [showArea, setShowArea] = useState(false);
+const RegionModalContent = ({ onClose, onChange, value }: ModalContentProps) => {
+  const [showArea, setShowArea] = useState(!!value);
+
+  const handleClick = (key: string | null, content: string) => {
+    onChange?.({ key, content });
+    onClose?.();
+  };
 
   return (
     <div className={s.wrapper}>
       <header className={s.header}>
-        <span className={clsx({ [s.active]: showArea })}>{!showArea ? '시/도 선택' : '서울'}</span>
+        <span className={clsx({ [s.active]: showArea })}>
+          {!showArea ? REGION_LABEL : AREA_LABEL}
+        </span>
         <ArrowRightIcon
           width={7}
           height={12}
@@ -43,14 +36,14 @@ const RegionModalContent = ({ onClose }: ModalProps) => {
 
       {!showArea && (
         <div className={s.regionGrid}>
-          {regions.map((region) => (
+          {REGIONS.map((region) => (
             <Button
               key={region.key}
               styleType='location'
               width='min'
               gap='g4'
               font='body_m_12'
-              onClick={region.isActive ? () => setShowArea(true) : undefined}
+              onClick={region.isActive ? () => setShowArea((prev) => !prev) : undefined}
             >
               <span className={s.regionLabel}>{region.label}</span>
             </Button>
@@ -60,16 +53,17 @@ const RegionModalContent = ({ onClose }: ModalProps) => {
 
       {showArea && (
         <div className={s.areaGrid}>
-          {AREA_FILTERS.map((area) => (
+          {typedEntries(AREA_FILTERS).map(([key, label]) => (
             <Button
-              key={area.key}
+              key={key}
               styleType='area'
               width='min'
               gap='g4'
               font='body_m_14'
-              onClick={onClose}
+              onClick={key === null ? undefined : () => handleClick(key, label)}
+              disabled={key === null}
             >
-              <span className={s.areaLabel}>{area.label}</span>
+              <span className={s.areaLabel}>{label}</span>
             </Button>
           ))}
         </div>

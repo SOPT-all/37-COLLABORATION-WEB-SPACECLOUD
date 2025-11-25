@@ -2,11 +2,17 @@ import type { ModalProps } from '@/shared/types/common';
 import { SPACE_ICON_MAP } from '@/shared/configs/space';
 import Button from '@/shared/ui/Button';
 import * as s from './SpaceModalContent.css';
-import { dummy } from '@widgets/space-filter/model/categories.mock.ts';
-import { GROUP_LABEL } from '@widgets/space-filter/config/categories.enum.ts';
-import { typedEntries } from '@shared/libs/object.ts';
+import { dummy } from '../../model/categories.mock';
+import { GROUP_LABEL } from '../../config/categories.enum';
+import { typedEntries } from '@/shared/libs/object';
 
-const SpaceModalContent = ({ onClose }: ModalProps) => {
+const SpaceModalContent = ({ onClose, onChange }: ModalProps) => {
+  // 버튼 클릭 시 상태 업데이트 및 모달 닫기
+  const handleClick = (key: string, content: string) => {
+    onChange?.({ key, content });
+    onClose?.();
+  };
+
   return (
     <div className={s.wrapper}>
       {typedEntries(dummy).map(([key, items]) => {
@@ -16,6 +22,7 @@ const SpaceModalContent = ({ onClose }: ModalProps) => {
             <div className={s.space}>
               {items.map((item) => {
                 const Icon = SPACE_ICON_MAP[item.code];
+
                 return (
                   <Button
                     key={item.code}
@@ -24,7 +31,7 @@ const SpaceModalContent = ({ onClose }: ModalProps) => {
                     gap='g4'
                     justify='start'
                     font='body_m_16'
-                    onClick={onClose}
+                    onClick={() => handleClick(item.code, item.name)}
                   >
                     <Icon className={s.icon} width={18} height={18} />
                     <span className={s.label}>{item.name}</span>
