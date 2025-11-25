@@ -7,6 +7,7 @@ const RootLayout = () => {
   return (
     <>
       <Header />
+      {/* 추후 루트 레이아웃 스타일링을 진행합니다. */}
       <main className={rootLayout}>
         <Outlet />
       </main>
