@@ -1,6 +1,7 @@
 import FilterSection from '@/widgets/search-view/ui/FilterSection';
 import { premiumZoneMocks } from '@/shared/mocks/premiumZone';
 import { plusZoneMocks } from '@/shared/mocks/plusZone';
+import PlaceList from '@widgets/space-card/ui/list/PlaceList.tsx';
 import PlaceSection from '@/widgets/space-card/ui/PlaceSection';
 import Divider from '@/shared/ui/divider/Divider';
 import * as s from './SearchPage.css';
@@ -35,7 +36,7 @@ const SearchPage = () => {
       </div>
 
       {/* 공간 목록 영역입니다. */}
-      <div>공간공간공간</div>
+      <PlaceList />
     </>
   );
 };
