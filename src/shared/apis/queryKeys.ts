@@ -6,4 +6,5 @@ export const queryKeys = {
     delete rest.page;
     return ['reviews', Object.keys(rest).length ? rest : 'all'] as const;
   },
+  CATEGORIES: () => ['place', 'categories'] as const,
 } as const;
