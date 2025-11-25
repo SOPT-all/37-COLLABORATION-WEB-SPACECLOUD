@@ -21,7 +21,7 @@ export const card = recipe({
       horizontal: {
         flexDirection: 'row',
         width: '55rem',
-        minHeight: '29.5rem',
+        height: '29.5rem',
       },
     },
   },
