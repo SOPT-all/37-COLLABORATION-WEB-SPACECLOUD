@@ -6,8 +6,4 @@ export interface MagazineItem {
   magazineImageUrl: string;
 }
 
-export interface MagazineListData {
-  content: MagazineItem[];
-}
-
-export type MagazineListResponse = BaseApiResponse<MagazineListData>;
+export type MagazineListResponse = BaseApiResponse<MagazineItem[]>;
