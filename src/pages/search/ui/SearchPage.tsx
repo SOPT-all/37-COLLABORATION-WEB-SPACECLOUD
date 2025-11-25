@@ -1,9 +1,6 @@
 import FilterSection from '@/widgets/search-view/ui/FilterSection';
 import { premiumZoneMocks } from '@/shared/mocks/premiumZone';
 import { plusZoneMocks } from '@/shared/mocks/plusZone';
-import MainFilter from '@/widgets/space-filter/ui/MainFilter';
-import { useMainFilterParams } from '@/shared/libs/useMainFilterParams';
-import FilterMapButtons from '@widgets/filter/ui/data-filter/button/FilterMapButtons.tsx';
 import PlaceList from '@widgets/space-card/ui/list/PlaceList.tsx';
 import PlaceSection from '@/widgets/space-card/ui/PlaceSection';
 import Divider from '@/shared/ui/divider/Divider';
