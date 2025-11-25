@@ -1,6 +1,7 @@
 import { style } from '@vanilla-extract/css';
 import { colorToken, radiusToken } from '@shared/styles/tokens';
 import { recipe } from '@vanilla-extract/recipes';
+import { vars } from '@/shared/styles/token.css';
 
 export const dialog = style({
   border: 'none',
@@ -32,6 +33,11 @@ export const content = recipe({
       },
       gray300: {
         border: `1px solid ${colorToken.grayscale.gray300}`,
+      },
+    },
+    borderRadius: {
+      r20: {
+        borderRadius: vars.radius.r20,
       },
     },
   },
