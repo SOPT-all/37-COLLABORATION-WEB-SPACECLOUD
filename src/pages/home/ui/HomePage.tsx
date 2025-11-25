@@ -5,6 +5,7 @@ import MainTitle from '@/widgets/main-view/ui/Header/MainTitle';
 import SpaceCategory from '@widgets/space-filter/ui/tab/SpaceCategory.tsx';
 import ReviewSection from '@widgets/review/ui/ReviewSection.tsx';
 import SubTitle from '@/shared/ui/subTitle/SubTitle';
+import MagazineSection from '@/widgets/magazine/ui/MagazineSection';
 
 const HomePage = () => {
   return (
