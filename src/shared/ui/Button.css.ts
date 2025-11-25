@@ -104,7 +104,7 @@ export const buttonBase = recipe({
       dataFilter: {
         backgroundColor: 'transparent',
         color: vars.color.primary['200'],
-        padding: '10px 18px',
+        padding: '8px 16px',
         border: `2px solid ${vars.color.primary['200']}`,
         borderRadius: vars.radius.r50,
       },

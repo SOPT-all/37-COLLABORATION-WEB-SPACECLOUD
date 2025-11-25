@@ -39,7 +39,7 @@ const SortMenu = () => {
     <div className={s.container} ref={modalRef}>
       <button className={s.sortMenuWrapper} onClick={() => setIsOpen(!isOpen)}>
         <span className={s.sortMenu}>{selected}</span>
-        {isOpen ? <ArrowUpIcon className={s.icon} /> : <ArrowDownIcon className={s.icon} />}
+        {isOpen ? <ArrowUpIcon width={16} height={16} /> : <ArrowDownIcon width={16} height={16} />}
       </button>
 
       {isOpen && (
