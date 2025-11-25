@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router';
 import RootLayout from '@app/layouts/RootLayout.tsx';
+import LoadingView from '@/widgets/error-view/LoadingView';
 
 /**
  * App 전체 라우팅 설정
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
     path: '/',
     element: <RootLayout />,
     /* 초기 화면 fallback */
-    hydrateFallbackElement: <div>초기 화면 로딩딩...</div>,
+    hydrateFallbackElement: <LoadingView />,
     children: [
       {
         index: true,
