@@ -1,6 +1,6 @@
 import { type ComponentProps, useState } from 'react';
 import { useIntersectionObserver } from '@/shared/hooks/useIntersectionObserver';
-import { useDelayedVisibility } from '@/shared/hooks/useDelayedVisibility';
+import Deferred from '@/shared/ui/deferred/Deferred';
 import ReviewCard from './reviewCard/ReviewCard';
 import ReviewMoreButton from './reviewMoreButton/ReviewMoreButton';
 import { useReviewListQuery } from '../api/useReviewListQuery';
@@ -23,8 +23,6 @@ const renderSkeletons = (count: number, prefix: string) =>
 const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
   const { data, isLoading, isError, fetchNextPage, isFetchingNextPage } = useReviewListQuery();
   const [isInfiniteMode, setInfiniteMode] = useState(false);
-  const showInitialSkeleton = useDelayedVisibility(isLoading);
-  const showNextPageSkeleton = useDelayedVisibility(isFetchingNextPage);
 
   const lastPage = data?.pages.at(-1);
   const reviews: ReviewCardProps[] = data?.pages.flatMap((page) => page.data.content) ?? [];
@@ -54,11 +52,13 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
   if (isError) return null;
 
   const renderLoading = () =>
-    showInitialSkeleton ? (
+    isLoading ? (
       <section className={s.section}>
-        <div className={s.grid} aria-label='리뷰 로딩 중'>
-          {renderSkeletons(skeletonCount, 'initial-skeleton')}
-        </div>
+        <Deferred active={isLoading}>
+          <div className={s.grid} aria-label='리뷰 로딩 중'>
+            {renderSkeletons(skeletonCount, 'initial-skeleton')}
+          </div>
+        </Deferred>
       </section>
     ) : null;
 
@@ -68,7 +68,9 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
         {reviews.map((review) => (
           <ReviewCard key={`review-${review.id}`} {...review} />
         ))}
-        {showNextPageSkeleton && renderSkeletons(skeletonCount, `page-${nextPageIndex}-skeleton`)}
+        <Deferred active={isFetchingNextPage}>
+          {renderSkeletons(skeletonCount, `page-${nextPageIndex}-skeleton`)}
+        </Deferred>
       </div>
 
       {showMoreButton && (

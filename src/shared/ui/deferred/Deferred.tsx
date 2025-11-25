@@ -1,6 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import { type ReactNode, useEffect, useRef, useState } from 'react';
 
-export const useDelayedVisibility = (isActive: boolean, delayMs = 400) => {
+interface DeferredProps {
+  active: boolean;
+  delayMs?: number;
+  children: ReactNode;
+}
+
+const Deferred = ({ active, delayMs = 400, children }: DeferredProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const timerRef = useRef<number | null>(null);
 
@@ -10,7 +16,7 @@ export const useDelayedVisibility = (isActive: boolean, delayMs = 400) => {
       timerRef.current = null;
     }
 
-    if (isActive) {
+    if (active) {
       timerRef.current = window.setTimeout(() => {
         setIsVisible(true);
         timerRef.current = null;
@@ -28,7 +34,10 @@ export const useDelayedVisibility = (isActive: boolean, delayMs = 400) => {
         timerRef.current = null;
       }
     };
-  }, [isActive, delayMs, isVisible]);
+  }, [active, delayMs, isVisible]);
 
-  return isVisible;
+  if (!isVisible) return null;
+  return <>{children}</>;
 };
+
+export default Deferred;
