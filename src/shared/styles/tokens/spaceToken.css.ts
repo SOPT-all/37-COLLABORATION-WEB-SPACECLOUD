@@ -23,7 +23,9 @@ export const spaceToken = {
   s37: '37px',
   s38: '38px',
   s40: '40px',
+  s41: '41px',
   s48: '48px',
   s52: '52px',
   s56: '56px',
+  s36: '36px',
 };
