@@ -7,4 +7,5 @@ export const queryKeys = {
     return ['reviews', Object.keys(rest).length ? rest : 'all'] as const;
   },
   CATEGORIES: () => ['place', 'categories'] as const,
+  MAGAZINES: 'magazines',
 } as const;

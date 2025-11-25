@@ -11,7 +11,7 @@ interface Props extends ChildrenProps, ModalProps, Border {
   location?: CSSProperties;
 }
 
-export const Modal = ({ isOpen, onClose, children, location, border }: Props) => {
+export const Modal = ({ isOpen, onClose, children, location, border, borderRadius }: Props) => {
   const ref = useRef<HTMLDialogElement | null>(null);
 
   useEffect(() => {
@@ -26,8 +26,10 @@ export const Modal = ({ isOpen, onClose, children, location, border }: Props) =>
   }, [isOpen]);
 
   return (
-    <dialog ref={ref} onClose={onClose} className={s.dialog} style={location} closedby='any'>
-      <section className={s.content({ border: `${border}` })}>{children}</section>
+    <dialog ref={ref} onClose={onClose} style={location} className={s.dialog} closedby='any'>
+      <section style={location} className={s.content({ border: `${border}`, borderRadius })}>
+        {children}
+      </section>
     </dialog>
   );
 };

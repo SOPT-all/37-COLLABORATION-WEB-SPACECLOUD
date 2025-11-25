@@ -6,7 +6,10 @@ export const container = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  padding: `${spaceToken.s24} 119px`,
+  padding: `${spaceToken.s24} 0`,
+  width: '100%',
+  maxWidth: '1129px',
+  margin: '0 auto',
 });
 
 export const logo = style({
