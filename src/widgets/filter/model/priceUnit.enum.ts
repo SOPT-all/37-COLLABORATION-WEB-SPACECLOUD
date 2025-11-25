@@ -1,6 +1,7 @@
 export const PRICE_UNIT = {
   HOUR: 'HOUR',
   MONTH: 'MONTH',
+  DAY: 'DAY',
   PACKAGE: 'PACKAGE',
 } as const;
 

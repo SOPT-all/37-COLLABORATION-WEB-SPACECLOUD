@@ -9,6 +9,7 @@ export interface PlaceCardProps {
   id: number;
   name: string;
   capacity: number;
+  capacityLabel?: string;
   commentCount: number;
   likeCount: number;
   price: number;
@@ -23,6 +24,7 @@ const PlaceCard = ({
   id,
   name,
   capacity,
+  capacityLabel,
   commentCount,
   likeCount,
   price,
@@ -32,6 +34,8 @@ const PlaceCard = ({
   address,
   coupon,
 }: PlaceCardProps) => {
+  const capacityText = capacityLabel ?? `최대 ${capacity}인`;
+
   return (
     <CardLayout
       orientation='vertical'
@@ -74,7 +78,7 @@ const PlaceCard = ({
         <div className={s.meta}>
           <div className={s.metaItem({ gap: 'default' })}>
             <PeopleIcon className={s.icon({ size: 'md' })} aria-hidden='true' />
-            <span>최대 {capacity}인</span>
+            <span>{capacityText}</span>
           </div>
           <div
             className={clsx(s.metaItem({ gap: 'default' }), s.metaSpacing({ size: 'comment' }))}
