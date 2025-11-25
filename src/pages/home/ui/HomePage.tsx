@@ -1,7 +1,4 @@
-import MainFilter from '@/widgets/space-filter/ui/MainFilter';
-import Button from '@/shared/ui/Button';
-import { useMainFilterState } from '@/shared/libs/useMainFilterState';
-import { useMainFilterSearch } from '@/shared/libs/useMainFilterSearch';
+import Filter from '@/widgets/main-view/ui/Filter/Filter';
 
 /**
  * 페이지의 전체적인 구조만을 잡았습니다.
@@ -10,20 +7,13 @@ import { useMainFilterSearch } from '@/shared/libs/useMainFilterSearch';
  */
 
 const HomePage = () => {
-  const { filter, handleFilterChange, isFilterEmpty } = useMainFilterState();
-  const { handleSearch } = useMainFilterSearch(filter);
-
   return (
     <>
       {/* 메인 페이지 타이틀 영역입니다. */}
       <h1>작업부터 모임까지 어쩌구 저쩌구</h1>
 
       {/* 4가지 필터 섹션 입니다. */}
-      <MainFilter filter={filter} onFilterChange={handleFilterChange}>
-        <Button styleType='search' font='body_m_18' onClick={handleSearch} disabled={isFilterEmpty}>
-          검색
-        </Button>
-      </MainFilter>
+      <Filter />
 
       {/* 토클 필터 섹션 */}
       <div>토클 필터입니닷</div>
