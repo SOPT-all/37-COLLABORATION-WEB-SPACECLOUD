@@ -6,7 +6,7 @@ export const wrapper = style({
   display: 'flex',
   flexDirection: 'column',
   gap: vars.space.s24,
-  padding: `${vars.space.s20} ${vars.space.s24}`,
+  padding: `${vars.space.s24} ${vars.space.s32} ${vars.space.s24} ${vars.space.s20} `,
 });
 
 export const group = style({
@@ -23,8 +23,8 @@ export const groupTitle = style([
 ]);
 
 export const space = style({
-  display: 'flex',
-  flexWrap: 'wrap',
+  display: 'grid',
+  gridTemplateColumns: 'repeat(6, 1fr)',
   gap: vars.space.s8,
 });
 
