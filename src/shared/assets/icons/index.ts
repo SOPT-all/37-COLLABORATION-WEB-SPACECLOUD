@@ -18,3 +18,4 @@ export { default as ArrowUpIcon } from './ic-arrow-up.svg?react';
 export { default as MinusIcon } from './ic-minus.svg?react';
 export { default as PlusIcon } from './ic-plus.svg?react';
 export { default as CloseIcon } from './ic-close.svg?react';
+export { default as CheckIcon } from './ic-check.svg?react';

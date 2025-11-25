@@ -32,6 +32,13 @@ export const typography = styleVariants({
     letterSpacing: vars.font.letterSpacing.tight_03,
   },
 
+  body_b_16: {
+    fontWeight: vars.font.weight.bold,
+    fontSize: vars.font.size.s16,
+    lineHeight: vars.font.lineHeight.h18,
+    letterSpacing: vars.font.letterSpacing.tight_00,
+  },
+
   body_sb_16: {
     fontWeight: vars.font.weight.semibold,
     fontSize: vars.font.size.s16,
@@ -46,6 +53,13 @@ export const typography = styleVariants({
     letterSpacing: vars.font.letterSpacing.tight_03,
   },
 
+  body_r_16: {
+    fontWeight: vars.font.weight.regular,
+    fontSize: vars.font.size.s16,
+    lineHeight: vars.font.lineHeight.h18,
+    letterSpacing: vars.font.letterSpacing.tight_00,
+  },
+
   body_sb_14: {
     fontWeight: vars.font.weight.semibold,
     fontSize: vars.font.size.s14,
@@ -53,7 +67,6 @@ export const typography = styleVariants({
     letterSpacing: vars.font.letterSpacing.tight_03,
   },
 
-  // 이미지 스펙 기준: 이름은 14지만 Font Size는 12px로 설정되어 있음
   body_m_14: {
     fontWeight: vars.font.weight.medium,
     fontSize: vars.font.size.s14,

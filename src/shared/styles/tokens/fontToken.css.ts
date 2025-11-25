@@ -19,6 +19,7 @@ export const fontToken = {
     bold: '700',
   },
   letterSpacing: {
+    tight_00: '0',
     tight_03: '-0.03rem',
     tight_04: '-0.04rem',
     tight_05: '-0.05rem',
