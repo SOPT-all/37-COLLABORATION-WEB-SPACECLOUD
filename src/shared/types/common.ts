@@ -18,3 +18,9 @@ export interface BaseApiResponse<T> {
   message: string;
   data: T;
 }
+export interface BaseApiResponse<T> {
+  success: boolean;
+  code: string;
+  message: string;
+  data: T;
+}
