@@ -1,4 +1,5 @@
 import FilterMapButtons from '@widgets/filter/ui/data-filter/button/FilterMapButtons.tsx';
+import PlaceList from '@widgets/space-card/ui/list/PlaceList.tsx';
 
 const SearchPage = () => {
   return (
@@ -15,7 +16,7 @@ const SearchPage = () => {
       <div>플러시존플러스</div>
 
       {/* 공간 목록 영역입니다. */}
-      <div>공간공간공간</div>
+      <PlaceList />
     </>
   );
 };
