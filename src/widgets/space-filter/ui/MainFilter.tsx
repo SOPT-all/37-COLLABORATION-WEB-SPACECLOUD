@@ -67,14 +67,13 @@ const MainFilter = ({ children, filter, onFilterChange }: MainFilterProps) => {
               isOpen={isOpen}
               onClick={(e) => handleOpenModal(key, e)}
             >
-              {hasValue ? (
+              {hasValue && (
                 <div className={s.selected}>
                   <span className={s.selectedValue}>{formatDisplayText(key, filter[key])}</span>
                   <CloseIcon onClick={(e) => handleReset(e, key)} />
                 </div>
-              ) : (
-                label
               )}
+              {!hasValue && label}
             </Button>
           );
         })}
