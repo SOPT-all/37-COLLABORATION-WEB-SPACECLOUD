@@ -20,6 +20,7 @@ const Button = ({
   font,
   gap,
   styleType,
+  isOpen,
   ...rest
 }: ButtonProps) => {
   return (
@@ -30,6 +31,7 @@ const Button = ({
           justify: justify,
           gap: gap,
           styleType: styleType,
+          isOpen: isOpen,
         }),
         font && typography[font],
         style,

@@ -1,5 +1,6 @@
 import { type ComponentProps, useState } from 'react';
 import { useIntersectionObserver } from '@/shared/hooks/useIntersectionObserver';
+import Deferred from '@/shared/ui/deferred/Deferred';
 import ReviewCard from './reviewCard/ReviewCard';
 import ReviewMoreButton from './reviewMoreButton/ReviewMoreButton';
 import { useReviewListQuery } from '../api/useReviewListQuery';
@@ -50,13 +51,16 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
 
   if (isError) return null;
 
-  const renderLoading = () => (
-    <section className={s.section}>
-      <div className={s.grid} aria-label='리뷰 로딩 중'>
-        {renderSkeletons(skeletonCount, 'initial-skeleton')}
-      </div>
-    </section>
-  );
+  const renderLoading = () =>
+    isLoading ? (
+      <section className={s.section}>
+        <Deferred active={isLoading}>
+          <div className={s.grid} aria-label='리뷰 로딩 중'>
+            {renderSkeletons(skeletonCount, 'initial-skeleton')}
+          </div>
+        </Deferred>
+      </section>
+    ) : null;
 
   const renderContent = () => (
     <section className={s.section}>
@@ -64,7 +68,9 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
         {reviews.map((review) => (
           <ReviewCard key={`review-${review.id}`} {...review} />
         ))}
-        {isFetchingNextPage && renderSkeletons(skeletonCount, `page-${nextPageIndex}-skeleton`)}
+        <Deferred active={isFetchingNextPage}>
+          {renderSkeletons(skeletonCount, `page-${nextPageIndex}-skeleton`)}
+        </Deferred>
       </div>
 
       {showMoreButton && (
@@ -77,7 +83,9 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
     </section>
   );
 
-  return isLoading ? renderLoading() : renderContent();
+  if (isLoading) return renderLoading();
+
+  return renderContent();
 };
 
 export default ReviewSection;
