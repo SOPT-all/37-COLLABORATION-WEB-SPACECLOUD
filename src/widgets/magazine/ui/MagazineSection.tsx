@@ -1,4 +1,3 @@
-import SubTitle from '@shared/ui/subTitle/SubTitle';
 import MagazineCard from './magazineCard/MagazineCard';
 import * as s from './MagazineSection.css';
 
@@ -19,9 +18,6 @@ const mockMagazines = [
 const MagazineSection = () => {
   return (
     <section className={s.section}>
-      <SubTitle variant='small25'>
-        <SubTitle.NewBadge>도시산책, 스페이스클라우드 매거진</SubTitle.NewBadge>
-      </SubTitle>
       <div className={s.list}>
         {mockMagazines.map((magazine) => (
           <MagazineCard key={magazine.id} {...magazine} />

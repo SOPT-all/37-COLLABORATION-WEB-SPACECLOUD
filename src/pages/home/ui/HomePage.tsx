@@ -6,6 +6,7 @@ import ReviewSection from '@widgets/review/ui/ReviewSection.tsx';
 import SubTitle from '@/shared/ui/subTitle/SubTitle';
 
 import MagazineSection from '@/widgets/magazine/ui/MagazineSection';
+import { FetchBoundary } from '@/shared/ui/boundary/FetchBoundary';
 
 /**
  * 페이지의 전체적인 구조만을 잡았습니다.
@@ -31,12 +32,18 @@ const HomePage = () => {
       <div>새로새로새로</div>
 
       {/* 매거진 섹션 */}
-      <div>매거진매거진매거진</div>
-      <MagazineSection />
+      <SubTitle variant='small25'>
+        <SubTitle.NewBadge>도시산책, 스페이스클라우드 매거진</SubTitle.NewBadge>
+      </SubTitle>
+      <FetchBoundary>
+        <MagazineSection />
+      </FetchBoundary>
 
       {/* 후기 섹션 */}
       <SubTitle>방금 올라온 이용후기에요</SubTitle>
-      <ReviewSection />
+      <FetchBoundary>
+        <ReviewSection />
+      </FetchBoundary>
     </>
   );
 };
