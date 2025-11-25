@@ -1,7 +1,7 @@
 import type { FilterState, FilterValue } from '@/widgets/space-filter/types/types';
 import { AREA_FILTERS, type AreaKey } from '@/shared/configs/region';
-import { dummy } from '@/widgets/space-filter/model/categories.mock';
 import { typedEntries } from './object';
+import type { CategoriesResponse } from '@/widgets/space-filter/model/categories.type';
 
 export const getValue = (value: FilterValue): string | null => {
   if (!value) return null;
@@ -26,18 +26,24 @@ export const filterToSearchParams = (filter: FilterState): URLSearchParams => {
   return params;
 };
 
-export const findSpaceNameByCode = (code: string): string | null => {
-  const all = Object.values(dummy).flat();
+export const findSpaceNameByCode = (
+  code: string,
+  categories: CategoriesResponse,
+): string | null => {
+  const all = Object.values(categories).flat();
   const rst = all.find((v) => v.code === code)?.name ?? null;
   return rst;
 };
 
-export const searchParamsToFilter = (params: URLSearchParams): FilterState => {
+export const searchParamsToFilter = (
+  params: URLSearchParams,
+  categories: CategoriesResponse,
+): FilterState => {
   const areaKey = params.get('location');
   const areaValue = areaKey ? AREA_FILTERS[areaKey as AreaKey] || null : null;
 
   const spaceKey = params.get('filter');
-  const spaceValue = spaceKey ? findSpaceNameByCode(spaceKey) : null;
+  const spaceValue = spaceKey ? findSpaceNameByCode(spaceKey, categories) : null;
 
   return {
     filter: spaceValue,
