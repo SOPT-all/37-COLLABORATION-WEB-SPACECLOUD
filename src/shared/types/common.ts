@@ -11,3 +11,10 @@ export interface ModalProps {
 export interface ModalContentProps extends ModalProps {
   value?: FilterValue;
 }
+
+export interface BaseApiResponse<T> {
+  success: boolean;
+  code: string;
+  message: string;
+  data: T;
+}
