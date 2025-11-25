@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import type { FilterKey, FilterState, FilterValue } from '@/widgets/space-filter/types/types';
 
 const initialFilterState: FilterState = {
@@ -15,10 +15,7 @@ export const useMainFilterState = () => {
     setFilter((prev) => ({ ...prev, [key]: value }));
   };
 
-  const isFilterEmpty = useMemo(
-    () => Object.values(filter).every((value) => value === null),
-    [filter],
-  );
+  const isFilterEmpty = Object.values(filter).every((value) => value === null);
 
   return {
     filter,

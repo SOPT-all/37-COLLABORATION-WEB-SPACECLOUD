@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router';
-import type { FilterKey, FilterValue, SpaceFilterValue } from '@/widgets/space-filter/types/types';
-import { searchParamsToFilter } from './filterUtils';
+import type { FilterKey, FilterValue } from '@/widgets/space-filter/types/types';
+import { getValue, searchParamsToFilter } from './filterUtils';
 
 export const useMainFilterParams = () => {
   const [params, setParams] = useSearchParams();
@@ -8,16 +8,10 @@ export const useMainFilterParams = () => {
 
   const handleFilterChange = (key: FilterKey, value: FilterValue) => {
     const newParams = new URLSearchParams(params);
+    const curValue = getValue(value);
 
-    if (value) {
-      if (typeof value === 'object') {
-        const spaceFilterValue = value as SpaceFilterValue;
-        if (spaceFilterValue.key) {
-          newParams.set(key, spaceFilterValue.key);
-        }
-      } else {
-        newParams.set(key, value);
-      }
+    if (curValue) {
+      newParams.set(key, curValue);
     } else {
       newParams.delete(key);
     }

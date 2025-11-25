@@ -1,35 +1,25 @@
-import MainFilter from '@/widgets/space-filter/ui/MainFilter';
-import Button from '@/shared/ui/Button';
-import { useMainFilterState } from '@/shared/libs/useMainFilterState';
-import { useMainFilterSearch } from '@/shared/libs/useMainFilterSearch';
-
-/**
- * 페이지의 전체적인 구조만을 잡았습니다.
- * 의미없는 div보다는
- * 시멘틱 태그를 이용해 의미를 부여해주시면 되겠습니다.
- */
+import Filter from '@/widgets/main-view/ui/Filter/Filter';
+import Divider from '@/shared/ui/divider/Divider';
+import Banner from '@/widgets/main-view/ui/Banner/Banner';
+import MainTitle from '@/widgets/main-view/ui/Header/MainTitle';
+import SpaceCategory from '@widgets/space-filter/ui/tab/SpaceCategory.tsx';
+import ReviewSection from '@widgets/review/ui/ReviewSection.tsx';
+import SubTitle from '@/shared/ui/subTitle/SubTitle';
 
 const HomePage = () => {
-  const { filter, handleFilterChange, isFilterEmpty } = useMainFilterState();
-  const { handleSearch } = useMainFilterSearch(filter);
-
   return (
     <>
-      {/* 메인 페이지 타이틀 영역입니다. */}
-      <h1>작업부터 모임까지 어쩌구 저쩌구</h1>
+      <MainTitle />
 
       {/* 4가지 필터 섹션 입니다. */}
-      <MainFilter filter={filter} onFilterChange={handleFilterChange}>
-        <Button styleType='search' font='body_m_18' onClick={handleSearch} disabled={isFilterEmpty}>
-          검색
-        </Button>
-      </MainFilter>
+      <Filter />
+
+      <Divider />
 
       {/* 토클 필터 섹션 */}
-      <div>토클 필터입니닷</div>
+      <SpaceCategory />
 
-      {/* 배너 섹션 */}
-      <div>배너</div>
+      <Banner />
 
       {/* 새로 등록 섹션 */}
       <div>새로새로새로</div>
@@ -38,7 +28,8 @@ const HomePage = () => {
       <div>매거진매거진매거진</div>
 
       {/* 후기 섹션 */}
-      <div>후기 섹션</div>
+      <SubTitle>방금 올라온 이용후기에요</SubTitle>
+      <ReviewSection />
     </>
   );
 };

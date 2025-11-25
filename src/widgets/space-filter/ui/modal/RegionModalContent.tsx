@@ -3,9 +3,10 @@ import clsx from 'clsx';
 import Button from '@/shared/ui/Button';
 import { ArrowRightIcon } from '@/shared/assets/icons';
 import { AREA_FILTERS, REGIONS } from '@/shared/configs/region';
-import * as s from './RegionModalContent.css';
 import { vars } from '@/shared/styles/token.css';
 import type { ModalContentProps } from '@/shared/types/common';
+import { typedEntries } from '@/shared/libs/object';
+import * as s from './RegionModalContent.css';
 
 const REGION_LABEL = '시/도 선택';
 const AREA_LABEL = '서울';
@@ -52,17 +53,17 @@ const RegionModalContent = ({ onClose, onChange, value }: ModalContentProps) => 
 
       {showArea && (
         <div className={s.areaGrid}>
-          {AREA_FILTERS.map((area) => (
+          {typedEntries(AREA_FILTERS).map(([key, label]) => (
             <Button
-              key={area.key}
+              key={key}
               styleType='area'
               width='min'
               gap='g4'
               font='body_m_14'
-              onClick={area.key === null ? undefined : () => handleClick(area.key, area.content)}
-              disabled={area.key === null}
+              onClick={key === null ? undefined : () => handleClick(key, label)}
+              disabled={key === null}
             >
-              <span className={s.areaLabel}>{area.content}</span>
+              <span className={s.areaLabel}>{label}</span>
             </Button>
           ))}
         </div>

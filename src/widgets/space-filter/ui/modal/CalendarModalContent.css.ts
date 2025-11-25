@@ -17,14 +17,6 @@ export const calendarWrapper = style({
   borderBottom: `1px solid ${vars.color.grayscale.gray100}`,
 });
 
-export const saturday = style({
-  color: vars.color.etc.blue,
-});
-
-export const sunday = style({
-  color: vars.color.etc.red,
-});
-
 // 전체 폰트 색상
 globalStyle(`${wrapper} .react-calendar__month-view__days__day abbr`, {
   color: vars.color.grayscale.black,
