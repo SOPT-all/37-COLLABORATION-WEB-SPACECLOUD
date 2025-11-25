@@ -171,6 +171,19 @@ export const buttonBase = recipe({
         backgroundColor: vars.color.primary['200'],
         borderRadius: vars.radius.r50,
       },
+      // 에러 모달 버튼에 사용합니다.
+      homeButton: {
+        borderRadius: vars.radius.r8,
+        color: vars.color.grayscale.gray700,
+        backgroundColor: vars.color.grayscale.gray300,
+        padding: `${vars.space.s20} ${vars.space.s41}`,
+      },
+      retryButton: {
+        borderRadius: vars.radius.r8,
+        color: vars.color.grayscale.white,
+        backgroundColor: vars.color.primary['200'],
+        padding: `${vars.space.s20} ${vars.space.s48}`,
+      },
       reset: {
         color: vars.color.grayscale.gray900,
         padding: 0,
