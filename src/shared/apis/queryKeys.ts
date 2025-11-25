@@ -19,5 +19,6 @@ export const queryKeys = {
       },
     ];
   },
+  CATEGORIES: () => ['place', 'categories'] as const,
   MAGAZINES: 'magazines',
 } as const;
