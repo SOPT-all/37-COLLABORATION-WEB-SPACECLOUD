@@ -59,8 +59,8 @@ const Footer = () => {
           <div className={s.arrowContent}>
             <p className={s.padding}>사업자등록정보</p>
             <ArrowRightIcon
-              width={7}
-              height={12}
+              width={16}
+              height={16}
               stroke={vars.color.grayscale.gray600}
               strokeWidth={1.3}
             />
