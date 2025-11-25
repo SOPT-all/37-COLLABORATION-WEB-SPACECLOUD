@@ -28,34 +28,34 @@ export const buttonBase = recipe({
           backgroundColor: vars.color.primary['100'],
         },
       },
-      // 지역 필터 버튼 스타일링에 사용합니다.
-      locationFilter: {
+      // 메인 필터 버튼 스타일링에 사용합니다.
+      mainFilter: {
         color: vars.color.grayscale.gray600,
         backgroundColor: vars.color.grayscale.gray100,
-        padding: `13px 20px`,
+        padding: `15px 0`,
         borderRadius: vars.radius.r5,
       },
-      // 지역 필터 모달이 활성화 시 사용하는 지역 필터 버튼 스타일입니다.
-      locationFilterActive: {
+      // 메인 필터 모달이 활성화 시 사용하는 지역 필터 버튼 스타일입니다.
+      mainFilterActive: {
         color: vars.color.grayscale.gray900,
         border: `2px solid ${vars.color.primary['300']}`,
-        padding: `13px 20px`,
+        padding: `11px 0`,
         borderRadius: vars.radius.r5,
       },
-      // 지역 필터에서 요소가 선택되었을 때 사용합니다.
-      locationFilterSelected: {
+      // 메인 필터에서 요소가 선택되었을 때 사용합니다.
+      mainFilterSelected: {
         color: vars.color.primary['300'],
         backgroundColor: vars.color.grayscale.gray100,
         border: `2px solid ${vars.color.primary['100']}`,
-        padding: `13px 20px`,
+        padding: `11px 0`,
         borderRadius: vars.radius.r5,
       },
-      // 지역 필터에 요소가 선택되어 있고, 모달이 활성화되었을 때 사용합니다.
-      locationFilterSelectedActive: {
+      // 메인 필터에 요소가 선택되어 있고, 모달이 활성화되었을 때 사용합니다.
+      mainFilterSelectedActive: {
         color: vars.color.primary['300'],
         backgroundColor: vars.color.grayscale.gray100,
         border: `2px solid ${vars.color.primary['300']}`,
-        padding: `13px 20px`,
+        padding: `11px 0`,
         borderRadius: vars.radius.r5,
       },
       // 공간 선택 버튼 스타일링에 사용합니다.
@@ -89,11 +89,16 @@ export const buttonBase = recipe({
           color: vars.color.primary[200],
         },
       },
+      // 인원수 카운터 버튼 스타일링에 사용합니다.
+      counter: {
+        padding: `${vars.space.s12} ${vars.space.s14}`,
+      },
       // 인원수 적용하기, 상세 필터 적용하기 버튼 스타일링에 사용합니다.
       cta: {
         backgroundColor: vars.color.primary['200'],
         color: vars.color.grayscale.white,
         padding: '16px 16px',
+        borderRadius: vars.radius.r50,
       },
       // 데이터 필터 on, off 버튼 스타일링에 사용합니다.
       dataFilter: {
@@ -191,6 +196,7 @@ export const buttonBase = recipe({
       full: { width: '100%' },
       auto: { width: 'auto' },
       min: { width: 'min-content' },
+      filter: { width: '210px' },
     },
     gap: {
       none: {},
@@ -207,10 +213,18 @@ export const buttonBase = recipe({
       end: { justifyContent: 'flex-end' },
       between: { justifyContent: 'space-between' },
     },
+    // 모달이 열린 버튼에만 zIndex를 추가합니다.
+    isOpen: {
+      true: {
+        zIndex: 1,
+      },
+      false: {},
+    },
   },
   defaultVariants: {
     width: 'full',
     gap: 'none',
+    isOpen: false,
   },
 });
 

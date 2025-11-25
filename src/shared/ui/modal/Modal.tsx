@@ -26,7 +26,7 @@ export const Modal = ({ isOpen, onClose, children, location, border, borderRadiu
   }, [isOpen]);
 
   return (
-    <dialog ref={ref} onClose={onClose} className={s.dialog} closedby='any'>
+    <dialog ref={ref} onClose={onClose} style={location} className={s.dialog} closedby='any'>
       <section style={location} className={s.content({ border: `${border}`, borderRadius })}>
         {children}
       </section>
