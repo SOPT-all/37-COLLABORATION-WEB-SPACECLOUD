@@ -1,5 +1,6 @@
 import { type ComponentProps, useState } from 'react';
 import { useIntersectionObserver } from '@/shared/hooks/useIntersectionObserver';
+import { useDelayedVisibility } from '@/shared/hooks/useDelayedVisibility';
 import ReviewCard from './reviewCard/ReviewCard';
 import ReviewMoreButton from './reviewMoreButton/ReviewMoreButton';
 import { useReviewListQuery } from '../api/useReviewListQuery';
@@ -22,6 +23,8 @@ const renderSkeletons = (count: number, prefix: string) =>
 const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
   const { data, isLoading, isError, fetchNextPage, isFetchingNextPage } = useReviewListQuery();
   const [isInfiniteMode, setInfiniteMode] = useState(false);
+  const showInitialSkeleton = useDelayedVisibility(isLoading);
+  const showNextPageSkeleton = useDelayedVisibility(isFetchingNextPage);
 
   const lastPage = data?.pages.at(-1);
   const reviews: ReviewCardProps[] = data?.pages.flatMap((page) => page.data.content) ?? [];
@@ -50,13 +53,14 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
 
   if (isError) return null;
 
-  const renderLoading = () => (
-    <section className={s.section}>
-      <div className={s.grid} aria-label='리뷰 로딩 중'>
-        {renderSkeletons(skeletonCount, 'initial-skeleton')}
-      </div>
-    </section>
-  );
+  const renderLoading = () =>
+    showInitialSkeleton ? (
+      <section className={s.section}>
+        <div className={s.grid} aria-label='리뷰 로딩 중'>
+          {renderSkeletons(skeletonCount, 'initial-skeleton')}
+        </div>
+      </section>
+    ) : null;
 
   const renderContent = () => (
     <section className={s.section}>
@@ -64,7 +68,7 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
         {reviews.map((review) => (
           <ReviewCard key={`review-${review.id}`} {...review} />
         ))}
-        {isFetchingNextPage && renderSkeletons(skeletonCount, `page-${nextPageIndex}-skeleton`)}
+        {showNextPageSkeleton && renderSkeletons(skeletonCount, `page-${nextPageIndex}-skeleton`)}
       </div>
 
       {showMoreButton && (
@@ -77,7 +81,9 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
     </section>
   );
 
-  return isLoading ? renderLoading() : renderContent();
+  if (isLoading) return renderLoading();
+
+  return renderContent();
 };
 
 export default ReviewSection;
