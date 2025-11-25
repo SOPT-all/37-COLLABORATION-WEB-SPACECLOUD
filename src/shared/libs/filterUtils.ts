@@ -1,20 +1,25 @@
-import type { FilterState, SpaceFilterValue } from '@/widgets/space-filter/types/types';
-import { AREA_FILTERS } from '@/shared/configs/region';
-import { dummy } from '@/shared/configs/space';
+import type { FilterState, FilterValue } from '@/widgets/space-filter/types/types';
+import { AREA_FILTERS, type AreaKey } from '@/shared/configs/region';
+import { dummy } from '@/widgets/space-filter/model/categories.mock';
+import { typedEntries } from './object';
+
+export const getValue = (value: FilterValue): string | null => {
+  if (!value) return null;
+
+  if (typeof value === 'object') {
+    return value.key;
+  }
+
+  return value;
+};
 
 export const filterToSearchParams = (filter: FilterState): URLSearchParams => {
   const params = new URLSearchParams();
 
-  Object.entries(filter).forEach(([key, value]) => {
-    if (value) {
-      if (typeof value === 'object') {
-        const spaceFilterValue = value as SpaceFilterValue;
-        if (spaceFilterValue.key) {
-          params.append(key, spaceFilterValue.key);
-        }
-      } else {
-        params.append(key, value);
-      }
+  typedEntries(filter).forEach(([key, value]) => {
+    const curValue = getValue(value);
+    if (curValue) {
+      params.set(key, curValue);
     }
   });
 
@@ -22,16 +27,14 @@ export const filterToSearchParams = (filter: FilterState): URLSearchParams => {
 };
 
 export const findSpaceNameByCode = (code: string): string | null => {
-  for (const space of Object.values(dummy)) {
-    const result = space.find((item) => item.code === code);
-    if (result) return result.name;
-  }
-  return null;
+  const all = Object.values(dummy).flat();
+  const rst = all.find((v) => v.code === code)?.name ?? null;
+  return rst;
 };
 
 export const searchParamsToFilter = (params: URLSearchParams): FilterState => {
   const areaKey = params.get('location');
-  const areaValue = areaKey ? AREA_FILTERS.find((item) => item.key === areaKey) || null : null;
+  const areaValue = areaKey ? AREA_FILTERS[areaKey as AreaKey] || null : null;
 
   const spaceKey = params.get('filter');
   const spaceValue = spaceKey ? findSpaceNameByCode(spaceKey) : null;
