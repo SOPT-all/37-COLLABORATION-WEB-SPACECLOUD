@@ -42,7 +42,7 @@ export const plusZoneMocks: PlusZoneItem[] = [
     likeCount: 609,
     price: 88000,
     priceUnit: 'HOUR',
-    hashtags: ['세미나', '워크숍', '강의', '파티룸'],
+    hashtags: ['세미나', '워크숍', '광화문', '파티룸'],
     coupon: false,
     thumbnailImageUrl: imgPlusZone3,
   },

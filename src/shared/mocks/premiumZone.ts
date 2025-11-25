@@ -28,7 +28,7 @@ export const premiumZoneMocks: PremiumZoneItem[] = [
     likeCount: 275,
     price: 70000,
     priceUnit: 'PACKAGE',
-    hashtags: ['보드게임', '노래방', '강남파티룸'],
+    hashtags: ['보드게임', '노래방', '강남파티룸', '강남역'],
     coupon: true,
     thumbnailImageUrl: imgPremiumZone2,
   },
