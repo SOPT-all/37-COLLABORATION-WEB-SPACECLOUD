@@ -1,25 +1,21 @@
-import { FallbackProps } from 'react-error-boundary';
-import Button from '@/shared/ui/Button';
-import { getErrorDataByCode } from './getErrorDataByCode';
+import { type FallbackProps } from 'react-error-boundary';
 import { useQueryErrorResetBoundary } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
+import ErrorModal from '@/widgets/error-view/ErrorModal';
 
-export const FetchErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
+export const FetchErrorFallback = ({ resetErrorBoundary }: FallbackProps) => {
   const { reset } = useQueryErrorResetBoundary();
-  const errorData = getErrorDataByCode(error);
+  const navigate = useNavigate();
 
-  // 인증이 필요한 에러일 경우 상위 Boundary로 Error를 전파
-  if (errorData.requireLogin) throw error;
-
-  const handleClickReset = () => {
+  const handleRetry = () => {
     resetErrorBoundary();
     reset();
   };
 
-  return (
-    <div>
-      <h1>{errorData?.code}</h1>
-      <h2>{errorData?.message}</h2>
-      <Button onClick={handleClickReset}>재시도</Button>
-    </div>
-  );
+  const handleClose = () => {
+    resetErrorBoundary();
+    navigate('/');
+  };
+
+  return <ErrorModal isOpen={true} onClose={handleClose} onRetry={handleRetry} />;
 };
