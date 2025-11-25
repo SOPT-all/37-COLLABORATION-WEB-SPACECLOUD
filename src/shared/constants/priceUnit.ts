@@ -1,6 +1,7 @@
 export const PRICE_UNIT_TEXT = {
   HOUR: '시간',
   MONTH: '월',
+  DAY: '일',
   PACKAGE: '패키지',
 } as const;
 

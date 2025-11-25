@@ -18,6 +18,8 @@ interface SubTitleProps extends ComponentPropsWithoutRef<'h2'> {
   variant?: SubTitleVariant;
 }
 
+export type SubTitleIconGap = IconGap;
+
 interface SubTitleWithAdBadgeProps {
   children: ReactNode;
   iconGap?: IconGap;
