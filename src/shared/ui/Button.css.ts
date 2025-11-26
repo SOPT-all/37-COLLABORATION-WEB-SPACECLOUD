@@ -155,20 +155,6 @@ export const buttonBase = recipe({
         borderRadius: vars.radius.r20,
         padding: `${vars.space.s11} ${vars.space.s10}`,
       },
-      priceFilter: {
-        display: 'flex',
-        flexDirection: 'column',
-        gap: vars.space.s6,
-        padding: `${vars.space.s12} ${vars.space.s16}`,
-        backgroundColor: vars.color.grayscale.white,
-        border: `1px solid ${vars.color.grayscale.gray300}`,
-        minWidth: '13.6rem',
-        color: vars.color.grayscale.gray600,
-        '&:hover': {
-          color: vars.color.grayscale.gray800,
-          border: `1px solid ${vars.color.primary['200']}`,
-        },
-      },
       filterButton: {
         color: vars.color.grayscale.white,
         backgroundColor: vars.color.primary['200'],
