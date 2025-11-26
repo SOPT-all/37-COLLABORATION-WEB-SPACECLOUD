@@ -3,6 +3,7 @@ import { vars } from '@shared/styles/token.css.ts';
 import { zIndexToken } from '@shared/styles/tokens';
 
 export const sectionWrapper = style({
+  position: 'relative',
   display: 'flex',
   gap: vars.space.s20,
 });
