@@ -5,9 +5,9 @@ import MainTitle from '@/widgets/main-view/ui/Header/MainTitle';
 import SpaceCategory from '@widgets/space-filter/ui/tab/SpaceCategory.tsx';
 import ReviewSection from '@widgets/review/ui/ReviewSection.tsx';
 import SubTitle from '@/shared/ui/subTitle/SubTitle';
-
 import MagazineSection from '@/widgets/magazine/ui/MagazineSection';
 import { FetchBoundary } from '@/shared/ui/boundary/FetchBoundary';
+import NewPlaceSection from '@widgets/space-card/ui/new/NewPlaceSection.tsx';
 
 /**
  * 페이지의 전체적인 구조만을 잡았습니다.
@@ -30,7 +30,10 @@ const HomePage = () => {
       <Banner />
 
       {/* 새로 등록 섹션 */}
-      <div>새로새로새로</div>
+      <SubTitle>새로 등록됐어요</SubTitle>
+      <FetchBoundary>
+        <NewPlaceSection />
+      </FetchBoundary>
 
       {/* 매거진 섹션 */}
       <SubTitle variant='small25'>
