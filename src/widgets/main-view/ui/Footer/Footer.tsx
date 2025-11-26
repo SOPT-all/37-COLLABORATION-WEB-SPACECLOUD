@@ -39,7 +39,7 @@ const Footer = () => {
         <div className={s.contentSection}>
           {FOOTER_TOP_MENU.map((item) => (
             <span key={item.id} className={s.contentSection}>
-              <p>{item.label}</p>
+              <p className={s.contentFont}>{item.label}</p>
               {item.id !== FOOTER_TOP_MENU[FOOTER_TOP_MENU.length - 1].id && <DividerIcon />}
             </span>
           ))}
@@ -52,7 +52,7 @@ const Footer = () => {
         <div className={s.contentSection}>
           {BUSINESS_INFO_ROW1.map((item) => (
             <span key={item.id} className={s.contentSection}>
-              <p>{item.label}</p>
+              <p className={s.contentFont}>{item.label}</p>
               <DividerIcon />
             </span>
           ))}
@@ -70,7 +70,7 @@ const Footer = () => {
         <div className={s.contentSection}>
           {BUSINESS_INFO_ROW2.map((item) => (
             <span key={item.id} className={s.contentSection}>
-              <p>{item.label}</p>
+              <p className={s.contentFont}>{item.label}</p>
               {item.id !== BUSINESS_INFO_ROW2[BUSINESS_INFO_ROW2.length - 1].id && <DividerIcon />}
             </span>
           ))}
@@ -79,7 +79,7 @@ const Footer = () => {
         <div className={s.contentSection}>
           {BUSINESS_INFO_ROW3.map((item) => (
             <span key={item.id} className={s.contentSection}>
-              <p>{item.label}</p>
+              <p className={s.contentFont}>{item.label}</p>
               {item.id !== BUSINESS_INFO_ROW3[BUSINESS_INFO_ROW3.length - 1].id && <DividerIcon />}
             </span>
           ))}
@@ -88,13 +88,13 @@ const Footer = () => {
 
       <div className={s.bottomContainer}>
         <div className={s.contentSection}>
-          <p>
+          <p className={s.contentFont}>
             스페이스클라우드는 통신판매중개자이며 통신판매의 당사자가 아닙니다. 따라서
             스페이스클라우드는 공간 거래정보 및 거래에 대해 책임지지 않습니다.
           </p>
         </div>
         <div className={s.contentSection}>
-          <p>Copyright NSPACE Corp. All Rights Reserved.</p>
+          <p className={s.contentFont}>Copyright NSPACE Corp. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

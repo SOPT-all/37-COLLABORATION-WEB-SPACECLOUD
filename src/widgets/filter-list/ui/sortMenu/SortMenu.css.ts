@@ -28,9 +28,9 @@ export const optionsContainer = style({
   padding: `${spaceToken.s12} ${spaceToken.s8}`,
   borderRadius: radiusToken.r16,
   boxShadow: '0px 1px 8px rgba(0, 0, 0, 0.1)',
+  display: 'flex',
   width: '156px',
   height: '168px',
-  display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   backgroundColor: colorToken.grayscale.white,
@@ -40,7 +40,7 @@ export const optionList = style([
   typography.body_m_14,
   {
     all: 'unset',
-    padding: `${spaceToken.s12} ${spaceToken.s16}`,
+    padding: `${spaceToken.s10} ${spaceToken.s16}`,
     cursor: 'pointer',
 
     selectors: {

@@ -38,6 +38,8 @@ export const contentSection = style([
   },
 ]);
 
+export const contentFont = style([typography.body_r_12_2, { color: colorToken.grayscale.gray800 }]);
+
 export const centerContainer = style({
   display: 'flex',
   flexDirection: 'column',
@@ -56,6 +58,9 @@ export const arrowContent = style({
   alignItems: 'center',
 });
 
-export const padding = style({
-  paddingRight: vars.space.s6,
-});
+export const padding = style([
+  typography.body_r_12_2,
+  {
+    paddingRight: vars.space.s6,
+  },
+]);
