@@ -7,6 +7,7 @@ import ReviewSection from '@widgets/review/ui/ReviewSection.tsx';
 import SubTitle from '@/shared/ui/subTitle/SubTitle';
 import MagazineSection from '@/widgets/magazine/ui/MagazineSection';
 import { FetchBoundary } from '@/shared/ui/boundary/FetchBoundary';
+import NewPlaceSection from '@widgets/space-card/ui/new/NewPlaceSection.tsx';
 import * as S from '@pages/home/ui/HomePage.css';
 import Spacer from '@shared/ui/spacer/Spacer.tsx';
 
@@ -34,7 +35,7 @@ const HomePage = () => {
       {/* 새로 등록 섹션 */}
       <SubTitle>새로 등록됐어요</SubTitle>
       <FetchBoundary>
-        <div>새로새로새로</div>
+        <NewPlaceSection />
       </FetchBoundary>
 
       <Spacer space='s52' />
