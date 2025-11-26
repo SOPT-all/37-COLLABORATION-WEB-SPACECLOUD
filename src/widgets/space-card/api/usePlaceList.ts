@@ -1,4 +1,4 @@
-import { useInfiniteQuery } from '@tanstack/react-query';
+import { useSuspenseInfiniteQuery } from '@tanstack/react-query';
 import { queryKeys } from '@/shared/apis/queryKeys';
 import type {
   PlaceSearchListResponse,
@@ -9,7 +9,7 @@ import { fetchPlaceList } from '@widgets/space-card/api/fetchPlaceList.ts';
 const INITIAL_PAGE = 1;
 
 export const usePlaceListQuery = (params?: PlaceSearchQueryParams) =>
-  useInfiniteQuery<PlaceSearchListResponse>({
+  useSuspenseInfiniteQuery<PlaceSearchListResponse>({
     queryKey: queryKeys.PLACE_LIST(params),
     initialPageParam: INITIAL_PAGE,
     queryFn: ({ pageParam }) => {
