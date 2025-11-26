@@ -16,7 +16,7 @@ export const grid = style({
 });
 
 export const moreButtonWrapper = style({
-  marginTop: spaceToken.s52,
+  marginTop: spaceToken.s32,
   display: 'flex',
   justifyContent: 'center',
   width: '100%',
