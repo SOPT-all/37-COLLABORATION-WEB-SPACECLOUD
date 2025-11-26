@@ -21,11 +21,11 @@ const renderSkeletons = (count: number, prefix: string) =>
   ));
 
 const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
-  const { data, isLoading, isError, fetchNextPage, isFetchingNextPage } = useReviewListQuery();
+  const { data, fetchNextPage, isFetchingNextPage } = useReviewListQuery();
   const [isInfiniteMode, setInfiniteMode] = useState(false);
 
   const lastPage = data?.pages.at(-1);
-  const reviews: ReviewCardProps[] = data?.pages.flatMap((page) => page.data.content) ?? [];
+  const reviews: ReviewCardProps[] = data.pages.flatMap((page) => page.data.content) ?? [];
   const skeletonCount = lastPage?.data.content.length ?? DEFAULT_SKELETON_COUNT;
   const canFetchMore = isInfiniteMode && (lastPage?.data.hasNext ?? false);
   const nextPageIndex = data?.pages.length ?? 1;
@@ -39,7 +39,7 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
   const sentinelRef = useIntersectionObserver<HTMLDivElement>({
     onIntersect: handleIntersect,
     enabled: canFetchMore,
-    rootMargin: '100px 0px',
+    rootMargin: '400px 0px',
   });
 
   // 더보기 버튼 클릭 시 무한 스크롤 모드로 전환
@@ -48,19 +48,6 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
     fetchNextPage();
     onClickMore?.();
   };
-
-  if (isError) return null;
-
-  const renderLoading = () =>
-    isLoading ? (
-      <section className={s.section}>
-        <Deferred active={isLoading}>
-          <div className={s.grid} aria-label='리뷰 로딩 중'>
-            {renderSkeletons(skeletonCount, 'initial-skeleton')}
-          </div>
-        </Deferred>
-      </section>
-    ) : null;
 
   const renderContent = () => (
     <section className={s.section}>
@@ -82,8 +69,6 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
       {canFetchMore && <div ref={sentinelRef} className={s.sentinel} aria-hidden />}
     </section>
   );
-
-  if (isLoading) return renderLoading();
 
   return renderContent();
 };
