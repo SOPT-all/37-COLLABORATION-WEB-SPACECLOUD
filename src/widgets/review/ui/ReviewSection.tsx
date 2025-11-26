@@ -39,7 +39,7 @@ const ReviewSection = ({ onClickMore }: ReviewSectionProps) => {
   const sentinelRef = useIntersectionObserver<HTMLDivElement>({
     onIntersect: handleIntersect,
     enabled: canFetchMore,
-    rootMargin: '100px 0px',
+    rootMargin: '400px 0px',
   });
 
   // 더보기 버튼 클릭 시 무한 스크롤 모드로 전환
