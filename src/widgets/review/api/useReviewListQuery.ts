@@ -1,4 +1,4 @@
-import { useInfiniteQuery } from '@tanstack/react-query';
+import { useSuspenseInfiniteQuery } from '@tanstack/react-query';
 import { fetchReviewList } from './fetchReviewList';
 import { queryKeys } from '@/shared/apis/queryKeys';
 import type { ReviewListQueryParams, ReviewListResponse } from '@/shared/types/review';
@@ -6,7 +6,7 @@ import type { ReviewListQueryParams, ReviewListResponse } from '@/shared/types/r
 const INITIAL_PAGE = 1;
 
 export const useReviewListQuery = (params?: ReviewListQueryParams) =>
-  useInfiniteQuery<ReviewListResponse>({
+  useSuspenseInfiniteQuery<ReviewListResponse>({
     queryKey: queryKeys.REVIEWS(params),
     initialPageParam: INITIAL_PAGE,
     queryFn: ({ pageParam }) => {
