@@ -24,7 +24,9 @@ const HomePage = () => {
       </div>
 
       {/* 토클 필터 섹션 */}
-      <SpaceCategory />
+      <FetchBoundary>
+        <SpaceCategory />
+      </FetchBoundary>
 
       <Spacer space='s56' />
 
