@@ -8,8 +8,7 @@ import PlaceCard from '@widgets/space-card/ui/placeCard/PlaceCard.tsx';
 const PlaceList = () => {
   const [searchParams] = useSearchParams();
   const parsedParams = parseSearchParams(searchParams);
-  const { data, isLoading, fetchNextPage, isFetchingNextPage, hasNextPage } =
-    usePlaceListQuery(parsedParams);
+  const { data, fetchNextPage, isFetchingNextPage, hasNextPage } = usePlaceListQuery(parsedParams);
   const placeList = data?.pages.flatMap((page) => page.data.result) ?? [];
 
   const handleIntersect = () => {
@@ -23,9 +22,6 @@ const PlaceList = () => {
     rootMargin: '100px 0px',
   });
 
-  if (isLoading) return <div>Loading...</div>;
-
-  console.log(data?.pages);
   return (
     <section className={S.placeList}>
       {placeList.map((place) => (
