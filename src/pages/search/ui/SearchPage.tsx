@@ -12,6 +12,10 @@ const SearchPage = () => {
       {/* 필터 섹션입니다. */}
       <FilterSection />
 
+      <div className={s.dividerSpacing.top}>
+        <Divider tone={'gray300'} />
+      </div>
+
       <div className={s.premiumPlusSpacing}>
         {/*프리미엄존 섹션*/}
         <PlaceSection
@@ -31,7 +35,7 @@ const SearchPage = () => {
         />
       </div>
 
-      <div className={s.dividerSpacing}>
+      <div className={s.dividerSpacing.bottom}>
         <Divider />
       </div>
 
