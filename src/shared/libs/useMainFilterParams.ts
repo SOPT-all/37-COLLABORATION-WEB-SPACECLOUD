@@ -17,7 +17,7 @@ export const useMainFilterParams = (categories: CategoriesResponse) => {
       newParams.delete(key);
     }
 
-    setParams(newParams);
+    setParams(newParams, { replace: true });
   };
 
   return {
