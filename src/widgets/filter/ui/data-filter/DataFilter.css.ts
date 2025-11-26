@@ -80,3 +80,30 @@ export const formFooter = style({
   borderTop: `1px solid ${vars.color.grayscale.gray100}`,
   backdropFilter: 'blur(12px)',
 });
+
+export const inputWrapper = style({
+  display: 'flex',
+  flexDirection: 'column',
+  width: '13.7rem',
+  gap: vars.space.s6,
+  padding: `${vars.space.s12} ${vars.space.s16}`,
+  backgroundColor: vars.color.grayscale.white,
+  border: `1px solid ${vars.color.grayscale.gray300}`,
+  borderRadius: vars.radius.r4,
+  color: vars.color.grayscale.gray600,
+  selectors: {
+    '&:hover': {
+      color: vars.color.grayscale.gray800,
+      border: `1px solid ${vars.color.primary['200']}`,
+    },
+  },
+});
+
+export const input = style([
+  typography.body_m_16,
+  {
+    width: '8.8rem',
+    border: 0,
+    outline: 'none',
+  },
+]);
