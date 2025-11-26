@@ -24,7 +24,7 @@ const RightArrowButton = ({
       aria-label='오른쪽으로 이동'
       {...rest}
     >
-      <ArrowRightIcon stroke={vars.color.grayscale.black} />
+      <ArrowRightIcon stroke={vars.color.grayscale.black} strokeWidth={3.2} />
     </button>
   );
 };
