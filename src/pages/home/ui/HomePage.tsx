@@ -8,12 +8,9 @@ import SubTitle from '@/shared/ui/subTitle/SubTitle';
 import MagazineSection from '@/widgets/magazine/ui/MagazineSection';
 import { FetchBoundary } from '@/shared/ui/boundary/FetchBoundary';
 import NewPlaceSection from '@widgets/space-card/ui/new/NewPlaceSection.tsx';
+import * as S from '@pages/home/ui/HomePage.css';
+import Spacer from '@shared/ui/spacer/Spacer.tsx';
 
-/**
- * 페이지의 전체적인 구조만을 잡았습니다.
- * 의미없는 div보다는
- * 시멘틱 태그를 이용해 의미를 부여해주시면 되겠습니다.
- */
 const HomePage = () => {
   return (
     <>
@@ -22,18 +19,26 @@ const HomePage = () => {
       {/* 4가지 필터 섹션 입니다. */}
       <Filter />
 
-      <Divider />
+      <div className={S.dividerSpacing}>
+        <Divider />
+      </div>
 
       {/* 토클 필터 섹션 */}
       <SpaceCategory />
 
+      <Spacer space='s56' />
+
       <Banner />
+
+      <Spacer space='s52' />
 
       {/* 새로 등록 섹션 */}
       <SubTitle>새로 등록됐어요</SubTitle>
       <FetchBoundary>
         <NewPlaceSection />
       </FetchBoundary>
+
+      <Spacer space='s52' />
 
       {/* 매거진 섹션 */}
       <SubTitle variant='small25'>
@@ -42,6 +47,8 @@ const HomePage = () => {
       <FetchBoundary>
         <MagazineSection />
       </FetchBoundary>
+
+      <Spacer space='s52' />
 
       {/* 후기 섹션 */}
       <SubTitle>방금 올라온 이용후기에요</SubTitle>

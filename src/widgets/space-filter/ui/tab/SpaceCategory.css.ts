@@ -11,7 +11,7 @@ export const wrapper = styleVariants({
     maxWidth: '89.6rem',
     height: '22.9rem',
     alignSelf: 'center',
-    margin: '28px auto',
+    margin: '0 auto',
   },
 
   spaceList: {
