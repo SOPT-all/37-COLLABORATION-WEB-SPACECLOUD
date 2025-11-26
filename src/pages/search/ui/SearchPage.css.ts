@@ -1,8 +1,13 @@
-import { style } from '@vanilla-extract/css';
+import { style, styleVariants } from '@vanilla-extract/css';
 import { spaceToken } from '@/shared/styles/tokens';
 
-export const dividerSpacing = style({
-  margin: `${spaceToken.s28} 0`,
+export const dividerSpacing = styleVariants({
+  top: {
+    margin: `${spaceToken.s24} 0`,
+  },
+  bottom: {
+    margin: `${spaceToken.s28} 0`,
+  },
 });
 
 export const premiumPlusSpacing = style({
