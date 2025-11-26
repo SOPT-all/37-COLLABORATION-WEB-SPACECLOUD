@@ -76,12 +76,6 @@ const PriceFilterButtons = ({
     const value = parseNumber(e.target.value);
     // 숫자가 아닌지 확인
     if (isNaN(value)) return;
-    // 최대 금액 현재 값이 최소 가격보다 작을 때
-    if (value < currentMinValue) {
-      // 최소 금액 + PRICE_STEP 만큼 세팅 후 종료
-      handleChange([currentMinValue, currentMinValue + PRICE_STEP]);
-      return;
-    }
     // 아니면 그냥 세팅
     handleChange([currentMinValue, Number(value)]);
   };
@@ -91,6 +85,18 @@ const PriceFilterButtons = ({
       return `${MAX_PRICE.toLocaleString()}+`;
     }
     return currentMaxValue.toLocaleString();
+  };
+
+  const snapToStep = (value: number) => {
+    if (value <= 0) return 0;
+    const snapped = Math.round(value / PRICE_STEP) * PRICE_STEP;
+    return Math.min(snapped, MAX_PRICE);
+  };
+
+  const handleMaxBlur = () => {
+    const snapped = snapToStep(currentMaxValue);
+    const nextMax = Math.max(snapped, currentMinValue) + PRICE_STEP;
+    handleChange([currentMinValue, nextMax]);
   };
 
   return (
@@ -122,6 +128,7 @@ const PriceFilterButtons = ({
             className={S.input}
             value={formatedMaxValue()}
             onChange={handleMaxInputChange}
+            onBlur={handleMaxBlur}
             type='text'
             inputMode='numeric'
           />
