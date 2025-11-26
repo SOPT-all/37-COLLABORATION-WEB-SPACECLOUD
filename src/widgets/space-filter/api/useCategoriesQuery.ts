@@ -1,9 +1,9 @@
 import { queryKeys } from '@/shared/apis/queryKeys';
-import { useQuery } from '@tanstack/react-query';
+import { useSuspenseQuery } from '@tanstack/react-query';
 import { fetchCategories } from './fetchCategories';
 
 export const useCategoriesQuery = () => {
-  return useQuery({
+  return useSuspenseQuery({
     queryKey: queryKeys.CATEGORIES(),
     queryFn: fetchCategories,
     select: (res) => res.data,

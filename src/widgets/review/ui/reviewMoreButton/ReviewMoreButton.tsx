@@ -11,7 +11,7 @@ const ReviewMoreButton = ({ onClick }: ReviewMoreButtonProps) => {
   return (
     <button className={s.button} type='button' onClick={onClick}>
       {REVIEW_MORE_LABEL}
-      <ArrowDownIcon className={s.icon} />
+      <ArrowDownIcon width='1.1rem' height='1.1rem' />
     </button>
   );
 };

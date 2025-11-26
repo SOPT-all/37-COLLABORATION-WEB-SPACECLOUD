@@ -99,6 +99,9 @@ export const buttonBase = recipe({
         color: vars.color.grayscale.white,
         padding: '16px 16px',
         borderRadius: vars.radius.r50,
+        ':disabled': {
+          backgroundColor: vars.color.primary['100'],
+        },
       },
       // 데이터 필터 on, off 버튼 스타일링에 사용합니다.
       dataFilter: {
@@ -216,7 +219,7 @@ export const buttonBase = recipe({
     // 모달이 열린 버튼에만 zIndex를 추가합니다.
     isOpen: {
       true: {
-        zIndex: 1,
+        zIndex: 1001,
       },
       false: {},
     },

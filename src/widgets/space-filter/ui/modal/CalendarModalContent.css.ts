@@ -6,7 +6,7 @@ export const wrapper = style({
   display: 'flex',
   flexDirection: 'column',
   gap: vars.space.s23,
-  width: '320px',
+  width: '376px',
   padding: `${vars.space.s23} ${vars.space.s37}`,
 });
 
@@ -17,8 +17,12 @@ export const calendarWrapper = style({
   borderBottom: `1px solid ${vars.color.grayscale.gray100}`,
 });
 
-// 전체 폰트 색상
+// 일 전체 폰트 색상
 globalStyle(`${wrapper} .react-calendar__month-view__days__day abbr`, {
+  fontWeight: vars.font.weight.regular,
+  fontSize: vars.font.size.s12,
+  lineHeight: vars.font.lineHeight.h14,
+  letterSpacing: vars.font.letterSpacing.tight_03,
   color: vars.color.grayscale.black,
 });
 
@@ -33,15 +37,18 @@ globalStyle(`${wrapper} .react-calendar__month-view__days`, {
   gridTemplateColumns: 'repeat(7, 1fr)',
 });
 
-// YYYY.MM월 텍스트 색상
-globalStyle(`${wrapper} .react-calendar__navigation__label__labelText`, {
-  color: vars.color.grayscale.gray900,
-  fontSize: vars.font.size.s14,
+globalStyle(`${wrapper} .react-calendar__navigation`, {
+  gap: '40px',
+  marginBottom: vars.space.s12,
 });
 
-// YYYY.MM 칸 크기 줄이기
-globalStyle(`${wrapper} .react-calendar__navigation__label`, {
-  flexGrow: '0 !important',
+// YYYY.MM월 텍스트 색상
+globalStyle(`${wrapper} .react-calendar__navigation__label__labelText`, {
+  fontWeight: vars.font.weight.semibold,
+  fontSize: vars.font.size.s16,
+  lineHeight: vars.font.lineHeight.h24,
+  letterSpacing: vars.font.letterSpacing.tight_04,
+  color: vars.color.grayscale.gray900,
 });
 
 // <, > 색상
@@ -56,10 +63,29 @@ globalStyle(`${wrapper} .react-calendar__navigation button`, {
   fontSize: vars.font.size.s16,
 });
 
+// 요일 헤더
+globalStyle(`${wrapper} .react-calendar__month-view__weekdays`, {
+  display: 'flex',
+  gap: vars.space.s8,
+  padding: `${vars.space.s12} 0 ${vars.space.s12} 0`,
+  borderTop: `1px solid ${vars.color.grayscale.gray200}`,
+  borderBottom: `1px solid ${vars.color.grayscale.gray200}`,
+});
+
 // 요일 밑줄 제거
 globalStyle(`${wrapper} .react-calendar__month-view__weekdays abbr`, {
   textDecoration: 'none',
-  fontWeight: vars.font.weight.bold,
+});
+
+// 헤더 폰트
+globalStyle(`${wrapper} .react-calendar__month-view__weekdays__weekday`, {
+  fontWeight: vars.font.weight.regular,
+  fontSize: vars.font.size.s12,
+  lineHeight: vars.font.lineHeight.h14,
+  letterSpacing: vars.font.letterSpacing.tight_03,
+  color: vars.color.grayscale.black,
+  width: 'auto',
+  height: 'auto',
 });
 
 // 토요일 헤더 색상
@@ -127,8 +153,8 @@ globalStyle(`${wrapper} .react-calendar__month-view__days__day`, {
 
 // 날짜 크기 제어
 globalStyle(`${wrapper} .react-calendar__month-view__days__day abbr`, {
-  width: 30,
-  height: 32,
+  width: 36,
+  height: 36,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',

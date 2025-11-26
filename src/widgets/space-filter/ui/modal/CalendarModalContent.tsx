@@ -36,6 +36,7 @@ const CalendarModalContent = ({ onClose, onChange }: ModalProps) => {
         styleType='cta'
         font='body_sb_16'
         onClick={() => handleClick(dayjs(date).format('YYYY-MM-DD'))}
+        disabled={date === null}
       >
         날짜 적용하기
       </Button>

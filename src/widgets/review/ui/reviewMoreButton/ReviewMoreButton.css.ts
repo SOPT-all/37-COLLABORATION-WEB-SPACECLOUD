@@ -18,8 +18,3 @@ export const button = style([
     cursor: 'pointer',
   },
 ]);
-
-export const icon = style({
-  width: '1.1rem',
-  height: '1.1rem',
-});
