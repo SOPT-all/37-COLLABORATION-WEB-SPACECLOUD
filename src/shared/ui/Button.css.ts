@@ -219,7 +219,7 @@ export const buttonBase = recipe({
     // 모달이 열린 버튼에만 zIndex를 추가합니다.
     isOpen: {
       true: {
-        zIndex: 1,
+        zIndex: 1001,
       },
       false: {},
     },

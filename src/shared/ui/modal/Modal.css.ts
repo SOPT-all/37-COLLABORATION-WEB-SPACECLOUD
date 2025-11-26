@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { colorToken, radiusToken } from '@shared/styles/tokens';
+import { colorToken, radiusToken, zIndexToken } from '@shared/styles/tokens';
 import { recipe } from '@vanilla-extract/recipes';
 import { vars } from '@/shared/styles/token.css';
 
@@ -7,9 +7,7 @@ export const dialog = style({
   border: 'none',
   padding: 0,
   background: 'transparent',
-  '::backdrop': {
-    backgroundColor: colorToken.opacity.dim,
-  },
+  zIndex: zIndexToken.z1000,
 });
 
 export const content = recipe({
@@ -41,4 +39,11 @@ export const content = recipe({
       },
     },
   },
+});
+
+export const dim = style({
+  position: 'fixed',
+  inset: 0,
+  backgroundColor: colorToken.opacity.dim,
+  zIndex: 999,
 });

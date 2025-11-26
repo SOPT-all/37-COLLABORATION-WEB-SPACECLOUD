@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { colorToken, radiusToken, zIndexToken, fontToken } from '@/shared/styles/tokens';
+import { colorToken, radiusToken, fontToken } from '@/shared/styles/tokens';
 import { typography } from '@/shared/styles/typography.css';
 
 export const wrapper = style({
@@ -29,7 +29,6 @@ export const counter = style({
   width: '45px',
   height: '16px',
   borderRadius: radiusToken.r50,
-  zIndex: zIndexToken.z900,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -49,7 +48,7 @@ export const leftArrow = style({
   top: '50%',
   left: 0,
   transform: 'translate(-50%, -50%)',
-  zIndex: zIndexToken.z1000,
+  zIndex: 1,
 });
 
 export const rightArrow = style({
@@ -57,5 +56,5 @@ export const rightArrow = style({
   top: '50%',
   right: 0,
   transform: 'translate(50%, -50%)',
-  zIndex: zIndexToken.z1000,
+  zIndex: 1,
 });
