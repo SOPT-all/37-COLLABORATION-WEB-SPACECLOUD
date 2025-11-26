@@ -5,7 +5,7 @@ import { Modal } from '../ui/modal/Modal';
 export const useModal = () => {
   const openModal = (
     content: ReactNode,
-    trigger?: HTMLElement | null,
+    trigger?: HTMLElement,
     border?: 'none' | 'gray300',
     onExit?: () => void, // 모달 close 시 실행될 콜백
   ) => {
