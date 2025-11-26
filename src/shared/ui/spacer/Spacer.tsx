@@ -5,7 +5,7 @@ type SpacerProps = {
 };
 
 const Spacer = ({ space }: SpacerProps) => (
-  <div className='spacer' style={{ height: spaceToken[space] }} />
+  <div className='spacer' style={{ height: spaceToken[space] }} aria-hidden='true' />
 );
 
 export default Spacer;
