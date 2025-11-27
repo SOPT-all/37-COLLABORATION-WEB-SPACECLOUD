@@ -6,6 +6,8 @@ import PlaceSection from '@/widgets/space-card/ui/PlaceSection';
 import Divider from '@/shared/ui/divider/Divider';
 import * as s from './SearchPage.css';
 import { FetchBoundary } from '@/shared/ui/boundary/FetchBoundary';
+import Spacer from '@shared/ui/spacer/Spacer.tsx';
+import SubTitle from '@shared/ui/subTitle/SubTitle.tsx';
 
 const SearchPage = () => {
   return (
@@ -19,24 +21,19 @@ const SearchPage = () => {
         <Divider tone={'gray300'} />
       </div>
 
-      <div className={s.premiumPlusSpacing}>
-        {/*프리미엄존 섹션*/}
-        <PlaceSection
-          title='프리미엄존'
-          subtitleVariant='large'
-          showAdBadge
-          places={premiumZoneMocks}
-        />
+      {/*프리미엄존 섹션*/}
+      <SubTitle variant='large'>
+        <SubTitle.AdBadge iconGap='wide'>프리미엄존</SubTitle.AdBadge>
+      </SubTitle>
+      <PlaceSection subtitleVariant='large' places={premiumZoneMocks} />
 
-        {/*플러스존 섹션*/}
-        <PlaceSection
-          title='플러스존'
-          subtitleVariant='large'
-          showAdBadge
-          adBadgeIconGap='tight'
-          places={plusZoneMocks}
-        />
-      </div>
+      <Spacer space='s48' />
+
+      {/*플러스존 섹션*/}
+      <SubTitle variant='large'>
+        <SubTitle.AdBadge iconGap='tight'>플러스존</SubTitle.AdBadge>
+      </SubTitle>
+      <PlaceSection subtitleVariant='large' places={plusZoneMocks} />
 
       <div className={s.dividerSpacing.bottom}>
         <Divider />
