@@ -80,7 +80,7 @@ export const Modal = ({
     <>
       {isOpen && <div className={s.dim} />}
       <dialog ref={ref} onClose={onClose} style={computedLocation} className={s.dialog}>
-        <section className={s.content({ border: `${border}`, borderRadius })}>{children}</section>
+        <section className={s.content({ border, borderRadius })}>{children}</section>
       </dialog>
     </>
   );
