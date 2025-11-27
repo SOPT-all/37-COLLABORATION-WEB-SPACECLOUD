@@ -1,5 +1,5 @@
 import * as s from './Banner.css';
-import BannerImg from '@/shared/assets/images/img-banner.png';
+import BannerImg from '@shared/assets/images/img-banner.webp';
 import RightArrowButton from '@/shared/ui/arrowButton/RightArrowButton';
 import LeftArrowButton from '@/shared/ui/arrowButton/LeftArrowButton';
 

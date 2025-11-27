@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { radiusToken, fontToken, zIndexToken } from '@/shared/styles/tokens';
+import { radiusToken, zIndexToken } from '@/shared/styles/tokens';
 import { typography } from '@/shared/styles/typography.css';
 import { vars } from '@/shared/styles/token.css';
 
@@ -19,6 +19,9 @@ export const container = style({
 });
 
 export const bannerImage = style({
+  width: '100%',
+  height: '100%',
+  display: 'block',
   objectFit: 'cover',
 });
 
@@ -33,7 +36,6 @@ export const counter = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  fontFamily: fontToken.family.pretendard,
 });
 
 export const counterFont = style([
