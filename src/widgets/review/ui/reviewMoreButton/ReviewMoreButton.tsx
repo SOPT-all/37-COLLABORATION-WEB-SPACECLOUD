@@ -1,4 +1,4 @@
-import { ArrowDownIcon } from '@/shared/assets/icons';
+import { ArrowDownIcon } from '@shared/assets/icons';
 import * as s from './ReviewMoreButton.css';
 
 interface ReviewMoreButtonProps {

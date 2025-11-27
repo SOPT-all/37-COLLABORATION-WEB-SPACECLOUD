@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import clsx from 'clsx';
-import Button from '@/shared/ui/Button';
-import { ArrowRightIcon } from '@/shared/assets/icons';
-import { AREA_FILTERS, REGIONS } from '@/shared/configs/region';
-import { vars } from '@/shared/styles/token.css';
-import type { ModalContentProps } from '@/shared/types/common';
-import { typedEntries } from '@/shared/libs/object';
+import Button from '@shared/ui/Button';
+import { ArrowRightIcon } from '@shared/assets/icons';
+import { AREA_FILTERS, REGIONS } from '@shared/configs/region';
+import { vars } from '@shared/styles/token.css';
+import type { ModalContentProps } from '@shared/types/common';
+import { typedEntries } from '@shared/libs/object';
 import * as s from './RegionModalContent.css';
 
 const REGION_LABEL = '시/도 선택';

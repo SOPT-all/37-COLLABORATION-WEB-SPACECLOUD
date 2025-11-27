@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { radiusToken } from '@/shared/styles/tokens';
+import { radiusToken } from '@shared/styles/tokens';
 
 export const container = style({
   position: 'relative',

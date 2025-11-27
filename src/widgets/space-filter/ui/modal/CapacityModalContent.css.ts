@@ -1,5 +1,5 @@
-import { vars } from '@/shared/styles/token.css';
-import { typography } from '@/shared/styles/typography.css';
+import { vars } from '@shared/styles/token.css';
+import { typography } from '@shared/styles/typography.css';
 import { style } from '@vanilla-extract/css';
 
 export const wrapper = style({

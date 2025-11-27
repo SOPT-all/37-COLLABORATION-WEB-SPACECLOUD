@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
-import { colorToken, radiusToken } from '@/shared/styles/tokens';
+import { colorToken, radiusToken } from '@shared/styles/tokens';
 
 export const card = recipe({
   base: {

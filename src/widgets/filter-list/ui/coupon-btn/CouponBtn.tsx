@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { btn } from './CouponBtn.css';
-import { CheckIcon } from '@/shared/assets/icons';
+import { CheckIcon } from '@shared/assets/icons';
 
 const CouponBtn = () => {
   const [isClicked, setIsClicked] = useState(false);

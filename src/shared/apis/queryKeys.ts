@@ -1,4 +1,4 @@
-import type { ReviewListQueryParams } from '@/shared/types/review';
+import type { ReviewListQueryParams } from '@shared/types/review';
 import type { PlaceSearchQueryParams } from '@widgets/space-card/model/place.types.ts';
 
 export const queryKeys = {

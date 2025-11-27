@@ -1,5 +1,5 @@
 import { styleVariants } from '@vanilla-extract/css';
-import { spaceToken } from '@/shared/styles/tokens';
+import { spaceToken } from '@shared/styles/tokens';
 
 export const dividerSpacing = styleVariants({
   top: {

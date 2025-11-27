@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { spaceToken } from '@/shared/styles/tokens';
+import { spaceToken } from '@shared/styles/tokens';
 
 export const section = style({
   display: 'flex',

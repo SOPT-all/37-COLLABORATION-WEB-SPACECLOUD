@@ -1,11 +1,11 @@
-import FilterSection from '@/widgets/search-view/ui/FilterSection';
-import { premiumZoneMocks } from '@/shared/mocks/premiumZone';
-import { plusZoneMocks } from '@/shared/mocks/plusZone';
+import FilterSection from '@widgets/search-view/ui/FilterSection';
+import { premiumZoneMocks } from '@shared/mocks/premiumZone';
+import { plusZoneMocks } from '@shared/mocks/plusZone';
 import PlaceList from '@widgets/space-card/ui/list/PlaceList.tsx';
-import PlaceSection from '@/widgets/space-card/ui/PlaceSection';
-import Divider from '@/shared/ui/divider/Divider';
+import PlaceSection from '@widgets/space-card/ui/PlaceSection';
+import Divider from '@shared/ui/divider/Divider';
 import * as s from './SearchPage.css';
-import { FetchBoundary } from '@/shared/ui/boundary/FetchBoundary';
+import { FetchBoundary } from '@shared/ui/boundary/FetchBoundary';
 import Spacer from '@shared/ui/spacer/Spacer.tsx';
 import SubTitle from '@shared/ui/subTitle/SubTitle.tsx';
 

@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 import { zIndexToken } from '@shared/styles/tokens';
 import { recipe } from '@vanilla-extract/recipes';
-import { vars } from '@/shared/styles/token.css';
+import { vars } from '@shared/styles/token.css';
 
 export const dialog = style({
   border: 'none',

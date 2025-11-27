@@ -1,5 +1,5 @@
 import { useSuspenseInfiniteQuery } from '@tanstack/react-query';
-import { queryKeys } from '@/shared/apis/queryKeys';
+import { queryKeys } from '@shared/apis/queryKeys';
 import type {
   PlaceSearchListResponse,
   PlaceSearchQueryParams,

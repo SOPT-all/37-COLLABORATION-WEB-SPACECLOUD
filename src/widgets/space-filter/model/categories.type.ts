@@ -1,4 +1,4 @@
-import type { BaseApiResponse } from '@/shared/types/common';
+import type { BaseApiResponse } from '@shared/types/common';
 
 export type Space = {
   code: string;

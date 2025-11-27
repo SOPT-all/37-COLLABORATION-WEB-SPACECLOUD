@@ -1,5 +1,5 @@
-import type { PriceUnitCode } from '@/shared/constants/priceUnit';
-import type { BaseApiResponse } from '@/shared/types/common';
+import type { PriceUnitCode } from '@shared/constants/priceUnit';
+import type { BaseApiResponse } from '@shared/types/common';
 
 export interface ReviewCategory {
   code: string;

@@ -1,7 +1,7 @@
 import * as s from './Banner.css';
-import BannerImg from '@/shared/assets/images/img-banner.png';
-import RightArrowButton from '@/shared/ui/arrowButton/RightArrowButton';
-import LeftArrowButton from '@/shared/ui/arrowButton/LeftArrowButton';
+import BannerImg from '@shared/assets/images/img-banner.png';
+import RightArrowButton from '@shared/ui/arrowButton/RightArrowButton';
+import LeftArrowButton from '@shared/ui/arrowButton/LeftArrowButton';
 
 const Banner = () => {
   return (

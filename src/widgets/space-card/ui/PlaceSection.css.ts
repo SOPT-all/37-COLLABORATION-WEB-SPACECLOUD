@@ -1,5 +1,5 @@
 import { style, styleVariants } from '@vanilla-extract/css';
-import { spaceToken } from '@/shared/styles/tokens';
+import { spaceToken } from '@shared/styles/tokens';
 
 const shadowPadding = spaceToken.s10;
 

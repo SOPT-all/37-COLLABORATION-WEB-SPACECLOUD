@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
-import { colorToken, spaceToken, radiusToken } from '@/shared/styles/tokens';
-import { typography } from '@/shared/styles/typography.css';
+import { colorToken, spaceToken, radiusToken } from '@shared/styles/tokens';
+import { typography } from '@shared/styles/typography.css';
 
 export const container = style({
   position: 'relative',
