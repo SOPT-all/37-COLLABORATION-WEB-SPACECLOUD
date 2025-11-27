@@ -11,6 +11,8 @@ import NewPlaceSection from '@widgets/space-card/ui/new/NewPlaceSection.tsx';
 import * as S from '@pages/home/ui/HomePage.css';
 import Spacer from '@shared/ui/spacer/Spacer.tsx';
 import ChatFloat from '@/widgets/main-view/ui/chat-float/ChatFloat';
+import PlaceCategorySkeleton from '@widgets/space-filter/ui/tab/PlaceCategorySkeleton.tsx';
+import NewPlaceSectionSkeleton from '@widgets/space-card/ui/new/NewPlaceSectionSkeleton.tsx';
 
 const HomePage = () => {
   return (
@@ -25,7 +27,7 @@ const HomePage = () => {
       </div>
 
       {/* 토클 필터 섹션 */}
-      <FetchBoundary>
+      <FetchBoundary loadingFallback={<PlaceCategorySkeleton />}>
         <SpaceCategory />
       </FetchBoundary>
 
@@ -36,7 +38,7 @@ const HomePage = () => {
       <Spacer space='s52' />
 
       <SubTitle>새로 등록됐어요</SubTitle>
-      <FetchBoundary>
+      <FetchBoundary loadingFallback={<NewPlaceSectionSkeleton />}>
         <NewPlaceSection />
       </FetchBoundary>
 
