@@ -3,6 +3,8 @@ import { style } from '@vanilla-extract/css';
 export const wrapper = style({
   display: 'flex',
   position: 'fixed',
-  bottom: '15px',
-  right: '20px',
+  bottom: '20px',
+  right: '15px',
+  width: '44px',
+  height: '44px',
 });
