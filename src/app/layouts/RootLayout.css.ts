@@ -6,4 +6,5 @@ export const rootLayout = style({
   maxWidth: '1129px',
   margin: '0 auto',
   paddingBottom: vars.space.s20,
+  paddingTop: vars.space.s80,
 });
