@@ -43,7 +43,9 @@ const SearchPage = () => {
       </div>
 
       {/* 공간 목록 영역입니다. */}
-      <PlaceList />
+      <FetchBoundary>
+        <PlaceList />
+      </FetchBoundary>
     </>
   );
 };
