@@ -47,9 +47,6 @@ const PriceFilterButtons = ({
 
   const handleMinInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseNumber(e.target.value);
-    // 숫자가 아닌지 확인
-    if (isNaN(value)) return;
-
     // 현재 값이 최대 가격보다 클 때
     if (value > currentMaxValue) {
       // 현재 가격 - 금액 Step 이 0보다 작으면
@@ -74,29 +71,20 @@ const PriceFilterButtons = ({
 
   const handleMaxInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseNumber(e.target.value);
-    // 숫자가 아닌지 확인
-    if (isNaN(value)) return;
-    // 아니면 그냥 세팅
     handleChange([currentMinValue, Number(value)]);
   };
 
-  const formatedMaxValue = () => {
+  const formatMaxValue = () => {
     if (currentMaxValue > MAX_PRICE) {
       return `${MAX_PRICE.toLocaleString()}+`;
     }
     return currentMaxValue.toLocaleString();
   };
 
-  const snapToStep = (value: number) => {
-    if (value <= 0) return 0;
-    const snapped = Math.round(value / PRICE_STEP) * PRICE_STEP;
-    return Math.min(snapped, MAX_PRICE);
-  };
-
   const handleMaxBlur = () => {
-    const snapped = snapToStep(currentMaxValue);
-    const nextMax = Math.max(snapped, currentMinValue) + PRICE_STEP;
-    handleChange([currentMinValue, nextMax]);
+    if (currentMaxValue <= currentMinValue + PRICE_STEP) {
+      handleChange([currentMinValue, currentMinValue + PRICE_STEP]);
+    }
   };
 
   return (
@@ -126,7 +114,7 @@ const PriceFilterButtons = ({
           <input
             id='maxPriceInput'
             className={S.input}
-            value={formatedMaxValue()}
+            value={formatMaxValue()}
             onChange={handleMaxInputChange}
             onBlur={handleMaxBlur}
             type='text'
