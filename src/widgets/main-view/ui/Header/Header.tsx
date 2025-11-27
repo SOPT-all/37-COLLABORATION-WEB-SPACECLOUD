@@ -1,5 +1,5 @@
-import { MenuIcon, SearchIcon, ChatIcon } from '@/shared/assets/icons';
-import Logo from '@/shared/assets/images/img-logo1.png';
+import { MenuIcon, SearchIcon, ChatIcon } from '@shared/assets/icons';
+import Logo from '@shared/assets/images/img-logo1.png';
 import * as s from './Header.css';
 import { useNavigate } from 'react-router';
 

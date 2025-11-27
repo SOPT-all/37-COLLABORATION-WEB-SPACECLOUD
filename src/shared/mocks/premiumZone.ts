@@ -1,7 +1,7 @@
-import imgPremiumZone1 from '@/shared/assets/images/img-premium-zone-1.png';
-import imgPremiumZone2 from '@/shared/assets/images/img-premium-zone-2.png';
-import imgPremiumZone3 from '@/shared/assets/images/img-premium-zone-3.png';
-import type { PlaceCardProps } from '@/widgets/space-card/ui/placeCard/PlaceCard';
+import imgPremiumZone1 from '@shared/assets/images/img-premium-zone-1.png';
+import imgPremiumZone2 from '@shared/assets/images/img-premium-zone-2.png';
+import imgPremiumZone3 from '@shared/assets/images/img-premium-zone-3.png';
+import type { PlaceCardProps } from '@widgets/space-card/ui/placeCard/PlaceCard';
 
 export type PremiumZoneItem = PlaceCardProps;
 

@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import { LocationIcon, PeopleIcon, SquareChatIcon, HeartIcon } from '@/shared/assets/icons';
-import { getPriceUnitLabel, type PriceUnitCode } from '@/shared/constants/priceUnit';
-import { CardLayout, cardImage as cardLayoutImage } from '@/shared/ui/cardLayout';
-import Chip from '@/shared/ui/chip/Chip';
+import { LocationIcon, PeopleIcon, SquareChatIcon, HeartIcon } from '@shared/assets/icons';
+import { getPriceUnitLabel, type PriceUnitCode } from '@shared/constants/priceUnit';
+import { CardLayout, cardImage as cardLayoutImage } from '@shared/ui/cardLayout';
+import Chip from '@shared/ui/chip/Chip';
 import * as s from './PlaceCard.css';
 
 export interface PlaceCardProps {

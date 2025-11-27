@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { fontToken } from '@/shared/styles/tokens';
+import { fontToken } from '@shared/styles/tokens';
 
 export const container = style({
   marginBottom: '28px',

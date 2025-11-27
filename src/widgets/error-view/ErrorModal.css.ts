@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '@/shared/styles/token.css';
-import { typography } from '@/shared/styles/typography.css';
+import { vars } from '@shared/styles/token.css';
+import { typography } from '@shared/styles/typography.css';
 
 export const wrapper = style({
   display: 'flex',

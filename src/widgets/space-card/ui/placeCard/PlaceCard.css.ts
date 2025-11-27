@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
-import { colorToken, spaceToken } from '@/shared/styles/tokens';
-import { typography } from '@/shared/styles/typography.css';
+import { colorToken, spaceToken } from '@shared/styles/tokens';
+import { typography } from '@shared/styles/typography.css';
 
 export const imageWrapper = style({
   position: 'relative',

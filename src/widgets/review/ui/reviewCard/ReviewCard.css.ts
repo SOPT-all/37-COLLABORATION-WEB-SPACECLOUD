@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
-import { colorToken, spaceToken } from '@/shared/styles/tokens';
-import { typography } from '@/shared/styles/typography.css';
+import { colorToken, spaceToken } from '@shared/styles/tokens';
+import { typography } from '@shared/styles/typography.css';
 
 export const textArea = style({
   padding: `${spaceToken.s24} ${spaceToken.s20}`,

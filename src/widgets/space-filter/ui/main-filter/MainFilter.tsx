@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import Button from '@/shared/ui/Button';
+import Button from '@shared/ui/Button';
 import * as s from './MainFilter.css';
-import { useModal } from '@/shared/libs/useModal';
-import { CloseIcon } from '@/shared/assets/icons';
-import { FILTER_INFO } from '@/widgets/space-filter/config/filterConfig';
-import { formatDisplayText } from '@/widgets/space-filter/lib/filterFormatters';
-import type { ChildrenProps } from '@/shared/types/common';
-import type { FilterKey, FilterState, FilterValue } from '@/widgets/space-filter/types/types';
+import { useModal } from '@shared/libs/useModal';
+import { CloseIcon } from '@shared/assets/icons';
+import { FILTER_INFO } from '@widgets/space-filter/config/filterConfig';
+import { formatDisplayText } from '@widgets/space-filter/lib/filterFormatters';
+import type { ChildrenProps } from '@shared/types/common';
+import type { FilterKey, FilterState, FilterValue } from '@widgets/space-filter/types/types';
 
 interface MainFilterProps extends ChildrenProps {
   filter: FilterState;

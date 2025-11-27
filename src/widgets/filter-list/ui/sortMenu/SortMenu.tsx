@@ -1,6 +1,6 @@
 import * as s from './SortMenu.css';
 import { useState, useRef, useCallback, useEffect } from 'react';
-import { ArrowDownIcon, ArrowUpIcon } from '@/shared/assets/icons';
+import { ArrowDownIcon, ArrowUpIcon } from '@shared/assets/icons';
 
 const OPTIONS = [
   { key: 'best', label: '베스트 공간 순' },

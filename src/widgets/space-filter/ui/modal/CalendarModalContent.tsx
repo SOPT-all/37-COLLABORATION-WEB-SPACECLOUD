@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import dayjs from 'dayjs';
 import Calendar from 'react-calendar';
-import Button from '@/shared/ui/Button';
+import Button from '@shared/ui/Button';
 import * as s from './CalendarModalContent.css';
-import type { ModalProps } from '@/shared/types/common';
+import type { ModalProps } from '@shared/types/common';
 
 const CalendarModalContent = ({ onClose, onChange }: ModalProps) => {
   const [date, setDate] = useState<Date | null>(null);

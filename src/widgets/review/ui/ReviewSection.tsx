@@ -1,6 +1,6 @@
 import { type ComponentProps, useState } from 'react';
-import { useIntersectionObserver } from '@/shared/hooks/useIntersectionObserver';
-import Deferred from '@/shared/ui/deferred/Deferred';
+import { useIntersectionObserver } from '@shared/hooks/useIntersectionObserver';
+import Deferred from '@shared/ui/deferred/Deferred';
 import ReviewCard from './reviewCard/ReviewCard';
 import ReviewMoreButton from './reviewMoreButton/ReviewMoreButton';
 import { useReviewListQuery } from '../api/useReviewListQuery';

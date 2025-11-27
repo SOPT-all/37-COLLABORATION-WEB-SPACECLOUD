@@ -1,4 +1,4 @@
-import { ChatbotIcon } from '@/shared/assets/icons';
+import { ChatbotIcon } from '@shared/assets/icons';
 import * as s from './ChatFloat.css';
 
 const ChatFloat = () => {

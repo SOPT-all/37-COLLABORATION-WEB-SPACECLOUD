@@ -1,6 +1,6 @@
-import Button from '@/shared/ui/Button';
+import Button from '@shared/ui/Button';
 import * as s from './ErrorModal.css';
-import { Modal } from '@/shared/ui/modal/Modal';
+import { Modal } from '@shared/ui/modal/Modal';
 
 type ModalProps = {
   isOpen: boolean;

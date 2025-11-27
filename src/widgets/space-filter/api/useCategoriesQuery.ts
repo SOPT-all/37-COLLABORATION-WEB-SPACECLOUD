@@ -1,4 +1,4 @@
-import { queryKeys } from '@/shared/apis/queryKeys';
+import { queryKeys } from '@shared/apis/queryKeys';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { fetchCategories } from './fetchCategories';
 import type { CategoriesApiResponse, CategoriesResponse } from '../model/categories.type';

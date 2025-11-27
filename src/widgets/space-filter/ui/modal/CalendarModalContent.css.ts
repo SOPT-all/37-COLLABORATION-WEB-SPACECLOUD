@@ -1,5 +1,5 @@
 import { style, globalStyle } from '@vanilla-extract/css';
-import { vars } from '@/shared/styles/token.css';
+import { vars } from '@shared/styles/token.css';
 import 'react-calendar/dist/Calendar.css';
 
 export const wrapper = style({

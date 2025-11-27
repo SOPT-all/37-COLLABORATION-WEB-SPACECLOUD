@@ -1,7 +1,7 @@
 import { useSuspenseInfiniteQuery } from '@tanstack/react-query';
 import { fetchReviewList } from './fetchReviewList';
-import { queryKeys } from '@/shared/apis/queryKeys';
-import type { ReviewListQueryParams, ReviewListResponse } from '@/shared/types/review';
+import { queryKeys } from '@shared/apis/queryKeys';
+import type { ReviewListQueryParams, ReviewListResponse } from '@shared/types/review';
 
 const INITIAL_PAGE = 1;
 

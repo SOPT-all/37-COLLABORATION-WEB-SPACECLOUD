@@ -1,8 +1,8 @@
-import { ArrowRightIcon } from '@/shared/assets/icons';
+import { ArrowRightIcon } from '@shared/assets/icons';
 import type { ButtonHTMLAttributes } from 'react';
 import * as s from './RightArrowButton.css';
 import clsx from 'clsx';
-import { vars } from '@/shared/styles/token.css';
+import { vars } from '@shared/styles/token.css';
 
 interface RightArrowButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isActive?: boolean;

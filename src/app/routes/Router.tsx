@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router';
 import RootLayout from '@app/layouts/RootLayout.tsx';
-import LoadingView from '@/widgets/error-view/LoadingView';
+import LoadingView from '@widgets/error-view/LoadingView';
 
 /**
  * App 전체 라우팅 설정

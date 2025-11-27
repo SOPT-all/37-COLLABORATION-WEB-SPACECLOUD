@@ -1,4 +1,4 @@
-import { ArrowLeftIcon } from '@/shared/assets/icons';
+import { ArrowLeftIcon } from '@shared/assets/icons';
 import type { ButtonHTMLAttributes } from 'react';
 import * as s from './LeftArrowButton.css';
 import clsx from 'clsx';

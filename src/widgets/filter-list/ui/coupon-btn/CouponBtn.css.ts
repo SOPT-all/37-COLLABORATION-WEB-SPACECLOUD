@@ -1,6 +1,6 @@
 import { recipe } from '@vanilla-extract/recipes';
-import { vars } from '@/shared/styles/token.css';
-import { typography } from '@/shared/styles/typography.css';
+import { vars } from '@shared/styles/token.css';
+import { typography } from '@shared/styles/typography.css';
 
 export const btn = recipe({
   base: {

@@ -1,4 +1,4 @@
-import { CardLayout } from '@/shared/ui/cardLayout';
+import { CardLayout } from '@shared/ui/cardLayout';
 import * as s from './PlaceCardSkeleton.css';
 
 const PlaceCardSkeleton = () => {

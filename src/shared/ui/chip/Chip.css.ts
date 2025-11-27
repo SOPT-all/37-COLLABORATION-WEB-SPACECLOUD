@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
-import { colorToken, radiusToken, spaceToken } from '@/shared/styles/tokens';
-import { typography } from '@/shared/styles/typography.css';
+import { colorToken, radiusToken, spaceToken } from '@shared/styles/tokens';
+import { typography } from '@shared/styles/typography.css';
 
 export const chip = style([
   typography.body_r_12,
