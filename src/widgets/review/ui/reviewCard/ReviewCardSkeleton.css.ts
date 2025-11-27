@@ -1,5 +1,5 @@
 import { keyframes, style } from '@vanilla-extract/css';
-import { colorToken, radiusToken, spaceToken } from '@/shared/styles/tokens';
+import { colorToken, radiusToken, spaceToken } from '@shared/styles/tokens';
 
 const shimmer = keyframes({
   '0%': { backgroundPosition: '-100% 0' },

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { FilterKey, FilterState, FilterValue } from '@/widgets/space-filter/types/types';
+import type { FilterKey, FilterState, FilterValue } from '@widgets/space-filter/types/types';
 
 const initialFilterState: FilterState = {
   filter: null,

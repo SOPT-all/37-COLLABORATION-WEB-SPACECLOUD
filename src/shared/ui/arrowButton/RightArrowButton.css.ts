@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { colorToken, radiusToken } from '@/shared/styles/tokens';
+import { colorToken, radiusToken } from '@shared/styles/tokens';
 
 export const buttonContainer = style({
   width: '33.8px',

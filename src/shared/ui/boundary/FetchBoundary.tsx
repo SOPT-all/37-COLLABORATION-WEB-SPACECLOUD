@@ -1,7 +1,7 @@
 import { type ReactNode, Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { FetchErrorFallback } from './FetchErrorFallback';
-import LoadingView from '@/widgets/error-view/LoadingView';
+import LoadingView from '@widgets/error-view/LoadingView';
 
 type FetchBoundaryProps = {
   children: ReactNode;

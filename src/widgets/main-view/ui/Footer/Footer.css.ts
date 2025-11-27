@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
-import { colorToken, spaceToken } from '@/shared/styles/tokens';
-import { typography } from '@/shared/styles/typography.css';
-import { vars } from '@/shared/styles/token.css';
+import { colorToken, spaceToken } from '@shared/styles/tokens';
+import { typography } from '@shared/styles/typography.css';
+import { vars } from '@shared/styles/token.css';
 
 export const container = style({
   backgroundColor: colorToken.grayscale.gray300,

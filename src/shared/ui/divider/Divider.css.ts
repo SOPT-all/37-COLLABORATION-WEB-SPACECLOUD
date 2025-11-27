@@ -1,5 +1,5 @@
 import { recipe } from '@vanilla-extract/recipes';
-import { colorToken } from '@/shared/styles/tokens';
+import { colorToken } from '@shared/styles/tokens';
 
 export const divider = recipe({
   base: { width: '100%' },

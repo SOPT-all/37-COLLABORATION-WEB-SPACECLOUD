@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import Button from '@/shared/ui/Button';
-import { MinusIcon, PlusIcon } from '@/shared/assets/icons';
+import Button from '@shared/ui/Button';
+import { MinusIcon, PlusIcon } from '@shared/assets/icons';
 import * as s from './CapacityModalContent.css.ts';
-import type { ModalContentProps } from '@/shared/types/common.ts';
+import type { ModalContentProps } from '@shared/types/common.ts';
 
 const CapacityModalContent = ({ onClose, onChange, value }: ModalContentProps) => {
   const [count, setCount] = useState(value === null ? 1 : Number(value));

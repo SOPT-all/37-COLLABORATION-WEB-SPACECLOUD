@@ -1,4 +1,4 @@
-import type { FilterValue, SpaceFilterValue } from '@/widgets/space-filter/types/types';
+import type { FilterValue, SpaceFilterValue } from '@widgets/space-filter/types/types';
 import * as React from 'react';
 
 export type ChildrenProps = { children: React.ReactNode };

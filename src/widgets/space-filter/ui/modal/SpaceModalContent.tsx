@@ -1,11 +1,11 @@
-import Button from '@/shared/ui/Button';
-import { SPACE_ICON_MAP } from '@/shared/configs/space';
+import Button from '@shared/ui/Button';
+import { SPACE_ICON_MAP } from '@shared/configs/space';
 import { GROUP_LABEL } from '../../config/categories.enum';
 import { useCategoriesQuery } from '../../api/useCategoriesQuery';
-import { FetchBoundary } from '@/shared/ui/boundary/FetchBoundary';
-import { typedEntries } from '@/shared/libs/object';
+import { FetchBoundary } from '@shared/ui/boundary/FetchBoundary';
+import { typedEntries } from '@shared/libs/object';
 import * as s from './SpaceModalContent.css';
-import type { ModalProps } from '@/shared/types/common';
+import type { ModalProps } from '@shared/types/common';
 
 const SpaceModalContent = ({ onClose, onChange }: ModalProps) => {
   const { data: categories } = useCategoriesQuery();

@@ -1,7 +1,7 @@
-import type { FilterState, FilterValue } from '@/widgets/space-filter/types/types';
-import { AREA_FILTERS, type AreaKey } from '@/shared/configs/region';
+import type { FilterState, FilterValue } from '@widgets/space-filter/types/types';
+import { AREA_FILTERS, type AreaKey } from '@shared/configs/region';
 import { typedEntries } from './object';
-import type { CategoriesResponse } from '@/widgets/space-filter/model/categories.type';
+import type { CategoriesResponse } from '@widgets/space-filter/model/categories.type';
 
 export const getValue = (value: FilterValue): string | null => {
   if (!value) return null;

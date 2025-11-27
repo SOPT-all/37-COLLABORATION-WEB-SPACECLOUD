@@ -1,5 +1,5 @@
-import { kyInstance } from '@/shared/apis/kyInstance.ts';
-import type { ReviewListQueryParams, ReviewListResponse } from '@/shared/types/review';
+import { kyInstance } from '@shared/apis/kyInstance.ts';
+import type { ReviewListQueryParams, ReviewListResponse } from '@shared/types/review';
 
 const REVIEW_ENDPOINT = 'api/v1/reviews';
 
