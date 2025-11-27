@@ -1,17 +1,16 @@
-import { type CSSProperties, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import type { ChildrenProps, ModalProps } from '@shared/types/common.ts';
 import * as s from './Modal.css.ts';
 import type { PartialVariants } from '@shared/types/variants.ts';
 import { useCalcPosition } from '@/shared/libs/useCalcPosition.ts';
 
-type Border = PartialVariants<typeof s.content> & {
-  border: 'none' | 'gray300';
-};
+type Border = PartialVariants<typeof s.content>;
 
-interface Props extends ChildrenProps, ModalProps, Border {
-  location?: CSSProperties;
-  triggerElement?: HTMLElement;
-}
+type Props = ChildrenProps &
+  ModalProps &
+  Border & {
+    triggerElement?: HTMLElement;
+  };
 
 export const Modal = ({
   isOpen,
@@ -80,7 +79,7 @@ export const Modal = ({
     <>
       {isOpen && <div className={s.dim} />}
       <dialog ref={ref} onClose={onClose} style={computedLocation} className={s.dialog}>
-        <section className={s.content({ border: `${border}`, borderRadius })}>{children}</section>
+        <section className={s.content({ border, borderRadius })}>{children}</section>
       </dialog>
     </>
   );

@@ -1,6 +1,5 @@
 import { style } from '@vanilla-extract/css';
 import { vars } from '@shared/styles/token.css.ts';
-import { zIndexToken } from '@shared/styles/tokens';
 
 export const sectionWrapper = style({
   position: 'relative',
@@ -13,7 +12,7 @@ export const leftArrow = style({
   top: '50%',
   left: 0,
   transform: 'translate(-50%, -50%)',
-  zIndex: zIndexToken.z1000,
+  zIndex: 1,
 });
 
 export const rightArrow = style({
@@ -21,5 +20,5 @@ export const rightArrow = style({
   top: '50%',
   right: 0,
   transform: 'translate(50%, -50%)',
-  zIndex: zIndexToken.z1000,
+  zIndex: 1,
 });
