@@ -1,4 +1,4 @@
-import { style, styleVariants } from '@vanilla-extract/css';
+import { keyframes, style, styleVariants } from '@vanilla-extract/css';
 import { vars } from '@shared/styles/token.css.ts';
 import { recipe } from '@vanilla-extract/recipes';
 import { typography } from '@shared/styles/typography.css.ts';
@@ -93,3 +93,52 @@ export const item = styleVariants({
     whiteSpace: 'nowrap',
   },
 });
+
+const shimmer = keyframes({
+  '0%': { backgroundPosition: '-200px 0' },
+  '100%': { backgroundPosition: '200px 0' },
+});
+
+const skeletonBase = style({
+  backgroundImage: `linear-gradient(
+    90deg,
+    ${vars.color.grayscale.gray100} 25%,
+    ${vars.color.grayscale.gray200} 37%,
+    ${vars.color.grayscale.gray100} 63%
+  )`,
+  backgroundSize: '400% 100%',
+  animation: `${shimmer} 1.4s ease-in-out infinite`,
+});
+
+export const segmentedToggleSkeleton = style({
+  display: 'inline-flex',
+  width: 'fit-content',
+  borderRadius: vars.radius.r50,
+  overflow: 'hidden',
+  boxShadow: '0 1px 8px 0 rgba(0, 0, 0, 0.10)',
+});
+
+export const tabSkeleton = style([
+  skeletonBase,
+  {
+    width: '6.5rem',
+    height: '2.2rem',
+    borderRadius: vars.radius.r50,
+    selectors: {
+      '&:not(:first-child)': {
+        marginLeft: -10,
+      },
+    },
+  },
+]);
+
+export const skeletonCircle = style([item.icon, skeletonBase]);
+
+export const skeletonLabel = style([
+  skeletonBase,
+  {
+    width: '4.2rem',
+    height: '0.9rem',
+    borderRadius: vars.radius.r8,
+  },
+]);
