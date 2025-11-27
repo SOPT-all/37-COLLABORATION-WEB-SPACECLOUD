@@ -1,6 +1,7 @@
 import { style } from '@vanilla-extract/css';
-import { colorToken, radiusToken, fontToken } from '@/shared/styles/tokens';
+import { radiusToken, fontToken, zIndexToken } from '@/shared/styles/tokens';
 import { typography } from '@/shared/styles/typography.css';
+import { vars } from '@/shared/styles/token.css';
 
 export const wrapper = style({
   position: 'relative',
@@ -25,7 +26,7 @@ export const counter = style({
   position: 'absolute',
   bottom: '36px',
   right: '122px',
-  backgroundColor: colorToken.grayscale.gray70050,
+  backgroundColor: vars.color.grayscale.gray70050,
   width: '45px',
   height: '16px',
   borderRadius: radiusToken.r50,
@@ -38,7 +39,7 @@ export const counter = style({
 export const counterFont = style([
   typography.body_r_12_2,
   {
-    color: colorToken.grayscale.white,
+    color: vars.color.grayscale.white,
     textAlign: 'center',
   },
 ]);
@@ -56,5 +57,5 @@ export const rightArrow = style({
   top: '50%',
   right: 0,
   transform: 'translate(50%, -50%)',
-  zIndex: 1,
+  zIndex: zIndexToken.z100,
 });
