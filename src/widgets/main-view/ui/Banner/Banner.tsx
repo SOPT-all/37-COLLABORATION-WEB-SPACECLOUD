@@ -8,7 +8,7 @@ const Banner = () => {
     <div className={s.wrapper}>
       <LeftArrowButton className={s.leftArrow} />
       <div className={s.container}>
-        <img src={BannerImg} alt='쿠폰 배너' className={s.bannerImage} />
+        <img src={BannerImg} alt='쿠폰 배너' className={s.bannerImage} fetchPriority='high' />
         <div className={s.counter}>
           <p className={s.counterFont}>2 / 3</p>
         </div>
