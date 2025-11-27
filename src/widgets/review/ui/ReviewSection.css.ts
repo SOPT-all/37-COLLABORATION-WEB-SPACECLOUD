@@ -1,5 +1,16 @@
-import { style } from '@vanilla-extract/css';
-import { spaceToken } from '@/shared/styles/tokens';
+import { keyframes, style } from '@vanilla-extract/css';
+import { colorToken, radiusToken, spaceToken } from '@/shared/styles/tokens';
+
+const shimmer = keyframes({
+  '0%': { backgroundPosition: '-100% 0' },
+  '100%': { backgroundPosition: '200% 0' },
+});
+
+const skeletonBase = style({
+  backgroundImage: `linear-gradient(90deg, ${colorToken.grayscale.gray100} 25%, ${colorToken.grayscale.gray200} 37%, ${colorToken.grayscale.gray100} 63%)`,
+  backgroundSize: '200% 100%',
+  animation: `${shimmer} 1.4s ease-in-out infinite`,
+});
 
 export const section = style({
   display: 'flex',
@@ -21,6 +32,15 @@ export const moreButtonWrapper = style({
   justifyContent: 'center',
   width: '100%',
 });
+
+export const moreButtonSkeleton = style([
+  skeletonBase,
+  {
+    width: '32.4rem',
+    height: '4rem',
+    borderRadius: radiusToken.r12,
+  },
+]);
 
 export const sentinel = style({
   width: '100%',
