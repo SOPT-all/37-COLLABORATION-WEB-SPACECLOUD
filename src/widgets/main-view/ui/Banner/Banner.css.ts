@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { radiusToken, fontToken, zIndexToken } from '@shared/styles/tokens';
+import { radiusToken, zIndexToken } from '@shared/styles/tokens';
 import { typography } from '@shared/styles/typography.css';
 import { vars } from '@shared/styles/token.css';
 
