@@ -1,6 +1,6 @@
-import imgPlusZone1 from '@shared/assets/images/img-plus-zone-1.png';
-import imgPlusZone2 from '@shared/assets/images/img-plus-zone-2.png';
-import imgPlusZone3 from '@shared/assets/images/img-plus-zone-3.png';
+import imgPlusZone1 from '@shared/assets/images/img-plus-zone-1.webp';
+import imgPlusZone2 from '@shared/assets/images/img-plus-zone-2.webp';
+import imgPlusZone3 from '@shared/assets/images/img-plus-zone-3.webp';
 import type { PlaceCardProps } from '@widgets/space-card/ui/placeCard/PlaceCard';
 
 export type PlusZoneItem = PlaceCardProps;

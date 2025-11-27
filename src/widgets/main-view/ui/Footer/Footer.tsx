@@ -1,6 +1,6 @@
 import * as s from './Footer.css';
 import { DividerIcon, ArrowRightIcon } from '@shared/assets/icons';
-import Logo2 from '@shared/assets/images/img-logo2.png';
+import Logo2 from '@shared/assets/images/img-logo2.webp';
 import { vars } from '@shared/styles/token.css';
 
 const FOOTER_TOP_MENU = [
