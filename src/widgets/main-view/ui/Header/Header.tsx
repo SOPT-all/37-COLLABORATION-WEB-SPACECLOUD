@@ -7,19 +7,21 @@ const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <header className={s.container}>
-      <div className={s.leftContainer}>
-        <MenuIcon />
-      </div>
-      <button type='button' onClick={() => navigate('/')}>
-        <img src={Logo} alt='로고' className={s.logo} />
-      </button>
-      <div className={s.rightContainer}>
-        <div className={s.searchContainer}>
-          <input placeholder='어떤 공간을 찾으세요?' className={s.searchInput} />
-          <SearchIcon className={s.searchIcon} />
+    <header className={s.headerWrapper}>
+      <div className={s.container}>
+        <div className={s.leftContainer}>
+          <MenuIcon />
         </div>
-        <ChatIcon />
+        <button type='button' onClick={() => navigate('/')}>
+          <img src={Logo} alt='로고' className={s.logo} />
+        </button>
+        <div className={s.rightContainer}>
+          <div className={s.searchContainer}>
+            <input placeholder='어떤 공간을 찾으세요?' className={s.searchInput} />
+            <SearchIcon className={s.searchIcon} />
+          </div>
+          <ChatIcon />
+        </div>
       </div>
     </header>
   );

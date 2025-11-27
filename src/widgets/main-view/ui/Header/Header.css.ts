@@ -2,6 +2,14 @@ import { style } from '@vanilla-extract/css';
 import { colorToken, radiusToken, spaceToken } from '@/shared/styles/tokens';
 import { typography } from '@/shared/styles/typography.css';
 
+export const headerWrapper = style({
+  position: 'fixed',
+  top: 0,
+  width: '100%',
+  backgroundColor: colorToken.grayscale.white,
+  zIndex: 1000,
+});
+
 export const container = style({
   display: 'flex',
   alignItems: 'center',
