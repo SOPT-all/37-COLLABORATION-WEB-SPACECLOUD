@@ -15,7 +15,7 @@ export const content = recipe({
     backgroundColor: colorToken.grayscale.white,
     width: 'fit-content',
     height: 'fit-content',
-    maxWidth: '69dvw',
+    maxWidth: '90dvw',
     maxHeight: '65dvh',
     overflow: 'auto',
     borderRadius: radiusToken.r4,
