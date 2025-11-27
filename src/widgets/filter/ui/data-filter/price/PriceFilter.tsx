@@ -4,8 +4,8 @@ import Slider from '@shared/ui/slider/Slider.tsx';
 import type { SliderValues } from '@shared/types/slider.ts';
 import type { ChildrenProps } from '@shared/types/common.ts';
 import { Column, Row } from '@shared/ui/layout';
-import * as React from 'react';
 import { MAX_PRICE, PRICE_STEP } from '@widgets/filter/config/price.config.ts';
+import type { ChangeEvent } from 'react';
 
 type PriceFilterProps = ChildrenProps;
 
@@ -69,7 +69,7 @@ const PriceFilterButtons = ({
     handleChange([Number(value), currentMaxValue]);
   };
 
-  const handleMaxInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleMaxInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = parseNumber(e.target.value);
     handleChange([currentMinValue, Number(value)]);
   };
