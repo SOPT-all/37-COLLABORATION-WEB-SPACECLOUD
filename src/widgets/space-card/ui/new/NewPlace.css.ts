@@ -1,6 +1,5 @@
 import { style } from '@vanilla-extract/css';
 import { vars } from '@shared/styles/token.css.ts';
-import { zIndexToken } from '@shared/styles/tokens';
 
 export const sectionWrapper = style({
   position: 'relative',
