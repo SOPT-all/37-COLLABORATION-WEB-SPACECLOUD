@@ -5,12 +5,15 @@ import PlaceList from '@widgets/space-card/ui/list/PlaceList.tsx';
 import PlaceSection from '@/widgets/space-card/ui/PlaceSection';
 import Divider from '@/shared/ui/divider/Divider';
 import * as s from './SearchPage.css';
+import { FetchBoundary } from '@/shared/ui/boundary/FetchBoundary';
 
 const SearchPage = () => {
   return (
     <>
       {/* 필터 섹션입니다. */}
-      <FilterSection />
+      <FetchBoundary>
+        <FilterSection />
+      </FetchBoundary>
 
       <div className={s.dividerSpacing.top}>
         <Divider tone={'gray300'} />
@@ -40,7 +43,9 @@ const SearchPage = () => {
       </div>
 
       {/* 공간 목록 영역입니다. */}
-      <PlaceList />
+      <FetchBoundary>
+        <PlaceList />
+      </FetchBoundary>
     </>
   );
 };

@@ -77,7 +77,11 @@ const DataFilter = ({ onClose, handleSearchParams, currentParams }: DataFilterPr
           value={priceRange}
           onChange={handlePriceRangeChange}
         />
-        <PriceFilter.Buttons currentMinValue={priceRange[0]} currentMaxValue={priceRange[1]} />
+        <PriceFilter.Buttons
+          currentMinValue={priceRange[0]}
+          currentMaxValue={priceRange[1]}
+          handleChange={handlePriceRangeChange}
+        />
       </PriceFilter>
 
       {/* 편의시설 필터 섹션 */}

@@ -9,7 +9,12 @@ const CalendarModalContent = ({ onClose, onChange }: ModalProps) => {
   const [date, setDate] = useState<Date | null>(null);
 
   const handleDateChange = (newDate: Date) => {
-    setDate(newDate);
+    setDate((prev) => {
+      if (prev && dayjs(prev).isSame(newDate, 'day')) {
+        return null; // 이미 선택된 날짜면 해제
+      }
+      return newDate;
+    });
   };
   const handleClick = (value: string) => {
     onChange?.(value);

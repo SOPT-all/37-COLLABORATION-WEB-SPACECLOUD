@@ -31,4 +31,4 @@ export const SPACE_ICON_MAP: Record<string, SvgIconType> = {
   VIRTUAL_OFFICE: Icons.VirtualOffice,
   DAY_CAMPING: Icons.DayCamping,
   HOUSE: Icons.House,
-};
+} as const;

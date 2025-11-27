@@ -5,6 +5,6 @@ import type { MagazineListResponse } from '@/shared/types/magazine';
 
 export const useMagazineListQuery = () =>
   useSuspenseQuery<MagazineListResponse>({
-    queryKey: [queryKeys.MAGAZINES],
+    queryKey: queryKeys.MAGAZINES(),
     queryFn: fetchMagazineList,
   });

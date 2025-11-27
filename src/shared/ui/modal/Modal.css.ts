@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { colorToken, radiusToken, zIndexToken } from '@shared/styles/tokens';
+import { zIndexToken } from '@shared/styles/tokens';
 import { recipe } from '@vanilla-extract/recipes';
 import { vars } from '@/shared/styles/token.css';
 
@@ -12,13 +12,12 @@ export const dialog = style({
 
 export const content = recipe({
   base: {
-    backgroundColor: colorToken.grayscale.white,
+    backgroundColor: vars.color.grayscale.white,
     width: 'fit-content',
     height: 'fit-content',
-    maxWidth: '69dvw',
+    maxWidth: '90dvw',
     maxHeight: '65dvh',
     overflow: 'auto',
-    borderRadius: radiusToken.r4,
     flexShrink: 0,
     '::-webkit-scrollbar': {
       display: 'none',
@@ -30,20 +29,27 @@ export const content = recipe({
         border: 'none',
       },
       gray300: {
-        border: `1px solid ${colorToken.grayscale.gray300}`,
+        border: `1px solid ${vars.color.grayscale.gray300}`,
       },
     },
     borderRadius: {
+      r4: {
+        borderRadius: vars.radius.r4,
+      },
       r20: {
         borderRadius: vars.radius.r20,
       },
     },
+  },
+  defaultVariants: {
+    border: 'none',
+    borderRadius: 'r4',
   },
 });
 
 export const dim = style({
   position: 'fixed',
   inset: 0,
-  backgroundColor: colorToken.opacity.dim,
+  backgroundColor: vars.color.opacity.dim,
   zIndex: 999,
 });

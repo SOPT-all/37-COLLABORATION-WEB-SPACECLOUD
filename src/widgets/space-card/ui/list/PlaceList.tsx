@@ -4,6 +4,7 @@ import { parseSearchParams } from '@widgets/space-card/lib/parseSearchParams.ts'
 import { useIntersectionObserver } from '@shared/hooks/useIntersectionObserver.ts';
 import * as S from '@widgets/space-card/ui/list/PlaceList.css.ts';
 import PlaceCard from '@widgets/space-card/ui/placeCard/PlaceCard.tsx';
+import EmptyPlace from '@widgets/place-empty/ui/EmptyPlace.tsx';
 
 const PlaceList = () => {
   const [searchParams] = useSearchParams();
@@ -24,9 +25,9 @@ const PlaceList = () => {
 
   return (
     <section className={S.placeList}>
-      {placeList.map((place) => (
-        <PlaceCard key={`place-${place.id}`} {...place} />
-      ))}
+      {placeList.length === 0 && <EmptyPlace />}
+      {placeList.length > 0 &&
+        placeList.map((place) => <PlaceCard key={`place-${place.id}`} {...place} />)}
       <div ref={sentinelRef} className={S.sentinel} aria-hidden />
     </section>
   );
