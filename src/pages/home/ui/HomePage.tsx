@@ -35,7 +35,6 @@ const HomePage = () => {
 
       <Spacer space='s52' />
 
-      {/* 새로 등록 섹션 */}
       <SubTitle>새로 등록됐어요</SubTitle>
       <FetchBoundary>
         <NewPlaceSection />
