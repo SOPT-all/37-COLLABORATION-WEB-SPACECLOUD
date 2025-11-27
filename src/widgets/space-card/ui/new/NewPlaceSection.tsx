@@ -7,7 +7,7 @@ const NewPlaceSection = () => {
 
   return (
     <>
-      <PlaceSection title='새로 등록됐어요' places={newPlaces} />
+      <PlaceSection places={newPlaces} />
     </>
   );
 };
