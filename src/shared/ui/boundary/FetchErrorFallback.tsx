@@ -17,5 +17,5 @@ export const FetchErrorFallback = ({ resetErrorBoundary }: FallbackProps) => {
     navigate('/');
   };
 
-  return <ErrorModal isOpen={true} onClose={handleClose} onRetry={handleRetry} />;
+  return <ErrorModal isOpen onClose={handleClose} onRetry={handleRetry} />;
 };
