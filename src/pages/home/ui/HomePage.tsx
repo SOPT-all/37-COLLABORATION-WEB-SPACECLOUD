@@ -11,6 +11,7 @@ import NewPlaceSection from '@widgets/space-card/ui/new/NewPlaceSection.tsx';
 import * as S from '@pages/home/ui/HomePage.css';
 import Spacer from '@shared/ui/spacer/Spacer.tsx';
 import ChatFloat from '@/widgets/main-view/ui/chat-float/ChatFloat';
+import ReviewSectionSkeleton from '@widgets/review/ui/ReviewSectionSkeleton.tsx';
 
 const HomePage = () => {
   return (
@@ -54,7 +55,7 @@ const HomePage = () => {
 
       {/* 후기 섹션 */}
       <SubTitle>방금 올라온 이용후기에요</SubTitle>
-      <FetchBoundary>
+      <FetchBoundary loadingFallback={<ReviewSectionSkeleton />}>
         <ReviewSection />
       </FetchBoundary>
       <ChatFloat />
