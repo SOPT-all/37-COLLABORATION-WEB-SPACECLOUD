@@ -17,7 +17,7 @@ const Slider = ({ minLimit, maxLimit, step, value, onChange }: SliderProps) => {
 
   // 활성화 범위를 표시하기 위한 좌우 퍼센트 값 계산
   const minPercent = getPercent(minValue);
-  const maxPercent = getPercent(maxValue);
+  const maxPercent = getPercent(maxValue > maxLimit ? maxLimit : maxValue);
 
   return (
     <div className={S.slider}>
