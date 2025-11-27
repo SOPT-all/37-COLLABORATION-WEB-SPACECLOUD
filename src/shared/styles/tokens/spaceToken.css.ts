@@ -29,6 +29,7 @@ export const spaceToken = {
   s48: '48px',
   s52: '52px',
   s56: '56px',
+  s80: '80px',
   s136: '136px',
   s36: '36px',
 };
