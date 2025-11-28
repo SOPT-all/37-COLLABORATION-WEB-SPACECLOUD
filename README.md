@@ -36,28 +36,28 @@ ESLint, Prettier, Husky를 통한 구성원들 간의 일관된 코드를 지향
   <tr align="center">
     <td style="min-width: 150px;">
       <a href="https://github.com/Tnalxmsk">
-        <img src="https://avatars.githubusercontent.com/u/113881311?v=4" width="200" alt="장민수-프로필사진">
+        <img src="https://avatars.githubusercontent.com/u/113881311?v=4" width="200" height="200" alt="장민수-프로필사진">
         <br />
         <b>@Tnalxmsk</b>
       </a>
     </td>
     <td style="min-width: 150px;">
       <a href="https://github.com/jisooooooooooo">
-        <img src="https://avatars.githubusercontent.com/u/101373627?v=4" width="200" alt="임지수-프로필사진">
+        <img src="https://avatars.githubusercontent.com/u/101373627?v=4" width="200" height="200" alt="임지수-프로필사진">
         <br />
         <b>@jisooooooooooo</b>
       </a>
     </td>
     <td style="min-width: 150px;">
       <a href="https://github.com/sonnnnhe">
-        <img src="https://avatars.githubusercontent.com/u/147504410?v=4" width="200" alt="손하은-프로필사진">
+        <img src="https://avatars.githubusercontent.com/u/147504410?v=4" width="200" height="200" alt="손하은-프로필사진">
         <br />
         <b>@sonnnnhe</b>
       </a>
     </td>
     <td style="min-width: 150px;">
       <a href="https://github.com/seunghye-rain">
-        <img src="https://avatars.githubusercontent.com/u/155219213?v=4" width="200" alt="양승혜-프로필사진">
+        <img src="https://avatars.githubusercontent.com/u/155219213?v=4" width="200" height="200" alt="양승혜-프로필사진">
         <br />
         <b>@seunghye-rain</b>
       </a>
@@ -83,7 +83,7 @@ ESLint, Prettier, Husky를 통한 구성원들 간의 일관된 코드를 지향
         공간정보 검색 API 연결<br/>
       </td>
       <td>
-        아이템 카드, 매거진, 후기 컴포넌트 <br/>
+        아이템 카드, 매거진,<br/> 후기 컴포넌트 <br/>
         리뷰 조회 API 연결 <br/>
       </td>
       <td>
@@ -91,7 +91,7 @@ ESLint, Prettier, Husky를 통한 구성원들 간의 일관된 코드를 지향
         카테고리 조회 API 연결 <br/>
       </td>
       <td>
-        헤더, 푸터, 배너, 채팅 아이콘, 정렬 메뉴, 디바이더 <br/>
+        헤더, 푸터, 배너, 채팅 아이콘,<br/> 정렬 메뉴, 디바이더 <br/>
         매거진 조회 API 연결 <br/>
       </td>
     </tr>
