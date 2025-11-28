@@ -28,6 +28,7 @@ const SpaceCategory = () => {
             key={tab}
             className={S.tab({ active: activeTab === tab })}
             type='button'
+            role='tab'
             aria-controls={`${tab}-panel`}
             aria-selected={activeTab === tab}
             id={`${tab}-tab`}
